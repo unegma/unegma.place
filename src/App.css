@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+.navBar {
+  text-align: left;
+}
