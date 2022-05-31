@@ -55,3 +55,7 @@ canvas {
 html, body {
   background: black;
 }
+
+.white {
+  color: white;
+}

@@ -19,7 +19,7 @@ function App() {
         <ambientLight/>
         <pointLight intensity={3} position={[0, 0, 0]}/>
 
-        <Suspense fallback={<Html>loading..</Html>}>
+        <Suspense fallback={<Html className="white">loading..</Html>}>
           <Space />
         </Suspense>
       </VRCanvas>
