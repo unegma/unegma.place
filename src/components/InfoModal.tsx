@@ -37,7 +37,9 @@ export default function InfoModal ({ showInfoModal, setShowInfoModal }: any) {
         <HighlightOffIcon className="closeModalButton" onClick={() => { setShowInfoModal(false)}}/>
         <Typography variant="h3" className="secondaryColor">Info</Typography>
 
-        <Typography className="secondaryColor">Address and Contact Details</Typography>
+        <Typography className="secondaryColor">Address and Contact Details:</Typography>
+        <Typography className="secondaryColor">{process.env.REACT_APP_CONTACT}</Typography>
+        <Typography className="secondaryColor">{process.env.REACT_APP_ADDRESS}</Typography>
 
         <hr/>
         <Typography className="secondaryColor">
