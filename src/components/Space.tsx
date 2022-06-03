@@ -7,7 +7,7 @@ const DECODER_PATH="https://www.gstatic.com/draco/versioned/decoders/1.4.1/";
 
 // todo better to use glb
 // const spaceURL = 'https://assets.unegma.net/relicsof.earth/cafe.glb'; // todo may need draco loader https://assets.unegma.net/ark.unegma.work/cafe.gltf
-const spaceURL = 'https://assets.unegma.net/relicsof.earth/cafe.gltf'; // todo may need draco loader https://assets.unegma.net/ark.unegma.work/cafe.gltf
+const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/cafe.gltf`; // todo may need draco loader https://assets.unegma.net/ark.unegma.work/cafe.gltf
 
 /**
  * From this example:
