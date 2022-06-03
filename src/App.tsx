@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Space from "./components/Space";
 import {DefaultXRControllers, useXR, VRCanvas} from '@react-three/xr';
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import {CameraAltOutlined, InfoOutlined} from "@mui/icons-material";
+import {CameraAltOutlined, ChevronLeft, ChevronRight, InfoOutlined} from "@mui/icons-material";
 import PhotoViewer from "./components/PhotoViewer";
 import InfoModal from "./components/InfoModal";
 
@@ -36,7 +36,16 @@ function App() {
 
       <div className="buttons-container">
         <InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowInfoModal(!showInfoModal)}}/>
-        <CameraAltOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowImages(!showImages)}}/>
+
+        <div className="pointer" onClick={() => {setShowImages(!showImages)}}>
+          <CameraAltOutlined  style={{ color: "white", margin: "0 4px" }} />
+          { showImages && (
+            <ChevronRight style={{ color: "white", margin: "0 4px" }} />
+          )}
+          { !showImages && (
+            <ChevronLeft style={{ color: "white", margin: "0 4px" }} />
+          )}
+          </div>
       </div>
     </div>
   );
