@@ -6,14 +6,17 @@ import {DefaultXRControllers, useXR, VRCanvas} from '@react-three/xr';
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import {CameraAltOutlined, InfoOutlined} from "@mui/icons-material";
 import PhotoViewer from "./components/PhotoViewer";
+import InfoModal from "./components/InfoModal";
 
 function App() {
   const { player } = useXR();
   const [showImages, setShowImages] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
     <div className="App">
       <NavBar />
+      <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <PhotoViewer showImages={showImages} />
 
       <VRCanvas>
@@ -32,8 +35,8 @@ function App() {
       </VRCanvas>
 
       <div className="buttons-container">
+        <InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowInfoModal(!showInfoModal)}}/>
         <CameraAltOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowImages(!showImages)}}/>
-        {/*<InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }}/>*/}
       </div>
     </div>
   );
