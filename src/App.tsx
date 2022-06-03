@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Space from "./components/Space";
 import {DefaultXRControllers, useXR, VRCanvas} from '@react-three/xr';
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
+import {InfoOutlined, SettingsOutlined} from "@mui/icons-material";
 
 function App() {
   const { player } = useXR();
@@ -15,7 +16,9 @@ function App() {
       <VRCanvas>
         <DefaultXRControllers />
 
-        <OrbitControls />
+        {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
+        <OrbitControls enableZoom={false} />
+
         <ambientLight/>
         <pointLight intensity={3} position={[0, 0, 0]}/>
         <PerspectiveCamera position={[5,5,5]} makeDefault/>
@@ -24,6 +27,10 @@ function App() {
           <Space />
         </Suspense>
       </VRCanvas>
+
+      <div className="buttons-container">
+        {/*<InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }}/>*/}
+      </div>
     </div>
   );
 }

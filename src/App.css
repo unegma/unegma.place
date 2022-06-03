@@ -59,3 +59,14 @@ html, body {
 .white {
   color: white;
 }
+
+.buttons-container {
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  display: flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
