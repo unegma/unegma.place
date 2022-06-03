@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Space from "./components/Space";
 import {DefaultXRControllers, useXR, VRCanvas} from '@react-three/xr';
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import {InfoOutlined, SettingsOutlined} from "@mui/icons-material";
+import {CameraAltOutlined, InfoOutlined} from "@mui/icons-material";
 
 function App() {
   const { player } = useXR();
@@ -29,6 +29,7 @@ function App() {
       </VRCanvas>
 
       <div className="buttons-container">
+        <CameraAltOutlined className="pointer" style={{ color: "white", margin: "0 4px" }}/>
         {/*<InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }}/>*/}
       </div>
     </div>
