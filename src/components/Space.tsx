@@ -3,7 +3,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader';
 
 // todo add draco loader to library
-const DECODER_PATH="https://www.gstatic.com/draco/versioned/decoders/1.4.1/";
+const DECODER_PATH="../node_modules/three/examples/js/libs/draco/gltf/";
 
 // todo better to use glb
 // const spaceURL = 'https://assets.unegma.net/relicsof.earth/cafe.glb'; // todo may need draco loader https://assets.unegma.net/ark.unegma.work/cafe.gltf
