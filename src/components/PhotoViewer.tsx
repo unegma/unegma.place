@@ -7,7 +7,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 export default function PhotoViewer({showImages}: {showImages: boolean}) {
 
   return (
-    <div hidden={!showImages} className="slide-out-gallery">
+    <div className={`slide-out-gallery ${showImages ? 'slide-in' : 'slide-out'}`}>
       <PhotoProvider>
         <div className="slide-out-gallery-container">
           <PhotoView src="https://assets.unegma.net/unegma.work/rain-examples.unegma.work/metagallery.jpg">
