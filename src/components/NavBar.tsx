@@ -11,7 +11,7 @@ export default function NavBar() {
       <AppBar position="fixed" color="transparent">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Spaces
+            {process.env.REACT_APP_NAV_TITLE}
           </Typography>
           {/*<Button color="inherit">Login</Button>*/}
         </Toolbar>
