@@ -10,7 +10,7 @@ import InfoModal from "./components/InfoModal";
 
 function App() {
   const { player } = useXR();
-  const [showImages, setShowImages] = useState(false);
+  const [showImages, setShowImages] = useState(true);
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
