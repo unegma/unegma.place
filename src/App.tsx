@@ -1,17 +1,20 @@
-import React, { Suspense } from 'react';
+import React, {Suspense, useState} from 'react';
 import './App.css';
 import NavBar from "./components/NavBar";
 import Space from "./components/Space";
 import {DefaultXRControllers, useXR, VRCanvas} from '@react-three/xr';
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import {CameraAltOutlined, InfoOutlined} from "@mui/icons-material";
+import PhotoViewer from "./components/PhotoViewer";
 
 function App() {
   const { player } = useXR();
+  const [showImages, setShowImages] = useState(false);
 
   return (
     <div className="App">
       <NavBar />
+      <PhotoViewer showImages={showImages} />
 
       <VRCanvas>
         <DefaultXRControllers />
@@ -29,7 +32,7 @@ function App() {
       </VRCanvas>
 
       <div className="buttons-container">
-        <CameraAltOutlined className="pointer" style={{ color: "white", margin: "0 4px" }}/>
+        <CameraAltOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowImages(!showImages)}}/>
         {/*<InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }}/>*/}
       </div>
     </div>
