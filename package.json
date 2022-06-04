@@ -1,0 +1,14 @@
+{
+  "name": "unegma.place",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx serve",
+    "DEPLOY": "aws --profile unegma s3 sync --delete ./ s3://unegma.place/ --exclude '.git/*' --exclude '.idea/*'"
+  },
+  "author": "",
+  "license": "ISC"
+}
