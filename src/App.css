@@ -73,12 +73,19 @@ canvas {
 .buttons-container {
   position: absolute;
   z-index: 999;
-  bottom: 0;
+  bottom: 20px; /* fix for mobiles */
   right: 0;
   padding: 5px;
   display: flex;
   align-content: flex-start;
   justify-content: flex-start;
+}
+
+/*ipad mini*/
+@media screen and (min-width: 768px) {
+  .buttons-container {
+    bottom: 0;
+  }
 }
 
 .pointer {
