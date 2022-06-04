@@ -26,6 +26,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "pull-original": "git pull original main --allow-unrelated-histories",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
