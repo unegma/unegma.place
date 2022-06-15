@@ -47,15 +47,15 @@ export default function LeftSideDrawer(
         <Divider />
 
         <List>
-          <ListItem key={'home'} disablePadding onClick={() => setShowImages(true)}>
-            <ListItemButton>
-              <ListItemText primary={'Photos'} />
-            </ListItemButton>
-          </ListItem>
-
           <ListItem key={'spaceone'} disablePadding onClick={() => setShowInfoModal(true)}>
             <ListItemButton>
               <ListItemText primary={'Info'} />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem key={'home'} disablePadding onClick={() => setShowImages(true)}>
+            <ListItemButton>
+              <ListItemText primary={'Photos'} />
             </ListItemButton>
           </ListItem>
         </List>
