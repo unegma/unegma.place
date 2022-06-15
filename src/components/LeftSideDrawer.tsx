@@ -8,6 +8,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import {Link} from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import {Menu} from "@mui/icons-material";
 
 export default function LeftSideDrawer(
   {drawerOpen, toggleLeftSideDrawer, setShowImages, setShowInfoModal}:
@@ -29,14 +30,11 @@ export default function LeftSideDrawer(
           {/*{['Photos', 'Info', 'VR', 'CLOSE BUTTON', 'BOOK THIS ROOM'].map((text, index) => (*/}
 
           <Link to="/" className="drawer-link">
-            <ListItem key={'home'} disablePadding>
-
-
-              <Typography className={`main-title main-title-navbar`} variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={(event:any) => {toggleLeftSideDrawer(event)}}>
+            <ListItem key={'nav'} disablePadding>
+              <Typography className={`main-title main-title-navbar`} variant="h6" component="div" sx={{ flexGrow: 1 }}
+                          onClick={(event:any) => {toggleLeftSideDrawer(event)}}>
                 {process.env.REACT_APP_NAV_TITLE}
               </Typography>
-
-
             </ListItem>
           </Link>
         </List>
@@ -79,6 +77,10 @@ export default function LeftSideDrawer(
             </ListItemButton>
           </ListItem>
         </List>
+
+        <div className={`buttons-container buttons-container--left`}>
+          <Menu className="pointer" style={{ color: "black", margin: "0 4px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>
+        </div>
 
       </Box>
     </Drawer>
