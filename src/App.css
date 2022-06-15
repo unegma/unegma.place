@@ -88,6 +88,11 @@ canvas {
   }
 }
 
+.buttons-container--left {
+  left:0;
+  right: inherit;
+}
+
 .pointer {
   cursor: pointer;
 }
