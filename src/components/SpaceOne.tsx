@@ -1,9 +1,10 @@
-import {DefaultXRControllers, VRCanvas} from "@react-three/xr";
+import {DefaultXRControllers, VRCanvas, useXR} from "@react-three/xr";
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import React, {Suspense} from "react";
 import Space from "./Space";
 
 export default function SpaceOne() {
+  const { player } = useXR();
 
   return (
 

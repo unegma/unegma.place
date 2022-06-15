@@ -1,12 +1,9 @@
-import React, {Suspense, useState} from 'react';
+import React, {useState} from 'react';
 import {
-  Route, Routes, Link
+  Route, Routes
 } from "react-router-dom";
 import './App.css';
 import NavBar from "./components/NavBar";
-import Space from "./components/Space";
-import {DefaultXRControllers, useXR, VRCanvas} from '@react-three/xr';
-import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import {CameraAltOutlined, ChevronLeft, ChevronRight, InfoOutlined, Menu} from "@mui/icons-material";
 import PhotoViewer from "./components/PhotoViewer";
 import InfoModal from "./components/InfoModal";
@@ -15,7 +12,6 @@ import HomeScreen from "./components/HomeScreen";
 import SpaceOne from "./components/SpaceOne";
 
 function App() {
-  const { player } = useXR();
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
 
@@ -41,10 +37,9 @@ function App() {
       <LeftSideDrawer
         drawerOpen={drawerOpen}
         toggleLeftSideDrawer={toggleLeftSideDrawer}
+        setShowImages={setShowImages}
+        setShowInfoModal={setShowInfoModal}
       />
-
-
-
 
       <Routes>
         <Route
@@ -56,8 +51,8 @@ function App() {
         />
 
         <Route
-          key={'spaceone'}
-          path="/spaceone"
+          key={'space'}
+          path="/space"
           element={
             <SpaceOne />
           }
@@ -72,8 +67,6 @@ function App() {
           }
         />
       </Routes>
-
-
 
       <div className={`buttons-container buttons-container--left`}>
         <Menu className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>

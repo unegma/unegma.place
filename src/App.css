@@ -179,3 +179,9 @@ canvas {
   color: white !important;
   border-color: white !important;
 }
+
+.drawer-link {
+  color: black;
+  text-decoration: none !important;
+}
+
