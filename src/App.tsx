@@ -1,4 +1,7 @@
 import React, {Suspense, useState} from 'react';
+import {
+  Route, Routes, Link
+} from "react-router-dom";
 import './App.css';
 import NavBar from "./components/NavBar";
 import Space from "./components/Space";
@@ -8,6 +11,8 @@ import {CameraAltOutlined, ChevronLeft, ChevronRight, InfoOutlined, Menu} from "
 import PhotoViewer from "./components/PhotoViewer";
 import InfoModal from "./components/InfoModal";
 import LeftSideDrawer from "./components/LeftSideDrawer";
+import HomeScreen from "./components/HomeScreen";
+import SpaceOne from "./components/SpaceOne";
 
 function App() {
   const { player } = useXR();
@@ -27,6 +32,8 @@ function App() {
 
   return (
     <div className="App">
+      {/*<CssBaseline /> todo add this? */}
+
       <NavBar />
       <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <PhotoViewer showImages={showImages} />
@@ -36,20 +43,37 @@ function App() {
         toggleLeftSideDrawer={toggleLeftSideDrawer}
       />
 
-      <VRCanvas>
-        <DefaultXRControllers />
 
-        {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
-        <OrbitControls enableZoom={false} enablePan={false} />
 
-        <ambientLight/>
-        <pointLight intensity={3} position={[0, 0, 0]}/>
-        <PerspectiveCamera position={[5,5,5]} makeDefault/>
 
-        <Suspense fallback={<Html className="white">loading 3d view..</Html>}>
-          <Space />
-        </Suspense>
-      </VRCanvas>
+      <Routes>
+        <Route
+          key={'home'}
+          path="/"
+          element={
+            <HomeScreen  toggleLeftSideDrawer={toggleLeftSideDrawer}/>
+          }
+        />
+
+        <Route
+          key={'spaceone'}
+          path="/spaceone"
+          element={
+            <SpaceOne />
+          }
+        />
+
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
+      </Routes>
+
+
 
       <div className={`buttons-container buttons-container--left`}>
         <Menu className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>
