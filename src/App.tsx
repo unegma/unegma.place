@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       {/*<CssBaseline /> todo add this? */}
 
-      <NavBar />
+      <NavBar toggleLeftSideDrawer={toggleLeftSideDrawer}/>
       <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <PhotoViewer showImages={showImages} />
 
