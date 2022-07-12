@@ -17,6 +17,7 @@ export default function LeftSideDrawer(
   return (
     <Drawer
       open={drawerOpen}
+      onClose={(event:any) => {toggleLeftSideDrawer(event)}}
     >
       <Box
         component="div"
