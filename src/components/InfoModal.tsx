@@ -30,8 +30,8 @@ export default function InfoModal ({ showInfoModal, setShowInfoModal }: any) {
       className="info-modal"
       open={showInfoModal}
       onClose={handleClose}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
+      // aria-labelledby="simple-modal-title"
+      // aria-describedby="simple-modal-description"
     >
       <Box component="div" sx={modalStyle}>
         <HighlightOffIcon className="closeModalButton" onClick={() => { setShowInfoModal(false)}}/>

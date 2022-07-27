@@ -1,7 +1,10 @@
-import {Button, createStyles, makeStyles, Modal, Theme, Typography, Box} from "@mui/material";
+import {Button, createStyles, makeStyles, Modal, Theme, Typography, Box, scopedCssBaselineClasses} from "@mui/material";
 import React from "react";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import {Link} from "react-router-dom";
+import './BookingModal.scss'
+
+
 
 export default function BookingModal ({ showBookingModal, setShowBookingModal }: any) {
 

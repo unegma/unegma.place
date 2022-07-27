@@ -10,7 +10,7 @@ import InfoModal from "./components/InfoModal";
 import LeftSideDrawer from "./components/LeftSideDrawer";
 import HomeScreen from "./components/HomeScreen";
 import SpaceOne from "./components/SpaceOne";
-import BookingModal from "./components/BookingModal";
+// import BookingModal from "./components/BookingModal";
 
 function App() {
   const [showImages, setShowImages] = useState(false);
@@ -35,7 +35,7 @@ function App() {
       <NavBar toggleLeftSideDrawer={toggleLeftSideDrawer} showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />
 
       <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
-      <BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />
+      {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
       <PhotoViewer showImages={showImages} />
 
       <LeftSideDrawer
