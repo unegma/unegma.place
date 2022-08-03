@@ -1,33 +1,26 @@
-import {useLoader} from "@react-three/fiber";
-import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader';
+import * as THREE from 'three'
+import React, { useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
+import { GLTF } from 'three-stdlib'
+const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/imperial-lecture-theatre-transformed.glb`;
 
-// const DECODER_PATH="../node_modules/three/examples/js/libs/draco/gltf/";
-const DECODER_PATH="https://www.gstatic.com/draco/versioned/decoders/1.4.1/";
+type GLTFResult = GLTF & {
+  nodes: {
+    Mesh_0: THREE.Mesh
+  }
+  materials: {
+    ['material_0.006']: THREE.MeshBasicMaterial
+  }
+}
 
-// todo better to use glb
-// const spaceURL = 'https://assets.unegma.net/relicsof.earth/cafe.glb'; // todo may need draco loader https://assets.unegma.net/ark.unegma.work/cafe.gltf
-const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/cafe.gltf`; // todo may need draco loader https://assets.unegma.net/ark.unegma.work/cafe.gltf
-
-/**
- * From this example:
- * @constructor
- */
-export default function Space() {
-  const { nodes, materials }: any = useLoader(GLTFLoader, spaceURL, loader => {
-    const useDraco = true;
-    if (useDraco) {
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderConfig({type: 'js'});
-      dracoLoader.setDecoderPath(DECODER_PATH);
-      console.log(dracoLoader)
-      // @ts-ignore
-      loader.setDRACOLoader(dracoLoader);
-    }
-  });
-  console.log(nodes,materials);
-
+export default function Space({ ...props }: JSX.IntrinsicElements['group']) {
+  const group = useRef<THREE.Group>(null)
+  const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (
-    <mesh material={materials.material_0} geometry={nodes.mesh_0.geometry} />
+    <group ref={group} {...props} dispose={null}>
+      <mesh castShadow receiveShadow geometry={nodes.Mesh_0.geometry} material={materials['material_0.006']} />
+    </group>
   )
 }
+
+useGLTF.preload(spaceURL)
