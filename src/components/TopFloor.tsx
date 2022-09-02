@@ -16,7 +16,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
+export default function TopFloor({ ...props }: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null)
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (

@@ -6,8 +6,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 export default function NavBar(
-  {toggleLeftSideDrawer, setShowBookingModal, showBookingModal}:
-    {toggleLeftSideDrawer: any, setShowBookingModal: any, showBookingModal: any}) {
+  {toggleLeftSideDrawer, setShowBookingModal, showBookingModal, showInfoModal, setShowInfoModal}:
+    {toggleLeftSideDrawer: any, setShowBookingModal: any, showBookingModal: any, showInfoModal: boolean, setShowInfoModal: Function}) {
   return (
     <Box component="div" sx={{ flexGrow: 1 }} className="navBar" >
       <AppBar position="fixed" color="transparent">
@@ -15,7 +15,7 @@ export default function NavBar(
           <Typography className="main-title" variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={(event:any) => {toggleLeftSideDrawer(event)}}>
             {process.env.REACT_APP_NAV_TITLE}
           </Typography>
-          <Button color="error" variant="contained" onClick={() => {setShowBookingModal(!showBookingModal)}}>Book</Button>
+          <Button color="error" variant="contained" onClick={() => {setShowInfoModal(!showInfoModal)}}>Book</Button>
         </Toolbar>
       </AppBar>
     </Box>

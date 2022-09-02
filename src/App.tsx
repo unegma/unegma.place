@@ -10,6 +10,8 @@ import InfoModal from "./components/InfoModal";
 import LeftSideDrawer from "./components/LeftSideDrawer";
 import HomeScreen from "./components/HomeScreen";
 import SpaceOne from "./components/SpaceOne";
+import TopFloor from "./components/TopFloor";
+import Boudoir from "./components/Boudoir";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -32,7 +34,13 @@ function App() {
     <div className="App">
       {/*<CssBaseline /> todo add this? */}
 
-      <NavBar toggleLeftSideDrawer={toggleLeftSideDrawer} showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />
+      <NavBar
+        showInfoModal={showInfoModal}
+        setShowInfoModal={setShowInfoModal}
+        toggleLeftSideDrawer={toggleLeftSideDrawer}
+        showBookingModal={showBookingModal}
+        setShowBookingModal={setShowBookingModal}
+      />
 
       <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
@@ -55,10 +63,17 @@ function App() {
         />
 
         <Route
-          key={'space'}
-          path="/space"
+          key={'top-floor'}
+          path="/top-floor"
           element={
-            <SpaceOne />
+            <SpaceOne cameraPosition={[9,9,9]} space={<TopFloor/>}/>
+          }
+        />
+        <Route
+          key={'boudoir'}
+          path="/boudoir"
+          element={
+            <SpaceOne cameraPosition={[5,5,5]} space={<Boudoir/>}/>
           }
         />
 

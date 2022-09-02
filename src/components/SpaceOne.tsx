@@ -1,9 +1,8 @@
 import {DefaultXRControllers, VRCanvas, useXR} from "@react-three/xr";
 import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import React, {Suspense} from "react";
-import Space from "./Space";
 
-export default function SpaceOne() {
+export default function SpaceOne({space, cameraPosition}: any) {
   const { player } = useXR();
 
   return (
@@ -16,10 +15,10 @@ export default function SpaceOne() {
 
       <ambientLight/>
       <pointLight intensity={3} position={[0, 0, 0]}/>
-      <PerspectiveCamera position={[9,9,9]} makeDefault/>
+      <PerspectiveCamera position={cameraPosition} makeDefault/>
 
       <Suspense fallback={<Html className="white">loading 3d view..</Html>}>
-        <Space />
+        {space}
       </Suspense>
     </VRCanvas>
   )
