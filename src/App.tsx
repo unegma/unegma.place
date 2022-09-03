@@ -12,6 +12,7 @@ import HomeScreen from "./components/HomeScreen";
 import SpaceOne from "./components/SpaceOne";
 import TopFloor from "./components/TopFloor";
 import Boudoir from "./components/Boudoir";
+import Gallery from "./components/Gallery";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -74,6 +75,13 @@ function App() {
           path="/boudoir"
           element={
             <SpaceOne cameraPosition={[5,5,5]} space={<Boudoir/>}/>
+          }
+        />
+        <Route
+          key={'gallery'}
+          path="/gallery"
+          element={
+            <SpaceOne cameraPosition={[5,5,5]} space={<Gallery/>}/>
           }
         />
 

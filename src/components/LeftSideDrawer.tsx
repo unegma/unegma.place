@@ -67,6 +67,13 @@ export default function LeftSideDrawer(
               </ListItemButton>
             </ListItem>
           </Link>
+          <Link to="/gallery" className="drawer-link">
+            <ListItem key={'gallery'} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={'Gallery'} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
 
         </List>
 
