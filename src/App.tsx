@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import {CameraAltOutlined, ChevronLeft, ChevronRight, InfoOutlined, Menu} from "@mui/icons-material";
 import PhotoViewer from "./components/PhotoViewer";
 import InfoModal from "./components/InfoModal";
+import MenuModal from "./components/MenuModal";
 import LeftSideDrawer from "./components/LeftSideDrawer";
 import HomeScreen from "./components/HomeScreen";
 import SpaceOne from "./components/SpaceOne";
@@ -18,6 +19,7 @@ import Gallery from "./components/Gallery";
 function App() {
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showMenuModal, setShowMenuModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -44,6 +46,7 @@ function App() {
       />
 
       <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
+      <MenuModal showMenuModal={showMenuModal} setShowMenuModal={setShowMenuModal} />
       {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
       <PhotoViewer showImages={showImages} />
 
@@ -52,6 +55,8 @@ function App() {
         toggleLeftSideDrawer={toggleLeftSideDrawer}
         setShowImages={setShowImages}
         setShowInfoModal={setShowInfoModal}
+        setShowMenuModal={setShowMenuModal}
+        showMenuModal={showMenuModal}
       />
 
       <Routes>

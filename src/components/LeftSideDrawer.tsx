@@ -11,8 +11,12 @@ import Typography from "@mui/material/Typography";
 import {Menu} from "@mui/icons-material";
 
 export default function LeftSideDrawer(
-  {drawerOpen, toggleLeftSideDrawer, setShowImages, setShowInfoModal}:
-    {drawerOpen: any, toggleLeftSideDrawer: any, setShowImages: any, setShowInfoModal: any}) {
+  {drawerOpen, toggleLeftSideDrawer, setShowImages, setShowInfoModal, showMenuModal, setShowMenuModal}:
+    {drawerOpen: any, toggleLeftSideDrawer: Function, setShowImages: Function, setShowInfoModal: Function, showMenuModal: boolean, setShowMenuModal: Function}) {
+
+  function openMenu(name: string) {
+    setShowMenuModal(true)
+  }
 
   return (
     <Drawer
@@ -95,6 +99,16 @@ export default function LeftSideDrawer(
           <ListItem key={'home'} disablePadding onClick={() => setShowImages(true)}>
             <ListItemButton>
               <ListItemText primary={'Photos'} />
+            </ListItemButton>
+          </ListItem>
+        </List>
+
+        <Divider className='light-divider' />
+
+        <List>
+          <ListItem key={'menus'} disablePadding onClick={() => openMenu('menus')}>
+            <ListItemButton>
+              <ListItemText primary={'Menus'} />
             </ListItemButton>
           </ListItem>
         </List>
