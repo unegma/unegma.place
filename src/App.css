@@ -184,7 +184,7 @@ canvas {
 }
 
 .drawer-link {
-  color: black;
+  color: white;
   text-decoration: none !important;
 }
 
@@ -199,4 +199,13 @@ canvas {
 
 .info-map {
   min-height: 40vh;
+}
+
+.drawer {
+  background-color: black;
+  color: white;
+}
+
+.light-divider {
+  background-color: #383838 !important;
 }

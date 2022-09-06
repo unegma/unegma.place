@@ -37,9 +37,10 @@ export default function InfoModal ({ showInfoModal, setShowInfoModal }: any) {
         <HighlightOffIcon className="closeModalButton" onClick={() => { setShowInfoModal(false)}}/>
         <Typography variant="h3" className="secondaryColor">Info</Typography>
 
-        <Typography className="secondaryColor">Address and Contact Details:</Typography>
-        <Typography className="secondaryColor">{process.env.REACT_APP_CONTACT}</Typography>
         <Typography className="secondaryColor">{process.env.REACT_APP_ADDRESS}</Typography>
+        <Typography className="secondaryColor"><a href={`mailto:${process.env.REACT_APP_CONTACT}`}>{process.env.REACT_APP_CONTACT}</a></Typography>
+
+        <br/>
 
         <iframe
           src={process.env.REACT_APP_GOOGLE_MAP_URL}

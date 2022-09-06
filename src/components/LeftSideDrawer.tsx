@@ -18,6 +18,12 @@ export default function LeftSideDrawer(
     <Drawer
       open={drawerOpen}
       onClose={(event:any) => {toggleLeftSideDrawer(event)}}
+      PaperProps={{
+        sx: {
+          backgroundColor: "black",
+          color: "white",
+        }
+      }}
     >
       <Box
         component="div"
@@ -40,7 +46,7 @@ export default function LeftSideDrawer(
           </Link>
         </List>
 
-        <Divider/>
+        <Divider className='light-divider'/>
 
         <List>
           {/*{['Photos', 'Info', 'VR', 'CLOSE BUTTON', 'BOOK THIS ROOM'].map((text, index) => (*/}
@@ -77,7 +83,7 @@ export default function LeftSideDrawer(
 
         </List>
 
-        <Divider />
+        <Divider className='light-divider' />
 
         <List>
           <ListItem key={'spaceone'} disablePadding onClick={() => setShowInfoModal(true)}>
@@ -94,7 +100,7 @@ export default function LeftSideDrawer(
         </List>
 
         <div className={`buttons-container buttons-container--left`}>
-          <Menu className="pointer" style={{ color: "black", margin: "0 4px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>
+          <Menu className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>
         </div>
 
       </Box>
