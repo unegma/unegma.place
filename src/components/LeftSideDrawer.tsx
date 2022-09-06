@@ -42,10 +42,20 @@ export default function LeftSideDrawer(
     ]
   };
 
+  const preToggleLeftSideDrawer = (event: any) => {
+      console.log(event)
+      // TODO would be better do to this based on parent element, but the js-ignore-close doesn't seem to be there
+      if (event.target.innerHTML === 'The Space' || event.target.classList.contains('js-ignore-close')) {
+        event.preventDefault(); // todo might not be needed
+      } else {
+        toggleLeftSideDrawer(event);
+      }
+  }
+
   return (
     <Drawer
       open={drawerOpen}
-      onClose={(event:any) => {toggleLeftSideDrawer(event)}}
+      onClose={(event:any) => {preToggleLeftSideDrawer(event)}}
       PaperProps={{
         sx: {
           backgroundColor: "black",
@@ -57,8 +67,8 @@ export default function LeftSideDrawer(
         component="div"
         sx={{ width: 250 }}
         role="presentation"
-        onClick={(event: any) => {toggleLeftSideDrawer(event)}}
-        onKeyDown={(event: any) => {toggleLeftSideDrawer(event)}}
+        onClick={(event: any) => {preToggleLeftSideDrawer(event)}}
+        onKeyDown={(event: any) => {preToggleLeftSideDrawer(event)}}
       >
 
         <List>
@@ -67,7 +77,7 @@ export default function LeftSideDrawer(
           <Link to="/" className="drawer-link">
             <ListItem key={'nav'} disablePadding>
               <Typography className={`main-title main-title-navbar`} variant="h6" component="div" sx={{ flexGrow: 1 }}
-                          onClick={(event:any) => {toggleLeftSideDrawer(event)}}>
+                          onClick={(event:any) => {preToggleLeftSideDrawer(event)}}>
                 {process.env.REACT_APP_NAV_TITLE}
               </Typography>
             </ListItem>
@@ -91,7 +101,7 @@ export default function LeftSideDrawer(
 
         <Divider className='light-divider' />
 
-        <MultiLevel item={myList} />
+        <MultiLevel className="js-ignore-close" item={myList} />
 
         <Divider className='light-divider' />
 
@@ -120,7 +130,7 @@ export default function LeftSideDrawer(
         </List>
 
         <div className={`buttons-container buttons-container--left`}>
-          <Menu className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>
+          <Menu className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={(event) => {preToggleLeftSideDrawer(event)}}/>
         </div>
 
       </Box>
@@ -139,9 +149,9 @@ const MultiLevel = ({ item }: any) => {
 
   return (
     <React.Fragment>
-      <ListItem button onMouseOver={handleClick}>
+      <ListItem button className="js-ignore-close" onClick={handleClick}>
         <ListItemText primary={item.title} />
-        {open ? <ExpandLess /> : <ExpandMore />}
+        {open ? <ExpandLess className="js-ignore-close" /> : <ExpandMore className="js-ignore-close" />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
