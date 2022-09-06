@@ -8,7 +8,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import {Link} from "react-router-dom";
 import Typography from "@mui/material/Typography";
-import {Menu} from "@mui/icons-material";
+import {ExpandLess, ExpandMore, Menu} from "@mui/icons-material";
+import {useState} from "react";
+import {Collapse, ListItemIcon, MenuItem} from "@mui/material";
 
 export default function LeftSideDrawer(
   {drawerOpen, toggleLeftSideDrawer, setShowImages, setShowInfoModal, showMenuModal, setShowMenuModal}:
@@ -17,6 +19,28 @@ export default function LeftSideDrawer(
   function openMenu(name: string) {
     setShowMenuModal(true)
   }
+
+  const myList = {
+    title: "The Space",
+    items: [
+      {
+        key: 'top-floor',
+        name: "Top Floor",
+      },
+      {
+        key: 'middle-floor',
+        name: "Middle Floor",
+      },
+      {
+        key: 'boudoir',
+        name: "Boudoir",
+      },
+      {
+        key: 'gallery',
+        name: "Gallery",
+      }
+    ]
+  };
 
   return (
     <Drawer
@@ -63,29 +87,11 @@ export default function LeftSideDrawer(
             </ListItem>
           </Link>
 
-          <Link to="/top-floor" className="drawer-link">
-            <ListItem key={'top-floor'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={'Top Floor'} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link to="/boudoir" className="drawer-link">
-            <ListItem key={'boudoir'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={'Boudoir'} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link to="/gallery" className="drawer-link">
-            <ListItem key={'gallery'} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={'Gallery'} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
         </List>
+
+        <Divider className='light-divider' />
+
+        <MultiLevel item={myList} />
 
         <Divider className='light-divider' />
 
@@ -121,3 +127,41 @@ export default function LeftSideDrawer(
     </Drawer>
   )
 }
+
+const MultiLevel = ({ item }: any) => {
+
+  const { items: children } = item;
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <React.Fragment>
+      <ListItem button onMouseOver={handleClick}>
+        <ListItemText primary={item.title} />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          {children.map((child: any, key: any) => (
+            <SingleLevel key={key} item={child} />
+          ))}
+        </List>
+      </Collapse>
+    </React.Fragment>
+  );
+};
+
+const SingleLevel = ({ item }: any) => {
+  return (
+    <Link to={`/${item.key}`} className="drawer-link">
+      <ListItem key={`${item.key}`} disablePadding>
+        <ListItemButton>
+          <ListItemText primary={`${item.name}`} />
+        </ListItemButton>
+      </ListItem>
+    </Link>
+  );
+};
