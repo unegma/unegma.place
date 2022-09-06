@@ -14,6 +14,7 @@ import SpaceOne from "./components/SpaceOne";
 import TopFloor from "./components/TopFloor";
 import Boudoir from "./components/Boudoir";
 import Gallery from "./components/Gallery";
+import MiddleFloor from "./components/MiddleFloor";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -73,6 +74,13 @@ function App() {
           path="/top-floor"
           element={
             <SpaceOne cameraPosition={[9,9,9]} space={<TopFloor/>}/>
+          }
+        />
+        <Route
+          key={'middle-floor'}
+          path="/middle-floor"
+          element={
+            <SpaceOne cameraPosition={[5,5,5]} space={<MiddleFloor/>}/>
           }
         />
         <Route
