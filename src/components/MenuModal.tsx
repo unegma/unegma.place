@@ -1,7 +1,7 @@
 import {Button, createStyles, makeStyles, Modal, Theme, Typography, Box} from "@mui/material";
 import React, {useState} from "react";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { Document, Page } from 'react-pdf';
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 
 export default function MenuModal ({ showMenuModal, setShowMenuModal }: any) {
 
