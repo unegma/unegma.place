@@ -26,7 +26,8 @@ export default function MenuModal ({ showMenuModal, setShowMenuModal }: any) {
     p: 4,
   };
 
-  const [numPages, setNumPages] = useState(null);
+  const [menu, setMenu] = useState('a-la-carte-menu');
+  const [numPages, setNumPages] = useState(1);
   const [pageNumber, setPageNumber] = useState(1);
 
   function onDocumentLoadSuccess({ numPages }: any) {
@@ -45,12 +46,17 @@ export default function MenuModal ({ showMenuModal, setShowMenuModal }: any) {
         <HighlightOffIcon className="closeModalButton" onClick={() => { setShowMenuModal(false)}}/>
 
         <div>
-          <Document file={`${process.env.REACT_APP_ASSETS_URL}/menus/a-la-carte-menu.pdf`} onLoadSuccess={onDocumentLoadSuccess}>
-            <Page pageNumber={pageNumber} />
-          </Document>
+          <Button color='success' variant='contained' onClick={() => {setMenu('a-la-carte-menu')}}>A La Carte Menu</Button>&nbsp;
+          <Button color='success' variant='contained' onClick={() => {setMenu('club-menu')}}>Club Menu</Button>
           <p>
             Page {pageNumber} of {numPages}
           </p>
+          <Button onClick={() => {if(pageNumber > 1) { setPageNumber(pageNumber-1) }}}>Previous</Button>
+          <Button onClick={() => {if(pageNumber < numPages) { setPageNumber(pageNumber+1) }}}>Next</Button>
+          <Document file={`${process.env.REACT_APP_ASSETS_URL}/menus/${menu}.pdf`} onLoadSuccess={onDocumentLoadSuccess}>
+            <Page pageNumber={pageNumber} />
+          </Document>
+
         </div>
 
       </Box>

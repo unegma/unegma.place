@@ -209,3 +209,10 @@ canvas {
 .light-divider {
   background-color: #383838 !important;
 }
+
+
+/*menu*/
+.react-pdf__Document {
+  display: flex;
+  justify-content: center;
+}
