@@ -10,17 +10,17 @@ export default function PhotoViewer({showImages}: {showImages: boolean}) {
     <div className={`slide-out-gallery ${showImages ? 'slide-in' : 'slide-out'}`}>
       <PhotoProvider>
         <div className="slide-out-gallery-container">
-          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/image1.jpeg`}>
-            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/image1.jpeg`} alt=""/>
+          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image1.jpeg`}>
+            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image1.jpeg`} alt=""/>
           </PhotoView>
-          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/image2.jpeg`}>
-            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/image2.jpeg`} alt=""/>
+          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image2.jpeg`}>
+            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image2.jpeg`} alt=""/>
           </PhotoView>
-          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/image3.jpeg`}>
-            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/image3.jpeg`} alt=""/>
+          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image3.jpeg`}>
+            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image3.jpeg`} alt=""/>
           </PhotoView>
-          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/image4.jpeg`}>
-            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/image4.jpeg`} alt=""/>
+          <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image4.jpeg`}>
+            <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/gallery/image4.jpeg`} alt=""/>
           </PhotoView>
           <PhotoView src={`${process.env.REACT_APP_ASSETS_URL}/ark.jpeg`}>
             <img className="slide-out-gallery-image" src={`${process.env.REACT_APP_ASSETS_URL}/ark.jpeg`} alt=""/>
