@@ -24,6 +24,10 @@ export default function LeftSideDrawer(
     title: "The Space",
     items: [
       {
+        key: 'dining',
+        name: "Dining",
+      },
+      {
         key: 'top-floor',
         name: "Top Floor",
       },

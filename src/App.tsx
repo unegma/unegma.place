@@ -15,6 +15,7 @@ import TopFloor from "./components/TopFloor";
 import Boudoir from "./components/Boudoir";
 import Gallery from "./components/Gallery";
 import MiddleFloor from "./components/MiddleFloor";
+import Dining from "./components/Dining";
 import GridOnIcon from '@mui/icons-material/GridOn';
 // import BookingModal from "./components/BookingModal";
 const initialHelperText = '↺ or ⇉ Model';
@@ -103,15 +104,22 @@ function App() {
           key={'home'}
           path="/"
           element={
-            <HomeScreen  toggleLeftSideDrawer={toggleLeftSideDrawer}/>
+            <HomeScreen toggleLeftSideDrawer={toggleLeftSideDrawer}/>
           }
         />
 
         <Route
+          key={'dining'}
+          path="/dining"
+          element={
+            <SpaceOne zoomOn={zoomOn} gridOn={gridOn} cameraPosition={[5,5,5]} space={<Dining />}/>
+          }
+        />
+        <Route
           key={'top-floor'}
           path="/top-floor"
           element={
-            <SpaceOne zoomOn={zoomOn} cameraPosition={[9,9,9]} space={<TopFloor />}/>
+            <SpaceOne zoomOn={zoomOn} gridOn={gridOn} cameraPosition={[9,9,9]} space={<TopFloor />}/>
           }
         />
         <Route

@@ -18,8 +18,16 @@ export default function SpaceOne({space, cameraPosition, gridOn, zoomOn}: any) {
       <PerspectiveCamera position={cameraPosition} makeDefault/>
 
       <group visible={gridOn}>
-        <gridHelper position={[0.34,-1.4,1.2]}/>
-        <gridHelper position={[0.34,-1.4,-3.81]}/>
+        <gridHelper position={[0,-1.4,-3.81]}/>
+
+        <gridHelper position={[0,-1.4,6.19]}/>
+        <gridHelper position={[-10,-1.4,6.19]}/>
+        <gridHelper position={[-10,-1.4,-3.81]}/>
+        <gridHelper position={[-10,-1.4,-13.81]}/>
+        <gridHelper position={[0,-1.4,-13.81]}/>
+        <gridHelper position={[10,-1.4,-13.81]}/>
+        <gridHelper position={[10,-1.4,-3.81]}/>
+        <gridHelper position={[10,-1.4,6.19]}/>
       </group>
 
       <Suspense fallback={<Html className="white">loading 3d view..</Html>}>
