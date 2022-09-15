@@ -93,6 +93,11 @@ canvas {
   right: inherit;
 }
 
+.buttons-container--left-helper {
+  left:5vw;
+  right: inherit;
+}
+
 .buttons-container--mid-right {
   display: flex;
   flex-direction: column;
