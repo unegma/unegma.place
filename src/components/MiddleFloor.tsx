@@ -18,7 +18,7 @@ export default function MiddleFloor({ ...props }: JSX.IntrinsicElements['group']
   const group = useRef<THREE.Group>(null)
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} position={[1.4,0,-1]} rotation={[0,-0.1,0]}>
       <mesh castShadow receiveShadow geometry={nodes.Mesh_0.geometry} material={materials['material_0.001']} />
     </group>
   )

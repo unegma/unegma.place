@@ -93,6 +93,22 @@ canvas {
   right: inherit;
 }
 
+.buttons-container--mid-right {
+  display: flex;
+  flex-direction: column;
+  right:0;
+  bottom: 50vh;
+  /*right: inherit;*/
+}
+
+.helperText {
+  color: white;
+  display: block;
+  margin: 2px 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .pointer {
   cursor: pointer;
 }
