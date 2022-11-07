@@ -94,7 +94,7 @@ canvas {
 }
 
 .buttons-container--left-helper {
-  left:5vw;
+  /*left:5vw;*/
   right: inherit;
 }
 
