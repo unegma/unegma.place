@@ -19,7 +19,8 @@ export default function NavBar(
           <Typography className="main-title" variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={(event:any) => {toggleLeftSideDrawer(event)}}>
             {process.env.REACT_APP_NAV_TITLE}
           </Typography>
-          <Button color="error" variant="contained" onClick={() => {setShowInfoModal(!showInfoModal)}}>Book</Button>
+          {/*<Button color="error" variant="contained" onClick={() => {setShowInfoModal(!showInfoModal)}}>Book</Button>*/}
+          <Button color="success" variant="contained" href="https://www.cc-gbl.io/" target="_blank">Membership</Button>
         </Toolbar>
       </AppBar>
     </Box>
