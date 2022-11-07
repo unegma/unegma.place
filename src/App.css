@@ -102,7 +102,7 @@ canvas {
   display: flex;
   flex-direction: column;
   right:0;
-  bottom: 50vh;
+  bottom: 45%;
   /*right: inherit;*/
 }
 
