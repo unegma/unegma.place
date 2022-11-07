@@ -113,9 +113,9 @@ export default function LeftSideDrawer(
         <Divider className='light-divider' />
 
         <List>
-          <ListItem key={'book'} disablePadding onClick={() => setShowInfoModal(true)}>
+          <ListItem key={'hire'} disablePadding onClick={() => setShowInfoModal(true)}>
             <ListItemButton>
-              <ListItemText primary={'Bookings'} />
+              <ListItemText primary={'Private Hire'} />
             </ListItemButton>
           </ListItem>
 
