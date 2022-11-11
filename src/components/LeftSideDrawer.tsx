@@ -134,13 +134,13 @@ export default function LeftSideDrawer(
 
         <Divider className='light-divider' />
 
-        <List>
-          <ListItem key={'menus'} disablePadding onClick={() => openMenu('menus')}>
-            <ListItemButton>
-              <ListItemText primary={'Menus'} />
-            </ListItemButton>
-          </ListItem>
-        </List>
+        {/*<List>*/}
+        {/*  <ListItem key={'menus'} disablePadding onClick={() => openMenu('menus')}>*/}
+        {/*    <ListItemButton>*/}
+        {/*      <ListItemText primary={'Menus'} />*/}
+        {/*    </ListItemButton>*/}
+        {/*  </ListItem>*/}
+        {/*</List>*/}
 
       </Box>
     </Drawer>
