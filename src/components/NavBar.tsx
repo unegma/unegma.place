@@ -20,7 +20,7 @@ export default function NavBar(
             {process.env.REACT_APP_NAV_TITLE}
           </Typography>
           {/*<Button color="error" variant="contained" onClick={() => {setShowInfoModal(!showInfoModal)}}>Book</Button>*/}
-          <Button color="inherit" variant="outlined" href="https://blacksclub.com" target="_blank">Membership</Button>
+          <Button color="inherit" variant="outlined" href={`${process.env.REACT_APP_HOME_URL}`} target="_blank">Membership</Button>
         </Toolbar>
       </AppBar>
     </Box>
