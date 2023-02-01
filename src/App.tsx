@@ -16,6 +16,7 @@ import Boudoir from "./components/Boudoir";
 import Gallery from "./components/Gallery";
 import MiddleFloor from "./components/MiddleFloor";
 import Dining from "./components/Dining";
+import ManhattanApartment from "./components/ManhattanApartment";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -70,10 +71,10 @@ function App() {
         />
 
         <Route
-          key={'dining'}
-          path="/dining"
+          key={'apartment'}
+          path="/apartment"
           element={
-            <SpaceOne cameraPosition={[5,5,5]} space={<Dining />}/>
+            <SpaceOne cameraPosition={[5,5,5]} space={<ManhattanApartment />}/>
           }
         />
         {/*<Route*/}

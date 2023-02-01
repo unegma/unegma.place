@@ -24,24 +24,8 @@ export default function LeftSideDrawer(
     title: "The Space",
     items: [
       {
-        key: 'dining',
-        name: "Dining",
-      },
-      {
-        key: 'top-floor',
-        name: "Top Floor",
-      },
-      {
-        key: 'middle-floor',
-        name: "Middle Floor",
-      },
-      {
-        key: 'boudoir',
-        name: "Boudoir",
-      },
-      {
-        key: 'gallery',
-        name: "Gallery",
+        key: 'apartment',
+        name: "Apartment",
       }
     ]
   };
@@ -112,25 +96,25 @@ export default function LeftSideDrawer(
 
         <Divider className='light-divider' />
 
-        <List>
-          <ListItem key={'hire'} disablePadding onClick={() => setShowInfoModal(true)}>
-            <ListItemButton>
-              <ListItemText primary={'Private Hire'} />
-            </ListItemButton>
-          </ListItem>
+        {/*<List>*/}
+        {/*  <ListItem key={'hire'} disablePadding onClick={() => setShowInfoModal(true)}>*/}
+        {/*    <ListItemButton>*/}
+        {/*      <ListItemText primary={'Private Hire'} />*/}
+        {/*    </ListItemButton>*/}
+        {/*  </ListItem>*/}
 
-          <ListItem key={'spaceone'} disablePadding onClick={() => setShowInfoModal(true)}>
-            <ListItemButton>
-              <ListItemText primary={'Info'} />
-            </ListItemButton>
-          </ListItem>
+        {/*  <ListItem key={'spaceone'} disablePadding onClick={() => setShowInfoModal(true)}>*/}
+        {/*    <ListItemButton>*/}
+        {/*      <ListItemText primary={'Info'} />*/}
+        {/*    </ListItemButton>*/}
+        {/*  </ListItem>*/}
 
-          <ListItem key={'home'} disablePadding onClick={() => setShowImages(true)}>
-            <ListItemButton>
-              <ListItemText primary={'Photos'} />
-            </ListItemButton>
-          </ListItem>
-        </List>
+        {/*  <ListItem key={'home'} disablePadding onClick={() => setShowImages(true)}>*/}
+        {/*    <ListItemButton>*/}
+        {/*      <ListItemText primary={'Photos'} />*/}
+        {/*    </ListItemButton>*/}
+        {/*  </ListItem>*/}
+        {/*</List>*/}
 
         <Divider className='light-divider' />
 

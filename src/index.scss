@@ -14,17 +14,17 @@ $cdn: 'https://assets.unegma.net/shared/fonts/';
 
 body {
   margin: 0;
-  font-family: Heldane, serif !important;
-  //font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  //  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  //  sans-serif;
+  //font-family: Termina, serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  font-family: Heldane, serif !important;
-}
+//* {
+//  font-family: Termina, serif !important;
+//}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
