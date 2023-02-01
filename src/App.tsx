@@ -76,34 +76,34 @@ function App() {
             <SpaceOne cameraPosition={[5,5,5]} space={<Dining />}/>
           }
         />
-        <Route
-          key={'top-floor'}
-          path="/top-floor"
-          element={
-            <SpaceOne cameraPosition={[9,9,9]} space={<TopFloor />}/>
-          }
-        />
-        <Route
-          key={'middle-floor'}
-          path="/middle-floor"
-          element={
-            <SpaceOne cameraPosition={[5,5,5]} space={<MiddleFloor/>}/>
-          }
-        />
-        <Route
-          key={'boudoir'}
-          path="/boudoir"
-          element={
-            <SpaceOne cameraPosition={[5,5,5]} space={<Boudoir/>}/>
-          }
-        />
-        <Route
-          key={'gallery'}
-          path="/gallery"
-          element={
-            <SpaceOne cameraPosition={[5,5,5]} space={<Gallery/>}/>
-          }
-        />
+        {/*<Route*/}
+        {/*  key={'top-floor'}*/}
+        {/*  path="/top-floor"*/}
+        {/*  element={*/}
+        {/*    <SpaceOne cameraPosition={[9,9,9]} space={<TopFloor />}/>*/}
+        {/*  }*/}
+        {/*/>*/}
+        {/*<Route*/}
+        {/*  key={'middle-floor'}*/}
+        {/*  path="/middle-floor"*/}
+        {/*  element={*/}
+        {/*    <SpaceOne cameraPosition={[5,5,5]} space={<MiddleFloor/>}/>*/}
+        {/*  }*/}
+        {/*/>*/}
+        {/*<Route*/}
+        {/*  key={'boudoir'}*/}
+        {/*  path="/boudoir"*/}
+        {/*  element={*/}
+        {/*    <SpaceOne cameraPosition={[5,5,5]} space={<Boudoir/>}/>*/}
+        {/*  }*/}
+        {/*/>*/}
+        {/*<Route*/}
+        {/*  key={'gallery'}*/}
+        {/*  path="/gallery"*/}
+        {/*  element={*/}
+        {/*    <SpaceOne cameraPosition={[5,5,5]} space={<Gallery/>}/>*/}
+        {/*  }*/}
+        {/*/>*/}
 
         <Route
           path="*"
