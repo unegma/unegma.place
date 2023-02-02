@@ -24,7 +24,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function ManhattanApartment({ setTarget }: { setTarget: Function }) {
+export default function ManhattanApartment({ setTarget, furnished }: { setTarget: Function, furnished: boolean }) {
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-transformed.glb`;
   const group = useRef<THREE.Group>(null!)
   const ref = useRef<any>(null!)
@@ -56,7 +56,9 @@ export default function ManhattanApartment({ setTarget }: { setTarget: Function 
         <mesh castShadow receiveShadow geometry={nodes.Object_0_3.geometry} material={materials.cropped_textured_mesh_3} />
       </group>
 
-      <ApartmentFurnishings />
+      { furnished && (
+        <ApartmentFurnishings />
+      )}
 
       <ApartmentClicks setSelectedMesh={setSelectedMesh} />
     </group>
