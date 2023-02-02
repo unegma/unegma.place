@@ -25,6 +25,7 @@ function App() {
   const [showMenuModal, setShowMenuModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [target, setTarget] = useState([0,0,0]); // rotation point
 
   const toggleLeftSideDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
       if (event.type === 'keydown' && (
@@ -74,7 +75,7 @@ function App() {
           key={'apartment'}
           path="/apartment"
           element={
-            <SpaceOne cameraPosition={[5,5,5]} space={<ManhattanApartment />}/>
+            <SpaceOne cameraPosition={[5,5,5]} target={target} space={<ManhattanApartment setTarget={setTarget} />}/>
           }
         />
         {/*<Route*/}
@@ -120,13 +121,13 @@ function App() {
         <InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowInfoModal(!showInfoModal)}}/>
 
         <div className="pointer" onClick={() => {setShowImages(!showImages)}}>
-          <CameraAltOutlined  style={{ color: "white", margin: "0 4px" }} />
-          { showImages && (
-            <ChevronRight style={{ color: "white", margin: "0 4px" }} />
-          )}
-          { !showImages && (
-            <ChevronLeft style={{ color: "white", margin: "0 4px" }} />
-          )}
+          {/*<CameraAltOutlined  style={{ color: "white", margin: "0 4px" }} />*/}
+          {/*{ showImages && (*/}
+          {/*  <ChevronRight style={{ color: "white", margin: "0 4px" }} />*/}
+          {/*)}*/}
+          {/*{ !showImages && (*/}
+          {/*  <ChevronLeft style={{ color: "white", margin: "0 4px" }} />*/}
+          {/*)}*/}
           </div>
       </div>
     </div>

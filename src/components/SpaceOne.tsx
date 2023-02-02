@@ -5,7 +5,7 @@ import GridOnIcon from "@mui/icons-material/GridOn";
 import {ZoomIn, ZoomOut} from "@mui/icons-material";
 const initialHelperText = '↺ or ⇉ Model';
 
-export default function SpaceOne({space, cameraPosition}: any) {
+export default function SpaceOne({space, cameraPosition, target}: any) {
   const { player } = useXR();
 
   const [gridOn, setGridOn] = useState(false);
@@ -66,7 +66,7 @@ export default function SpaceOne({space, cameraPosition}: any) {
         <DefaultXRControllers />
 
         {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
-        <OrbitControls enableZoom={zoomOn} enablePan={true} />
+        <OrbitControls enableZoom={zoomOn} enablePan={true} target={target} />
 
         <ambientLight/>
         <pointLight intensity={3} position={[0, 0, 0]}/>
