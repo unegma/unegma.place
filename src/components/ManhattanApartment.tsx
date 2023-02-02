@@ -35,13 +35,13 @@ export default function ManhattanApartment({ setTarget }: { setTarget: Function 
   useEffect(() => {
     switch(selectedMesh) {
       case 0:
-        setTarget([5,0,0])
+        setTarget([5,0,0]) // lounge
         break;
       case 1:
         setTarget([0,0,0])
         break;
       case 2:
-        setTarget([-5,0,0])
+        setTarget([-4,0,0]) // bedroom
         break;
     }
 
