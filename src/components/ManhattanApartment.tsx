@@ -30,7 +30,7 @@ export default function ManhattanApartment({ setTarget, furnished }: { setTarget
   const ref = useRef<any>(null!)
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
-  const [selectedMesh, setSelectedMesh] = useState(0);
+  const [selectedMesh, setSelectedMesh] = useState(1);
 
   useEffect(() => {
     switch(selectedMesh) {
