@@ -24,6 +24,7 @@ type GLTFResult = GLTF & {
     Pot_kitchen_0: THREE.Mesh
     Cylinder006_living_room_0: THREE.Mesh
     sofa011_living_room_0: THREE.Mesh
+    sofa003_living_room_0001: THREE.Mesh
     sofa002_living_room_0: THREE.Mesh
     Cube008_living_room_0: THREE.Mesh
     Cylinder001_living_room_0: THREE.Mesh
@@ -42,22 +43,36 @@ type GLTFResult = GLTF & {
     details: THREE.MeshStandardMaterial
     kitchen: THREE.MeshStandardMaterial
     living_room: THREE.MeshStandardMaterial
+    ['details.001']: THREE.MeshStandardMaterial
   }
 }
 
 export default function ApartmentFurnishings({ ...props }: JSX.IntrinsicElements['group']) {
-  const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/apartment-furnishings-transformed.glb`;
+  const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-furniture-transformed.glb`;
 
   const group = useRef<THREE.Group>(null!)
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="pillow3_low" position={[-4.11, -0.88, 1.69]} rotation={[-2.01, 0, 3.14]} scale={0.61}>
-          <mesh name="pillow3_low_details_0" castShadow receiveShadow geometry={nodes.pillow3_low_details_0.geometry} material={materials.details} />
+        <group name="blanket_low" position={[-4.14, -1.21, 0.83]} rotation={[-Math.PI / 2, 0, 3.14]} scale={0.83}>
+          <mesh name="blanket_low_details_0" castShadow receiveShadow geometry={nodes.blanket_low_details_0.geometry} material={materials.details} />
         </group>
-        <group name="matress" position={[-4.14, -1.37, 0.8]} rotation={[-Math.PI / 2, 0, 3.14]} scale={0.83}>
-          <mesh name="matress_details_0" castShadow receiveShadow geometry={nodes.matress_details_0.geometry} material={materials.details} />
+        <group name="Cube" position={[5.89, -0.83, -1.43]} rotation={[-Math.PI / 2, 0, 1.56]} scale={0.68}>
+          <mesh name="Cube_details_0" castShadow receiveShadow geometry={nodes.Cube_details_0.geometry} material={materials.details} />
+        </group>
+        <group name="Cube001" position={[-0.55, 0.01, 6.99]} rotation={[-Math.PI / 2, 0, 0]}>
+          <mesh name="Cube001_living_room_0" castShadow receiveShadow geometry={nodes.Cube001_living_room_0.geometry} material={materials.living_room} position={[6.44, 6.39, -1.5]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
+        </group>
+        <group name="Cube008" position={[4.42, -1.5, 0.46]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.72}>
+          <mesh name="Cube008_living_room_0" castShadow receiveShadow geometry={nodes.Cube008_living_room_0.geometry} material={materials.living_room} />
+        </group>
+        <group name="Cube014" position={[-0.55, 0.01, 6.99]} rotation={[-Math.PI / 2, 0, 0]}>
+          <mesh name="Cube014_living_room_0" castShadow receiveShadow geometry={nodes.Cube014_living_room_0.geometry} material={materials.living_room} position={[6.44, 6.39, -1.5]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
+        </group>
+        <group name="Cube021" position={[2.54, 3.46, -3.06]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} />
+        <group name="Cube023" position={[4.37, -1.64, 1.01]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.76}>
+          <group name="Cube023_kitchen_0" />
         </group>
         <group name="Cube026" position={[5.78, -1.42, -1.44]} rotation={[-Math.PI / 2, 0, 1.56]} scale={0.68}>
           <mesh name="Cube026_details_0" castShadow receiveShadow geometry={nodes.Cube026_details_0.geometry} material={materials.details} />
@@ -83,44 +98,54 @@ export default function ApartmentFurnishings({ ...props }: JSX.IntrinsicElements
         <group name="Cube033" position={[6.25, -0.82, -1.42]} rotation={[-Math.PI / 2, 0, 1.56]} scale={0.68}>
           <mesh name="Cube033_details_0" castShadow receiveShadow geometry={nodes.Cube033_details_0.geometry} material={materials.details} />
         </group>
-        <group name="Cube" position={[5.89, -0.83, -1.43]} rotation={[-Math.PI / 2, 0, 1.56]} scale={0.68}>
-          <mesh name="Cube_details_0" castShadow receiveShadow geometry={nodes.Cube_details_0.geometry} material={materials.details} />
+        <group name="Cube035" position={[-2.44, 0.64, 6.92]} rotation={[-Math.PI / 2, -0.29, 0]} scale={[0.99, 1, 0.85]}>
+          <mesh name="Cube035_living_room_0" castShadow receiveShadow geometry={nodes.Cube035_living_room_0.geometry} material={materials.living_room} position={[7.51, 5, -4.85]} rotation={[0.35, 0.24, 1.46]} scale={0.69} />
         </group>
-        <group name="blanket_low" position={[-4.14, -1.21, 0.83]} rotation={[-Math.PI / 2, 0, 3.14]} scale={0.83}>
-          <mesh name="blanket_low_details_0" castShadow receiveShadow geometry={nodes.blanket_low_details_0.geometry} material={materials.details} />
-        </group>
-        <group name="Cube023" position={[4.37, -1.64, 1.01]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.76} />
-        <group name="Pot" position={[-3.69, 1.27, -3.4]} rotation={[-Math.PI / 2, 0, 0.54]}>
-          <mesh name="Pot_kitchen_0" castShadow receiveShadow geometry={nodes.Pot_kitchen_0.geometry} material={materials.kitchen} position={[4.86, -5.36, -2.74]} />
-        </group>
-        <group name="Cylinder006" position={[-0.34, 0.61, 5.1]} rotation={[-Math.PI / 2, 0, 1.01]} scale={1.11}>
-          <mesh name="Cylinder006_living_room_0" castShadow receiveShadow geometry={nodes.Cylinder006_living_room_0.geometry} material={materials.living_room} position={[5.79, -0.98, -1.48]} rotation={[0, 0, -Math.PI / 2]} scale={0.76} />
-        </group>
-        <group name="sofa011" position={[-2.19, 0.69, 4.84]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.9}>
-          <mesh name="sofa011_living_room_0" castShadow receiveShadow geometry={nodes.sofa011_living_room_0.geometry} material={materials.living_room} position={[-3.44, 7.31, -2.03]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
-        </group>
-        <group name="sofa002" position={[-2.14, 0.7, 3.53]} rotation={[-Math.PI / 2, 0, -2.41]} scale={0.9}>
-          <mesh name="sofa002_living_room_0" castShadow receiveShadow geometry={nodes.sofa002_living_room_0.geometry} material={materials.living_room} position={[-6.02, 2.65, -2.03]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
-        </group>
-        <group name="Cube008" position={[4.42, -1.5, 0.46]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.72}>
-          <mesh name="Cube008_living_room_0" castShadow receiveShadow geometry={nodes.Cube008_living_room_0.geometry} material={materials.living_room} />
+        <group name="Cube036" position={[-0.76, 0.64, 7.12]} rotation={[-1.28, 0, Math.PI / 2]} scale={[0.99, 1, 0.85]}>
+          <mesh name="Cube036_living_room_0" castShadow receiveShadow geometry={nodes.Cube036_living_room_0.geometry} material={materials.living_room} position={[5.65, -6.74, -4.2]} rotation={[0.35, 0.24, 1.46]} scale={0.69} />
         </group>
         <group name="Cylinder001" position={[3.84, -1.04, 0.61]} rotation={[-Math.PI / 2, 0, 1.96]} scale={0.85}>
           <mesh name="Cylinder001_living_room_0" castShadow receiveShadow geometry={nodes.Cylinder001_living_room_0.geometry} material={materials.living_room} />
         </group>
+        <group name="Cylinder006" position={[-0.34, 0.61, 5.1]} rotation={[-Math.PI / 2, 0, 1.01]} scale={1.11}>
+          <mesh name="Cylinder006_living_room_0" castShadow receiveShadow geometry={nodes.Cylinder006_living_room_0.geometry} material={materials.living_room} position={[5.79, -0.98, -1.48]} rotation={[0, 0, -Math.PI / 2]} scale={0.76} />
+        </group>
+        <group name="matress" position={[-4.14, -1.37, 0.8]} rotation={[-Math.PI / 2, 0, 3.14]} scale={0.83}>
+          <mesh name="matress_details_0" castShadow receiveShadow geometry={nodes.matress_details_0.geometry} material={materials.details} />
+        </group>
+        <group name="pillow3_low" position={[-4.11, -0.88, 1.69]} rotation={[-2.01, 0, 3.14]} scale={0.61}>
+          <mesh name="pillow3_low_details_0" castShadow receiveShadow geometry={nodes.pillow3_low_details_0.geometry} material={materials.details} />
+        </group>
+        <group name="Pot" position={[-3.69, 1.27, -3.4]} rotation={[-Math.PI / 2, 0, 0.54]}>
+          <mesh name="Pot_kitchen_0" castShadow receiveShadow geometry={nodes.Pot_kitchen_0.geometry} material={materials.kitchen} position={[4.82, -5.42, -2.74]} />
+        </group>
+        <group name="sofa001" position={[-1.57, 6.16, -4.99]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={5.06}>
+          <mesh name="sofa010_details_0001" castShadow receiveShadow geometry={nodes.sofa010_details_0001.geometry} material={materials['details.001']} position={[0.55, 1.08, -1.24]} scale={0.49} />
+        </group>
+        <group name="sofa002" position={[-2.14, 0.7, 3.53]} rotation={[-Math.PI / 2, 0, -2.41]} scale={0.9}>
+          <mesh name="sofa002_living_room_0" castShadow receiveShadow geometry={nodes.sofa002_living_room_0.geometry} material={materials.living_room} position={[-6.02, 2.65, -1.9]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
+        </group>
+        <group name="sofa003" position={[-2.15, 0.7, 6.81]} rotation={[-Math.PI / 2, 0, -0.84]} scale={0.9}>
+          <mesh name="sofa003_living_room_0" castShadow receiveShadow geometry={nodes.sofa003_living_room_0.geometry} material={materials.living_room} position={[1.63, 10.32, -1.9]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
+        </group>
         <group name="sofa005" position={[4.72, -1.37, 0.39]} rotation={[Math.PI / 2, 0, 2.8]} scale={-3.84}>
           <mesh name="sofa005_living_room_0" castShadow receiveShadow geometry={nodes.sofa005_living_room_0.geometry} material={materials.living_room} />
         </group>
+        <group name="sofa010" position={[-1.28, 6.16, -4.99]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={5.06}>
+          <mesh name="sofa010_details_0" castShadow receiveShadow geometry={nodes.sofa010_details_0.geometry} material={materials['details.001']} position={[0.51, 1.08, -1.18]} scale={0.49} />
+        </group>
+        <group name="sofa011" position={[-2.19, 0.69, 4.84]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.9}>
+          <mesh name="sofa011_living_room_0" castShadow receiveShadow geometry={nodes.sofa011_living_room_0.geometry} material={materials.living_room} position={[-3.44, 7.31, -1.9]} rotation={[0, 0, Math.PI / 2]} scale={0.69} />
+        </group>
+        <group name="tv001" position={[3.76, 1.75, 5.61]} rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
+          <mesh name="tv001_details_0" castShadow receiveShadow geometry={nodes.tv001_details_0.geometry} material={materials.details} position={[7.2, -0.94, -1.92]} rotation={[0, 0, Math.PI / 2]} scale={0.77} />
+        </group>
+        <group name="sofa004" position={[-2.15, 0.7, 5.66]} rotation={[-Math.PI / 2, 0, -0.84]} scale={0.9}>
+          <mesh name="sofa003_living_room_0001" castShadow receiveShadow geometry={nodes.sofa003_living_room_0001.geometry} material={materials.living_room} position={[1.83, 10.69, -1.9]} rotation={[0, 0, 0.54]} scale={0.69} />
+        </group>
         <mesh name="trashcan_kitchen_0" castShadow receiveShadow geometry={nodes.trashcan_kitchen_0.geometry} material={materials.kitchen} position={[-1.34, -1.11, 1.63]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={0.77} />
-        <mesh name="sofa010_details_0" castShadow receiveShadow geometry={nodes.sofa010_details_0.geometry} material={materials.details} position={[-3.85, 0.21, 0.48]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={2.5} />
-        <mesh name="sofa010_details_0001" castShadow receiveShadow geometry={nodes.sofa010_details_0001.geometry} material={materials.details} position={[-4.38, -0.12, 0.48]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={2.5} />
-        <mesh name="tv001_details_0" castShadow receiveShadow geometry={nodes.tv001_details_0.geometry} material={materials.details} position={[4.7, -0.18, -1.59]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={0.77} />
-        <mesh name="Cube001_living_room_0" castShadow receiveShadow geometry={nodes.Cube001_living_room_0.geometry} material={materials.living_room} position={[5.89, -1.61, 0.6]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={0.69} />
-        <mesh name="Cube035_living_room_0" castShadow receiveShadow geometry={nodes.Cube035_living_room_0.geometry} material={materials.living_room} position={[5.84, -1.18, 1.91]} rotation={[-1.2, -0.07, 1.62]} scale={[0.68, 0.68, 0.6]} />
-        <mesh name="Cube036_living_room_0" castShadow receiveShadow geometry={nodes.Cube036_living_room_0.geometry} material={materials.living_room} position={[5.98, -1.18, 0.75]} rotation={[-1.52, 0.33, -3.13]} scale={[0.68, 0.68, 0.6]} />
-        <mesh name="sofa003_living_room_0" castShadow receiveShadow geometry={nodes.sofa003_living_room_0.geometry} material={materials.living_room} position={[5.76, -1.13, 1.72]} rotation={[-Math.PI / 2, 0, 0.73]} scale={0.62} />
-        <mesh name="Cube014_living_room_0" castShadow receiveShadow geometry={nodes.Cube014_living_room_0.geometry} material={materials.living_room} position={[5.89, -1.61, 0.6]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={0.69} />
       </group>
     </group>
   )
 }
+
