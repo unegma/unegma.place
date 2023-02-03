@@ -3,12 +3,21 @@ import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import React, {Suspense, useState} from "react";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import {ZoomIn, ZoomOut} from "@mui/icons-material";
+import {RightSideButtons} from "./RightSideButtons";
 
 export default function SpaceOne({space, cameraPosition, target, zoomOn, gridOn}: { space: any, cameraPosition: any, target: any, zoomOn: boolean, gridOn: boolean }) {
   const { player } = useXR();
 
   return (
     <>
+      <RightSideButtons
+        furnished={furnished}
+        toggleFurnished={toggleFurnished}
+        zoomOn={zoomOn}
+        toggleGridOn={toggleGridOn}
+        toggleZoomOn={toggleZoomOn}
+      />
+
       <VRCanvas>
         <DefaultXRControllers />
 

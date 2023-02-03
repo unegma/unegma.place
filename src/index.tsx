@@ -7,13 +7,17 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 
+import Provider from './store';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <Provider>
+        <App />
+      </Provider>
     </Router>
   </React.StrictMode>
 );

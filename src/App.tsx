@@ -108,23 +108,6 @@ function App() {
         <p className='helperText' onClick={() => {showHelperTextMessage()}}>{helperText}</p>
       </div>
 
-      <div className={`buttons-container buttons-container--mid-right`}>
-        { furnished && (
-          <Chair className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleFurnished()}}/>
-        )}
-        { !furnished && (
-          <ChairOutlined className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleFurnished()}}/>
-        )}
-        <GridOnIcon className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleGridOn()}}/>
-
-        { zoomOn && (
-          <ZoomIn className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoomOn()}}/>
-        )}
-        { !zoomOn && (
-          <ZoomOut className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoomOn()}}/>
-        )}
-      </div>
-
       <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <MenuModal showMenuModal={showMenuModal} setShowMenuModal={setShowMenuModal} />
       {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
