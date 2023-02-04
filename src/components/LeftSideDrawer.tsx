@@ -53,8 +53,8 @@ export default function LeftSideDrawer(
       onClose={(event:any) => {preToggleLeftSideDrawer(event)}}
       PaperProps={{
         sx: {
-          backgroundColor: "black",
-          color: "white",
+          backgroundColor: "#615438",
+          color: "#e3dbce",
         }
       }}
     >
@@ -72,7 +72,7 @@ export default function LeftSideDrawer(
           <Link to="/" className="drawer-link">
             <ListItem key={'nav'} disablePadding>
               <div className={`hamburger-button`}>
-                <Menu className="pointer" style={{ color: "white", margin: "4px -4px 0 14px" }}/>
+                <Menu className="pointer" style={{ color: "#e3dbce", margin: "4px -4px 0 14px" }}/>
               </div>
               <Typography className={`main-title main-title-navbar`} variant="h6" component="div" sx={{ flexGrow: 1 }}
                           onClick={(event:any) => {preToggleLeftSideDrawer(event)}}>
@@ -123,7 +123,7 @@ export default function LeftSideDrawer(
         {/*  </ListItem>*/}
         {/*</List>*/}
 
-        <Divider className='light-divider' />
+        {/*<Divider className='light-divider' />*/}
 
         {/*<List>*/}
         {/*  <ListItem key={'menus'} disablePadding onClick={() => openMenu('menus')}>*/}

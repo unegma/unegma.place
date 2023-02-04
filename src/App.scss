@@ -113,6 +113,10 @@ canvas {
   margin: 5px 5px;
   text-decoration: underline;
   cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .pointer {
@@ -206,12 +210,32 @@ canvas {
 }
 
 .drawer-link {
+  color: #e3dbce;
+  text-decoration: none !important;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+
+.main-link {
   color: white;
   text-decoration: none !important;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .main-title {
   cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  //color: #615438;
+  //color: "#e3dbce",
 }
 
 .main-title-navbar {
@@ -224,8 +248,10 @@ canvas {
 }
 
 .drawer {
-  background-color: black;
+  background-color: #615438;
   color: white;
+
+  //#e3dbce
 }
 
 .light-divider {

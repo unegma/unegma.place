@@ -30,7 +30,7 @@ export default function HomeScreen({toggleLeftSideDrawer}: {toggleLeftSideDrawer
       <div className="home-screen-cover">
 
         <div className="centre-overlay">
-          <Link to="/apartment" className="drawer-link">
+          <Link to="/apartment" className="main-link">
             <h1>Click to Enter</h1>
           </Link>
         </div>
