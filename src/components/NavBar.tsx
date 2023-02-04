@@ -7,8 +7,8 @@ import Button from '@mui/material/Button';
 import {Menu} from "@mui/icons-material";
 
 export default function NavBar(
-  {toggleLeftSideDrawer, setShowBookingModal, showBookingModal, showInfoModal, setShowInfoModal}:
-    {toggleLeftSideDrawer: any, setShowBookingModal: any, showBookingModal: any, showInfoModal: boolean, setShowInfoModal: Function}) {
+  {toggleLeftSideDrawer,firstPerson, setShowBookingModal, showBookingModal, showInfoModal, setShowInfoModal, pointerControls}:
+    any) {
 
 
   /**
@@ -18,15 +18,35 @@ export default function NavBar(
     window.location.replace(window.location.origin);
   };
 
+  const handleHamburgerClick = (event: any) => {
+    if (firstPerson) {
+      setTimeout(() => {
+        // @ts-ignore
+        pointerControls.current.unlock()
+      },100)
+    } else {
+      toggleLeftSideDrawer(event); // don't show in first person mode
+    }
+  }
+
+  const handleClickBody = () => {
+    if (firstPerson) {
+      setTimeout(() => {
+        // @ts-ignore
+        pointerControls.current.unlock()
+      },100)
+    }
+  }
+
   return (
-    <Box component="div" sx={{ flexGrow: 1 }} className="navBar" >
+    <Box component="div" sx={{ flexGrow: 1 }} className="navBar" onClick={() => {handleClickBody()}}>
       <AppBar position="fixed" color="transparent">
         <Toolbar>
           <div className={`hamburger-button`}>
-            <Menu className="pointer" style={{ color: "white", margin: "4px 10px 0 -5px" }} onClick={(event) => {toggleLeftSideDrawer(event)}}/>
+            <Menu className="pointer" style={{ color: "white", margin: "4px 10px 0 -5px" }} onClick={(event: any) => {handleHamburgerClick(event)}}/>
           </div>
-          <Typography className="main-title" variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={(event:any) => returnHome()}>
-            {process.env.REACT_APP_NAV_TITLE}
+          <Typography  variant="h6" component="div" sx={{ flexGrow: 1 }} >
+            <span className="main-title" onClick={() => returnHome()}>{process.env.REACT_APP_NAV_TITLE}</span>
           </Typography>
           {/*<Button color="error" variant="contained" onClick={() => {setShowInfoModal(!showInfoModal)}}>Book</Button>*/}
           {/*<Button color="inherit" variant="outlined" href={`${process.env.REACT_APP_HOME_URL}`} target="_blank">Membership</Button>*/}

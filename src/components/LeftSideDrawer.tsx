@@ -13,8 +13,7 @@ import {useState} from "react";
 import {Collapse, ListItemIcon, MenuItem} from "@mui/material";
 
 export default function LeftSideDrawer(
-  {drawerOpen, toggleLeftSideDrawer, setShowImages, setShowInfoModal, showMenuModal, setShowMenuModal}:
-    {drawerOpen: any, toggleLeftSideDrawer: Function, setShowImages: Function, setShowInfoModal: Function, showMenuModal: boolean, setShowMenuModal: Function}) {
+  { pointerControls, firstPerson, drawerOpen, toggleLeftSideDrawer, setShowImages, setShowInfoModal, showMenuModal, setShowMenuModal}: any) {
 
   function openMenu(name: string) {
     setShowMenuModal(true)
@@ -31,6 +30,13 @@ export default function LeftSideDrawer(
   };
 
   const preToggleLeftSideDrawer = (event: any) => {
+    if (firstPerson) { // prevent mobile controls still showing if the user navigates away from first person mode
+      setTimeout(() => {
+        // @ts-ignore
+        pointerControls.current.unlock()
+      },100)
+      return;
+    } else {
       console.log(event)
       // TODO would be better do to this based on parent element, but the js-ignore-close doesn't seem to be there
       if (event.target.innerHTML === 'The Space' || event.target.classList.contains('js-ignore-close')) {
@@ -38,6 +44,7 @@ export default function LeftSideDrawer(
       } else {
         toggleLeftSideDrawer(event);
       }
+    }
   }
 
   return (

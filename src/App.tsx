@@ -78,6 +78,8 @@ function App() {
       <CssBaseline />
 
       <NavBar
+        firstPerson={firstPerson}
+        pointerControls={pointerControls}
         showInfoModal={showInfoModal}
         setShowInfoModal={setShowInfoModal}
         toggleLeftSideDrawer={toggleLeftSideDrawer}
@@ -101,6 +103,8 @@ function App() {
       <WarningTwoModal pointerControls={pointerControls} setShowWarningTwoModal={setShowWarningTwoModal} showWarningTwoModal={showWarningTwoModal} />
 
       <LeftSideDrawer
+        firstPerson={firstPerson}
+        pointerControls={pointerControls}
         drawerOpen={drawerOpen}
         toggleLeftSideDrawer={toggleLeftSideDrawer}
         setShowImages={setShowImages}
