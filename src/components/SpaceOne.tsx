@@ -48,7 +48,7 @@ export default function SpaceOne({space, cameraPosition}: { space: any, cameraPo
                 {space}
                 <Player pointerControls={pointerControls} />
                 <Grid />
-                <Environment preset="city" background={true} />
+                <Environment preset="park" background={true} />
               </Suspense>
             </Physics>
           </Canvas>
@@ -69,7 +69,6 @@ export default function SpaceOne({space, cameraPosition}: { space: any, cameraPo
           <Grid />
 
           <Suspense>
-            <Environment preset="city" background={false} />
             {space}
           </Suspense>
         </Canvas>
