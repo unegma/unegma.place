@@ -24,7 +24,8 @@ const useSceneInteractions: any = () => {
     setSelectedMesh,
     setTarget,
     setRoomCount,
-    setRoomNameArray
+    setRoomNameArray,
+    toggleFirstPerson
   } = actions;
 
   // Bind Actions
@@ -35,7 +36,8 @@ const useSceneInteractions: any = () => {
     setSelectedMesh,
     setTarget,
     setRoomCount,
-    setRoomNameArray
+    setRoomNameArray,
+    toggleFirstPerson
   }, dispatch);
 
   return { ...sceneInteractions, ...sceneInteractionsActions };

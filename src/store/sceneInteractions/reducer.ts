@@ -11,7 +11,8 @@ export const initialState: ISceneInteractions = {
   target: [0,0,0],
   roomCount: 1,
   roomNameArray: [],
-  error: ''
+  error: '',
+  firstPerson: false
 }
 
 export default function sceneInteractions(state = initialState, action: any) {
@@ -60,6 +61,12 @@ export default function sceneInteractions(state = initialState, action: any) {
         ...state,
         error: '',
         roomNameArray: action.payload.roomNameArray,
+      };
+    case SCENE_INTERACTIONS.TOGGLE_FIRST_PERSON:
+      return {
+        ...state,
+        error: '',
+        firstPerson: !state.firstPerson,
       };
     default: {
       return state;

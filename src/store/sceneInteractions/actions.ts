@@ -11,6 +11,11 @@ export function toggleZoom() {
 		type: SCENE_INTERACTIONS.TOGGLE_ZOOM,
 	}
 }
+export function toggleFirstPerson() {
+	return {
+		type: SCENE_INTERACTIONS.TOGGLE_FIRST_PERSON,
+	}
+}
 
 export function toggleFurnished() {
 	return {

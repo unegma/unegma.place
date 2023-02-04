@@ -1,49 +1,79 @@
-import {DefaultXRControllers, VRCanvas, useXR} from "@react-three/xr";
-import {Html, Loader, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import React, {Suspense, useState} from "react";
-import GridOnIcon from "@mui/icons-material/GridOn";
-import {ZoomIn, ZoomOut} from "@mui/icons-material";
+import {VRCanvas, useXR} from "@react-three/xr";
+import {
+  Loader,
+  OrbitControls,
+  PerspectiveCamera,
+  PointerLockControls,
+  KeyboardControls,
+  Environment
+} from "@react-three/drei";
+import React, {Suspense, useRef, useState} from "react";
 import {RightSideButtons} from "./RightSideButtons";
 import useSceneInteractions from "../hooks/useSceneInteractions";
 import {SpaceSelector} from "./SpaceSelector";
+import { Canvas } from "@react-three/fiber";
+import {Physics} from "@react-three/rapier";
+import {Player} from "./Player";
+import {FirstPersonSelector} from "./FirstPersonSelector";
+import {Grid} from "./Grid";
 
 export default function SpaceOne({space, cameraPosition}: { space: any, cameraPosition: any}) {
-  const { player } = useXR();
-  const { gridOn, zoomOn, target } = useSceneInteractions();
+  const { gridOn, zoomOn, target, firstPerson } = useSceneInteractions();
+  const pointerControls = useRef(null);
+  // const [playerPosition, setPlayerPosition ] = React.useState<any>([0,10,0]);
 
   return (
     <>
       <RightSideButtons />
       <SpaceSelector />
+      <FirstPersonSelector />
       <Loader />
 
-      <VRCanvas>
-        <DefaultXRControllers />
+      { firstPerson && (
+        <>
+          <KeyboardControls
+            map={[
+              { name: "forward", keys: ["ArrowUp", "w", "W"] },
+              { name: "backward", keys: ["ArrowDown", "s", "S"] },
+              { name: "left", keys: ["ArrowLeft", "a", "A"] },
+              { name: "right", keys: ["ArrowRight", "d", "D"] },
+              { name: "action", keys: ["e", "E"] },
+              { name: "jump", keys: ["Space"] },
+            ]}>
+          <Canvas shadows camera={{ fov: 45 }}>
+            <ambientLight/>
+            <PointerLockControls ref={pointerControls} />
+            <Physics gravity={[0, -30, 0]}>
+              <Suspense>
+                {space}
+                <Player pointerControls={pointerControls} />
+                <Grid />
+                <Environment preset="city" background={true} />
+              </Suspense>
+            </Physics>
+          </Canvas>
+          </KeyboardControls>
+        </>
+      )}
 
-        {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
-        <OrbitControls enableZoom={zoomOn} enablePan={true} target={target} />
+      { !firstPerson && (
+        <Canvas>
+          {/*<DefaultXRControllers />*/}
+          {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
+          <OrbitControls enableZoom={zoomOn} enablePan={true} target={target} />
 
-        <ambientLight/>
-        <pointLight intensity={3} position={[0, 0, 0]}/>
-        <PerspectiveCamera position={cameraPosition} makeDefault/>
+          <ambientLight/>
+          <pointLight intensity={3} position={[0, 0, 0]}/>
+          <PerspectiveCamera position={cameraPosition} makeDefault/>
 
-        <group visible={gridOn}>
-          <gridHelper position={[0,-1.4,-3.81]}/>
+          <Grid />
 
-          <gridHelper position={[0,-1.4,6.19]}/>
-          <gridHelper position={[-10,-1.4,6.19]}/>
-          <gridHelper position={[-10,-1.4,-3.81]}/>
-          <gridHelper position={[-10,-1.4,-13.81]}/>
-          <gridHelper position={[0,-1.4,-13.81]}/>
-          <gridHelper position={[10,-1.4,-13.81]}/>
-          <gridHelper position={[10,-1.4,-3.81]}/>
-          <gridHelper position={[10,-1.4,6.19]}/>
-        </group>
-
-        <Suspense>
-          {space}
-        </Suspense>
-      </VRCanvas>
+          <Suspense>
+            <Environment preset="city" background={false} />
+            {space}
+          </Suspense>
+        </Canvas>
+      )}
     </>
   )
 }

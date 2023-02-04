@@ -22,6 +22,7 @@ export default function ApartmentClicks({setSelectedMesh}: any) {
 
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/appartment-clicks.gltf`;
   const group = useRef<THREE.Group>(null!)
+  // @ts-ignore
   const { nodes } = useGLTF(spaceURL) as GLTFResult
 
   return (

@@ -20,18 +20,14 @@ import MenuModal from "./components/MenuModal";
 import LeftSideDrawer from "./components/LeftSideDrawer";
 import HomeScreen from "./components/HomeScreen";
 import SpaceOne from "./components/SpaceOne";
-import TopFloor from "./components/TopFloor";
-import Boudoir from "./components/Boudoir";
-import Gallery from "./components/Gallery";
-import MiddleFloor from "./components/MiddleFloor";
-import Dining from "./components/Dining";
 import ManhattanApartment from "./components/ManhattanApartment";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import useSceneInteractions from "./hooks/useSceneInteractions";
+import {CssBaseline} from "@mui/material";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
-  const { zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
+  const { firstPerson, zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
 
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -62,7 +58,7 @@ function App() {
 
   return (
     <div className="App">
-      {/*<CssBaseline /> TODO ADD THIS IN */}
+      <CssBaseline />
 
       <NavBar
         showInfoModal={showInfoModal}
@@ -106,7 +102,7 @@ function App() {
             <SpaceOne
               cameraPosition={[5,5,5]}
               space={
-                <ManhattanApartment setRoomNameArray={setRoomNameArray} setRoomCount={setRoomCount} furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
+                <ManhattanApartment firstPerson={firstPerson} setRoomNameArray={setRoomNameArray} setRoomCount={setRoomCount} furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
               }
             />
           }

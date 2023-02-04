@@ -8,6 +8,7 @@ export interface ISceneInteractions {
   roomCount: number;
   selectedMesh: number;
   roomNameArray: [];
+  firstPerson: boolean;
 }
 
 export enum SCENE_INTERACTIONS {
@@ -18,5 +19,6 @@ export enum SCENE_INTERACTIONS {
   SET_TARGET = 'SET_TARGET',
   SET_ROOM_COUNT = 'SET_ROOM_COUNT',
   SET_ROOM_NAME_ARRAY = 'SET_ROOM_NAME_ARRAY',
+  TOGGLE_FIRST_PERSON = 'TOGGLE_FIRST_PERSON',
   ERROR = 'ERROR',
 }

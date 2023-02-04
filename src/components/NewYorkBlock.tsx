@@ -176,6 +176,7 @@ export default function NewYorkBlock({ ...props }: JSX.IntrinsicElements['group'
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/new-york-block-transformed.glb`;
 
   const group = useRef<THREE.Group>(null!)
+  // @ts-ignore
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (
     <group ref={group} {...props} dispose={null}>

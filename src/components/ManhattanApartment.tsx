@@ -9,6 +9,7 @@ import { GLTF } from 'three-stdlib'
 import ApartmentFurnishings from "./ApartmentFurnishings";
 import ApartmentClicks from "./AppartmentClicks";
 import useSceneInteractions from "../hooks/useSceneInteractions";
+import ManhattanApartmentColliders from "./ManhattanApartmentColliders";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -25,12 +26,13 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function ManhattanApartment({setRoomCount, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomNameArray}: any) {
+export default function ManhattanApartment({firstPerson, setRoomCount, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomNameArray}: any) {
   // const { furnished, selectedMesh, setTarget } = useSceneInteractions(); // todo figure out why this hook isn't defined
 
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-transformed.glb`;
   const group = useRef<THREE.Group>(null!)
   const ref = useRef<any>(null!)
+  // @ts-ignore
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
   useEffect(() => {
@@ -64,6 +66,10 @@ export default function ManhattanApartment({setRoomCount, furnished, selectedMes
 
       { furnished && (
         <ApartmentFurnishings />
+      )}
+
+      { firstPerson && (
+        <ManhattanApartmentColliders furnished={furnished} />
       )}
 
       {/*<ApartmentClicks setSelectedMesh={setSelectedMesh}/>*/}

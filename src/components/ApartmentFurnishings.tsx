@@ -51,6 +51,7 @@ export default function ApartmentFurnishings({ ...props }: JSX.IntrinsicElements
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-furniture-transformed.glb`;
 
   const group = useRef<THREE.Group>(null!)
+  // @ts-ignore
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (
     <group ref={group} {...props} dispose={null}>
