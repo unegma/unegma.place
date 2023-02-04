@@ -134,17 +134,17 @@ export default function MobileMovementButtons({pointerControls}:any) {
 
 
         <div className={`movementControls__buttonsContainer`}>
-          <div className={`movementControls__buttonsContainerKeys`}>
-            <div className={`ePress`} onClick={handleEPress}>
-              [e]
-            </div>
-            <div className={`iPress`} onClick={handleIPress}>
-              [i]
-            </div>
-            <div className={`pPress`} onClick={handlePPress}>
-              [p]
-            </div>
-          </div>
+          {/*<div className={`movementControls__buttonsContainerKeys`}>*/}
+          {/*  <div className={`ePress`} onClick={handleEPress}>*/}
+          {/*    [e]*/}
+          {/*  </div>*/}
+          {/*  <div className={`iPress`} onClick={handleIPress}>*/}
+          {/*    [i]*/}
+          {/*  </div>*/}
+          {/*  <div className={`pPress`} onClick={handlePPress}>*/}
+          {/*    [p]*/}
+          {/*  </div>*/}
+          {/*</div>*/}
 
           <div className={`movementControls__buttonsContainerSpace`}>
             <div className={`spacePress`} onClick={handleSpacePress}>
