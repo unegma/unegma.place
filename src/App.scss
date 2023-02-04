@@ -302,3 +302,164 @@ canvas {
     justify-content: space-between !important;
   }
 }
+
+
+.movementControls {
+  * {
+    font-size: 12px !important;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  position: fixed;
+  bottom: 0;
+  //top: 50%;
+  //left:50%;
+  z-index: 999;
+  width: 100%;
+  height: 35vh;
+
+  padding: 5px;
+  font-size: 30px !important;
+  //pointer-events: none;
+  user-select: none;
+
+  &__container {
+    position: relative;
+    height: 100%;
+  }
+
+  .rightPan {
+    grid-area: 2 / 3 / 3 / 4;
+
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    //pointer-events: none;
+    user-select: none;
+  }
+  .leftPan {
+    grid-area: 2 / 1 / 3 / 2;
+
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    //pointer-events: none;
+    user-select: none;
+  }
+
+  &__movementContainer {
+    position: absolute;
+    top: 0;
+    left: 10%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  &__panContainer {
+    position: absolute;
+    top: 0;
+    right: 10%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  &__buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 30%;
+    left: calc(50% - 62px);
+    //top: 0;
+    //right: 10%;
+    //
+    //display: grid;
+    //grid-template-columns: repeat(3, 1fr);
+    //grid-template-rows: repeat(3, 1fr);
+    //grid-column-gap: 0px;
+    //grid-row-gap: 0px;
+  }
+
+  &__buttonsContainerKeys {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pPress {
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    margin-right: 5px;
+  }
+
+  .ePress {
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    margin-right: 5px;
+  }
+  .iPress {
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    margin-right: 5px;
+  }
+
+  .spacePress {
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+
+  .rightMove {
+
+    grid-area: 2 / 3 / 3 / 4;
+
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    //pointer-events: none;
+    user-select: none;
+
+  }
+  .upMove {
+    grid-area: 1 / 2 / 2 / 3;
+
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    //pointer-events: none;
+    user-select: none;
+
+  }
+  .leftMove {
+    grid-area: 2 / 1 / 3 / 2;
+
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    //pointer-events: none;
+    user-select: none;
+
+  }
+  .downMove {
+    grid-area: 3 / 2 / 4 / 3;
+
+    background-color: white;
+    padding: 5px;
+    font-size: 20px !important;
+    //pointer-events: none;
+    user-select: none;
+
+  }
+}

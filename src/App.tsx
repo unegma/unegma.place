@@ -26,6 +26,7 @@ import useSceneInteractions from "./hooks/useSceneInteractions";
 import {CssBaseline} from "@mui/material";
 import WarningModal from "./components/WarningModal";
 import WarningTwoModal from "./components/WarningTwoModal";
+import MobileMovementButtons from "./components/MobileMovementButtons";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
         <p className='helperText' onClick={() => {showHelperTextMessage()}}>{helperText}</p>
       </div>
 
+      <MobileMovementButtons pointerControls={pointerControls} />
       <InfoModal firstPerson={firstPerson} pointerControls={pointerControls} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <MenuModal showMenuModal={showMenuModal} setShowMenuModal={setShowMenuModal} />
       {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
