@@ -26,7 +26,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function ManhattanApartment({furnished, selectedMesh, setTarget, setSelectedMesh}: any) {
-  // const { furnished, selectedMesh, setTarget } = useSceneInteractions();
+  // const { furnished, selectedMesh, setTarget } = useSceneInteractions(); // todo figure out why this hook isn't defined
 
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-transformed.glb`;
   const group = useRef<THREE.Group>(null!)
