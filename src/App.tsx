@@ -27,21 +27,17 @@ import MiddleFloor from "./components/MiddleFloor";
 import Dining from "./components/Dining";
 import ManhattanApartment from "./components/ManhattanApartment";
 import GridOnIcon from "@mui/icons-material/GridOn";
+import useSceneInteractions from "./hooks/useSceneInteractions";
 // import BookingModal from "./components/BookingModal";
 
-const initialHelperText = '↺ or ⇉ Model';
-
 function App() {
+  const { zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh } = useSceneInteractions();
+
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showMenuModal, setShowMenuModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [target, setTarget] = useState([0,0,0]); // rotation point
-  const [gridOn, setGridOn] = useState(false);
-  const [zoomOn, setZoomOn] = useState(false);
-  const [helperText, setHelperText] = useState(initialHelperText);
-  const [furnished, setFurnished] = useState(false);
 
   const toggleLeftSideDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
       if (event.type === 'keydown' && (
@@ -51,9 +47,6 @@ function App() {
       }
       setDrawerOpen(!drawerOpen);
   };
-
-
-
 
   const showHelperTextMessage = () => {
     let helperTextAlertMessage = 'Model can be rotated or panned: \n' +
@@ -67,34 +60,9 @@ function App() {
     alert(helperTextAlertMessage);
   };
 
-  const toggleGridOn = () => {
-    setGridOn(!gridOn);
-
-    if (!gridOn) {
-      setHelperText('1 Square is approx 1m²');
-    } else {
-      setHelperText(initialHelperText);
-    }
-  };
-
-  const toggleZoomOn = () => {
-    setZoomOn(!zoomOn);
-
-    if (!zoomOn) {
-      alert('Zoom Enabled\n\nPLEASE BE AWARE\n\nThis model is a reduced quality scan\nThis will be more noticeable when zooming!')
-      setHelperText(`⚲ or ${initialHelperText}`);
-    } else {
-      setHelperText(initialHelperText);
-    }
-  }
-
-  const toggleFurnished = () => {
-    setFurnished(!furnished);
-  }
-
   return (
     <div className="App">
-      {/*<CssBaseline /> todo add this? */}
+      {/*<CssBaseline /> TODO ADD THIS IN */}
 
       <NavBar
         showInfoModal={showInfoModal}
@@ -136,15 +104,9 @@ function App() {
           path="/apartment"
           element={
             <SpaceOne
-              gridOn={gridOn}
-              zoomOn={zoomOn}
               cameraPosition={[5,5,5]}
-              target={target}
               space={
-                <ManhattanApartment
-                  setTarget={setTarget}
-                  furnished={furnished}
-                />
+                <ManhattanApartment furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
               }
             />
           }

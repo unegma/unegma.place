@@ -4,19 +4,15 @@ import React, {Suspense, useState} from "react";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import {ZoomIn, ZoomOut} from "@mui/icons-material";
 import {RightSideButtons} from "./RightSideButtons";
+import useSceneInteractions from "../hooks/useSceneInteractions";
 
-export default function SpaceOne({space, cameraPosition, target, zoomOn, gridOn}: { space: any, cameraPosition: any, target: any, zoomOn: boolean, gridOn: boolean }) {
+export default function SpaceOne({space, cameraPosition}: { space: any, cameraPosition: any}) {
   const { player } = useXR();
+  const { gridOn, zoomOn, target } = useSceneInteractions();
 
   return (
     <>
-      <RightSideButtons
-        furnished={furnished}
-        toggleFurnished={toggleFurnished}
-        zoomOn={zoomOn}
-        toggleGridOn={toggleGridOn}
-        toggleZoomOn={toggleZoomOn}
-      />
+      <RightSideButtons />
 
       <VRCanvas>
         <DefaultXRControllers />

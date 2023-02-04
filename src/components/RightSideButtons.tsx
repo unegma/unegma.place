@@ -1,13 +1,10 @@
 import {Chair, ChairOutlined, ZoomIn, ZoomOut} from "@mui/icons-material";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import React from "react";
-import {useStore} from '../store';
+import useSceneInteractions from "../hooks/useSceneInteractions";
 
 export function RightSideButtons({}) {
-  const { reset, set } = useStore((
-    { actions: { toggleFurnished, toggleGridOn, toggleZoomOn }, zoomOn, furnished }) => (
-      { toggleFurnished, toggleGridOn, toggleZoomOn, zoomOn, furnished }
-    ));
+  const { toggleFurnished, toggleGrid, toggleZoom, zoomOn, furnished } = useSceneInteractions();
 
   return (
     <div className={`buttons-container buttons-container--mid-right`}>
@@ -17,13 +14,13 @@ export function RightSideButtons({}) {
       { !furnished && (
         <ChairOutlined className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleFurnished()}}/>
       )}
-      <GridOnIcon className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleGridOn()}}/>
+      <GridOnIcon className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleGrid()}}/>
 
       { zoomOn && (
-        <ZoomIn className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoomOn()}}/>
+        <ZoomIn className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoom()}}/>
       )}
       { !zoomOn && (
-        <ZoomOut className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoomOn()}}/>
+        <ZoomOut className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoom()}}/>
       )}
     </div>
   )

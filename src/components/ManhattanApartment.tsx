@@ -8,6 +8,7 @@ import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import ApartmentFurnishings from "./ApartmentFurnishings";
 import ApartmentClicks from "./AppartmentClicks";
+import useSceneInteractions from "../hooks/useSceneInteractions";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -24,21 +25,21 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function ManhattanApartment({ setTarget, furnished }: { setTarget: Function, furnished: boolean }) {
+export default function ManhattanApartment({furnished, selectedMesh, setTarget, setSelectedMesh}: any) {
+  // const { furnished, selectedMesh, setTarget } = useSceneInteractions();
+
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-transformed.glb`;
   const group = useRef<THREE.Group>(null!)
   const ref = useRef<any>(null!)
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
-  const [selectedMesh, setSelectedMesh] = useState(1);
-
   useEffect(() => {
     switch(selectedMesh) {
       case 0:
-        setTarget([5,0,0]) // lounge
+        setTarget([0,0,0]) // lounge
         break;
       case 1:
-        setTarget([0,0,0])
+        setTarget([5,0,0])
         break;
       case 2:
         setTarget([-4,0,0]) // bedroom
@@ -60,7 +61,7 @@ export default function ManhattanApartment({ setTarget, furnished }: { setTarget
         <ApartmentFurnishings />
       )}
 
-      <ApartmentClicks setSelectedMesh={setSelectedMesh} />
+      <ApartmentClicks setSelectedMesh={setSelectedMesh}/>
     </group>
   )
 }
