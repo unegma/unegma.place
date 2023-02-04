@@ -25,13 +25,18 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function ManhattanApartment({furnished, selectedMesh, setTarget, setSelectedMesh}: any) {
+export default function ManhattanApartment({setRoomCount, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomNameArray}: any) {
   // const { furnished, selectedMesh, setTarget } = useSceneInteractions(); // todo figure out why this hook isn't defined
 
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-transformed.glb`;
   const group = useRef<THREE.Group>(null!)
   const ref = useRef<any>(null!)
   const { nodes, materials } = useGLTF(spaceURL, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
+
+  useEffect(() => {
+    setRoomCount(3);
+    setRoomNameArray(['Kitchen', 'Living Room', 'Bedroom']);
+  }, [])
 
   useEffect(() => {
     switch(selectedMesh) {
@@ -61,7 +66,7 @@ export default function ManhattanApartment({furnished, selectedMesh, setTarget, 
         <ApartmentFurnishings />
       )}
 
-      <ApartmentClicks setSelectedMesh={setSelectedMesh}/>
+      {/*<ApartmentClicks setSelectedMesh={setSelectedMesh}/>*/}
     </group>
   )
 }

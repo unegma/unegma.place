@@ -31,7 +31,7 @@ import useSceneInteractions from "./hooks/useSceneInteractions";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
-  const { zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh } = useSceneInteractions();
+  const { zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
 
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -106,7 +106,7 @@ function App() {
             <SpaceOne
               cameraPosition={[5,5,5]}
               space={
-                <ManhattanApartment furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
+                <ManhattanApartment setRoomNameArray={setRoomNameArray} setRoomCount={setRoomCount} furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
               }
             />
           }

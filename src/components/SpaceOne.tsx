@@ -5,6 +5,7 @@ import GridOnIcon from "@mui/icons-material/GridOn";
 import {ZoomIn, ZoomOut} from "@mui/icons-material";
 import {RightSideButtons} from "./RightSideButtons";
 import useSceneInteractions from "../hooks/useSceneInteractions";
+import {SpaceSelector} from "./SpaceSelector";
 
 export default function SpaceOne({space, cameraPosition}: { space: any, cameraPosition: any}) {
   const { player } = useXR();
@@ -13,6 +14,7 @@ export default function SpaceOne({space, cameraPosition}: { space: any, cameraPo
   return (
     <>
       <RightSideButtons />
+      <SpaceSelector />
 
       <VRCanvas>
         <DefaultXRControllers />

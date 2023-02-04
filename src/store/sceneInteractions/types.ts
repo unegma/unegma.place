@@ -5,7 +5,9 @@ export interface ISceneInteractions {
   error: string;
   helperText: string;
   target: [number, number, number];
+  roomCount: number;
   selectedMesh: number;
+  roomNameArray: [];
 }
 
 export enum SCENE_INTERACTIONS {
@@ -14,5 +16,7 @@ export enum SCENE_INTERACTIONS {
   TOGGLE_ZOOM = 'TOGGLE_ZOOM',
   SET_SELECTED_MESH = 'SET_SELECTED_MESH',
   SET_TARGET = 'SET_TARGET',
+  SET_ROOM_COUNT = 'SET_ROOM_COUNT',
+  SET_ROOM_NAME_ARRAY = 'SET_ROOM_NAME_ARRAY',
   ERROR = 'ERROR',
 }

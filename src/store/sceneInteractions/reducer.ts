@@ -1,14 +1,16 @@
 import { ISceneInteractions, SCENE_INTERACTIONS } from './types';
 
-const INITIAL_HELPER_TEXT = "↺ or ⇉ Model";
+const INITIAL_HELPER_TEXT = "⚲ or ↺ or ⇉ Model";
 
 export const initialState: ISceneInteractions = {
-  zoomOn: false,
+  zoomOn: true,
   gridOn: false,
   furnished: false,
   helperText: INITIAL_HELPER_TEXT,
   selectedMesh: 0,
   target: [0,0,0],
+  roomCount: 1,
+  roomNameArray: [],
   error: ''
 }
 
@@ -46,6 +48,18 @@ export default function sceneInteractions(state = initialState, action: any) {
         error: '',
         zoomOn: !state.zoomOn,
         helperText: !state.zoomOn ? `⚲ or ${INITIAL_HELPER_TEXT}` : INITIAL_HELPER_TEXT // todo check this switches back
+      };
+    case SCENE_INTERACTIONS.SET_ROOM_COUNT:
+      return {
+        ...state,
+        error: '',
+        roomCount: action.payload.roomCount,
+      };
+    case SCENE_INTERACTIONS.SET_ROOM_NAME_ARRAY:
+      return {
+        ...state,
+        error: '',
+        roomNameArray: action.payload.roomNameArray,
       };
     default: {
       return state;

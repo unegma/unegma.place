@@ -31,3 +31,16 @@ export function setTarget(target: [number,number,number]) {
 		payload: { target }
 	}
 }
+
+export function setRoomCount(roomCount:number) {
+	return {
+		type: SCENE_INTERACTIONS.SET_ROOM_COUNT,
+		payload: { roomCount }
+	}
+}
+export function setRoomNameArray(roomNameArray:[]) {
+	return {
+		type: SCENE_INTERACTIONS.SET_ROOM_NAME_ARRAY,
+		payload: { roomNameArray }
+	}
+}

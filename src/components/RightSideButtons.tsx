@@ -16,12 +16,12 @@ export function RightSideButtons({}) {
       )}
       <GridOnIcon className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleGrid()}}/>
 
-      { zoomOn && (
-        <ZoomIn className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoom()}}/>
-      )}
-      { !zoomOn && (
-        <ZoomOut className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoom()}}/>
-      )}
+      {/*{ zoomOn && (*/}
+      {/*  <ZoomIn className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoom()}}/>*/}
+      {/*)}*/}
+      {/*{ !zoomOn && (*/}
+      {/*  <ZoomOut className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {toggleZoom()}}/>*/}
+      {/*)}*/}
     </div>
   )
 }

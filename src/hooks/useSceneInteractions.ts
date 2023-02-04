@@ -22,7 +22,9 @@ const useSceneInteractions: any = () => {
     toggleGrid,
     toggleZoom,
     setSelectedMesh,
-    setTarget
+    setTarget,
+    setRoomCount,
+    setRoomNameArray
   } = actions;
 
   // Bind Actions
@@ -31,7 +33,9 @@ const useSceneInteractions: any = () => {
     toggleGrid,
     toggleZoom,
     setSelectedMesh,
-    setTarget
+    setTarget,
+    setRoomCount,
+    setRoomNameArray
   }, dispatch);
 
   return { ...sceneInteractions, ...sceneInteractionsActions };
