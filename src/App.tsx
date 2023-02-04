@@ -89,7 +89,10 @@ function App() {
         <p className='helperText' onClick={() => {showHelperTextMessage()}}>{helperText}</p>
       </div>
 
-      <MobileMovementButtons pointerControls={pointerControls} />
+      { firstPerson && (
+        <MobileMovementButtons pointerControls={pointerControls} />
+      )}
+
       <InfoModal firstPerson={firstPerson} pointerControls={pointerControls} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <MenuModal showMenuModal={showMenuModal} setShowMenuModal={setShowMenuModal} />
       {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
