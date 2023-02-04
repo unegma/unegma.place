@@ -11,7 +11,7 @@ export function FirstPersonSelector({}) {
   };
 
   return (
-    <div style={{position: "absolute", bottom: "5vh", left: "45%", zIndex: "99"}}>
+    <div className="first-person-selector">
       <Button onClick={() => {handleChange()}} variant="outlined" style={{color: "white", borderColor: "white"}}><Person/>&nbsp;&nbsp;First Person</Button>
     </div>
   )
