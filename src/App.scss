@@ -287,3 +287,18 @@ canvas {
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
+
+
+.infoModal__button-container {
+  display: flex;
+  justify-content: flex-end;
+
+  &-end {
+    display: flex;
+    justify-content: end !important;
+  }
+  &-between {
+    display: flex;
+    justify-content: space-between !important;
+  }
+}

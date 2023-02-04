@@ -7,7 +7,7 @@ import {
   KeyboardControls,
   Environment
 } from "@react-three/drei";
-import React, {Suspense, useRef, useState} from "react";
+import React, {Suspense, useEffect, useRef, useState} from "react";
 import {RightSideButtons} from "./RightSideButtons";
 import useSceneInteractions from "../hooks/useSceneInteractions";
 import {SpaceSelector} from "./SpaceSelector";
@@ -17,16 +17,20 @@ import {Player} from "./Player";
 import {FirstPersonSelector} from "./FirstPersonSelector";
 import {Grid} from "./Grid";
 
-export default function SpaceOne({space, cameraPosition}: { space: any, cameraPosition: any}) {
+export default function SpaceOne({pointerControls, space, cameraPosition, setShowWarningModal, setShowWarningTwoModal}: any) {
   const { gridOn, zoomOn, target, firstPerson } = useSceneInteractions();
-  const pointerControls = useRef(null);
+
   // const [playerPosition, setPlayerPosition ] = React.useState<any>([0,10,0]);
+
+  useEffect(() => {
+    setShowWarningModal(true)
+  },[])
 
   return (
     <>
-      <RightSideButtons />
+      <RightSideButtons firstPerson={firstPerson} pointerControls={pointerControls}/>
       <SpaceSelector />
-      <FirstPersonSelector />
+      <FirstPersonSelector setShowWarningModal={setShowWarningModal} firstPerson={firstPerson} setShowWarningTwoModal={setShowWarningTwoModal}/>
       <Loader />
 
       { firstPerson && (

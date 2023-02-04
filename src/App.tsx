@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Route, Routes
 } from "react-router-dom";
@@ -24,6 +24,8 @@ import ManhattanApartment from "./components/ManhattanApartment";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import useSceneInteractions from "./hooks/useSceneInteractions";
 import {CssBaseline} from "@mui/material";
+import WarningModal from "./components/WarningModal";
+import WarningTwoModal from "./components/WarningTwoModal";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -31,9 +33,12 @@ function App() {
 
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showWarningModal, setShowWarningModal] = useState(false);
+  const [showWarningTwoModal, setShowWarningTwoModal] = useState(false);
   const [showMenuModal, setShowMenuModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const pointerControls = useRef(null);
 
   const toggleLeftSideDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
       if (event.type === 'keydown' && (
@@ -43,6 +48,17 @@ function App() {
       }
       setDrawerOpen(!drawerOpen);
   };
+
+  const handleClickInfo = () => {
+    setShowInfoModal(!showInfoModal)
+
+    if (firstPerson) {
+      setTimeout(() => {
+        // @ts-ignore
+        pointerControls.current.unlock()
+      },100)
+    }
+  }
 
   const showHelperTextMessage = () => {
     let helperTextAlertMessage = 'Model can be rotated or panned: \n' +
@@ -72,10 +88,12 @@ function App() {
         <p className='helperText' onClick={() => {showHelperTextMessage()}}>{helperText}</p>
       </div>
 
-      <InfoModal showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
+      <InfoModal firstPerson={firstPerson} pointerControls={pointerControls} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
       <MenuModal showMenuModal={showMenuModal} setShowMenuModal={setShowMenuModal} />
       {/*<BookingModal showBookingModal={showBookingModal} setShowBookingModal={setShowBookingModal} />*/}
       <PhotoViewer showImages={showImages} />
+      <WarningModal setShowWarningModal={setShowWarningModal} showWarningModal={showWarningModal} />
+      <WarningTwoModal pointerControls={pointerControls} setShowWarningTwoModal={setShowWarningTwoModal} showWarningTwoModal={showWarningTwoModal} />
 
       <LeftSideDrawer
         drawerOpen={drawerOpen}
@@ -100,7 +118,10 @@ function App() {
           path="/apartment"
           element={
             <SpaceOne
+              pointerControls={pointerControls}
               cameraPosition={[5,5,5]}
+              setShowWarningModal={setShowWarningModal}
+              setShowWarningTwoModal={setShowWarningTwoModal}
               space={
                 <ManhattanApartment firstPerson={firstPerson} setRoomNameArray={setRoomNameArray} setRoomCount={setRoomCount} furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
               }
@@ -147,7 +168,7 @@ function App() {
       </Routes>
 
       <div className="buttons-container">
-        <InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {setShowInfoModal(!showInfoModal)}}/>
+        <InfoOutlined className="pointer" style={{ color: "white", margin: "0 4px" }} onClick={() => {handleClickInfo()}}/>
 
         <div className="pointer" onClick={() => {setShowImages(!showImages)}}>
           {/*<CameraAltOutlined  style={{ color: "white", margin: "0 4px" }} />*/}
