@@ -263,7 +263,7 @@ canvas {
 
 .centre-overlay {
   font-size: 50px;
-  line-height: 160px;
+  line-height: 90px;
   z-index:9999;
   color: white;
   position: fixed;
@@ -274,6 +274,7 @@ canvas {
 
   @media screen and (min-width: 768px) {
     font-size: 100px;
+    line-height: 160px;
   }
 }
 
@@ -281,7 +282,7 @@ canvas {
   //style={{position: "absolute", bottom: "5vh", left: "45%", zIndex: "99"}}
   position: absolute;
   z-index: 99;
-  bottom: 2%;
+  bottom: 3%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
