@@ -17,7 +17,7 @@ const CameraAnimation = () => {
   useFrame(state => {
     if (started) {
       state.camera.lookAt(0, 2, 0);
-      state.camera.position.lerp(vec.set(6, 6, -4), .0005)
+      state.camera.position.lerp(vec.set(6, 6, -4), .002)
     } return null
   })
   return null;
