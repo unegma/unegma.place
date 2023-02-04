@@ -15,7 +15,8 @@ export function SpaceSelector({}) {
     <>
       { !firstPerson && (
         <Stack className="room-paginator" spacing={2} style={{position: "absolute", right: "10vw", top: "10vh", zIndex: "99"}}>
-          <p>Room: {roomNameArray[selectedMesh]}</p>
+          <br/>
+          <span>Room: {roomNameArray[selectedMesh]}</span>
           <Pagination count={roomCount} color="primary" onChange={handleChange} />
         </Stack>
       )}
