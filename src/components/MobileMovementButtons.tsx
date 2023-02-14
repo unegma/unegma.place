@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import {useKeyboardControls} from "@react-three/drei";
 
-export default function MobileMovementButtons({pointerControls}:any) {
+export default function MobileMovementButtons({pointerControls, playerRef, jumpFunction}:any) {
 
   // const [, get] = useKeyboardControls()
   // const { forward, backward, left, right, jump, shift, control, action, place, info, debug } = get()
@@ -91,6 +91,8 @@ export default function MobileMovementButtons({pointerControls}:any) {
   }
 
   function handleSpacePress() {
+
+  jumpFunction(playerRef);
     // console.log(appRef)
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     // appRef.current.dispatchEvent(new KeyboardEvent('keypress', {

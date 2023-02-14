@@ -29,8 +29,17 @@ import WarningTwoModal from "./components/WarningTwoModal";
 import MobileMovementButtons from "./components/MobileMovementButtons";
 // import BookingModal from "./components/BookingModal";
 
+export function jumpFunction(ref: any) {
+  let JUMP_HEIGHT = 7.5;
+  // if (grounded) {
+    ref.current.setLinvel({x: 0, y: JUMP_HEIGHT, z: 0})
+  // }
+}
+
 function App() {
   const { firstPerson, zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
+
+  const playerRef = useRef(null)
 
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -92,7 +101,7 @@ function App() {
       </div>
 
       { firstPerson && (
-        <MobileMovementButtons pointerControls={pointerControls} />
+        <MobileMovementButtons pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
       )}
 
       <InfoModal firstPerson={firstPerson} pointerControls={pointerControls} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
@@ -127,6 +136,8 @@ function App() {
           path="/apartment"
           element={
             <SpaceOne
+              playerRef={playerRef}
+              jumpFunction={jumpFunction}
               pointerControls={pointerControls}
               cameraPosition={[5,5,5]}
               setShowWarningModal={setShowWarningModal}
