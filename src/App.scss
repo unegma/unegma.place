@@ -458,7 +458,7 @@ canvas {
     user-select: none;
 
   }
-  .upMove {
+  .forwardMove {
     grid-area: 1 / 2 / 2 / 3;
 
     background-color: white;
@@ -478,7 +478,7 @@ canvas {
     user-select: none;
 
   }
-  .downMove {
+  .backwardMove {
     grid-area: 3 / 2 / 4 / 3;
 
     background-color: white;

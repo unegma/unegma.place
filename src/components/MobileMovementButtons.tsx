@@ -30,48 +30,49 @@ export default function MobileMovementButtons(
       pointerControls.current.unlock()},1);
   }
 
-  function handleRightMove() {
-    // handle using is key up or key down etc
-    setPlayerRight(true);
-    // setTimeout(() => {
-    //   setPlayerRight(false)
-    // },1);
+  function handleRightMove(active: boolean) {
+    if (active) {
+      setPlayerRight(true);
+    } else {
+      setPlayerRight(false)
+    }
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
     setTimeout(() => { // @ts-ignore
       pointerControls.current.unlock()},1);
   }
-  function handleUpMove() {
-    // handle using is key up or key down etc
-    setPlayerForward(true);
-    // setTimeout(() => {
-    //   setPlayerForward(false)
-    // },1);
+  function handleForwardMove(active: boolean) {
+    if (active) {
+      setPlayerForward(true);
+    } else {
+      setPlayerForward(false)
+    }
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
     setTimeout(() => { // @ts-ignore
       pointerControls.current.unlock()},1);
   }
-  function handleLeftMove() {
-    // handle using is key up or key down etc
-    setPlayerLeft(true);
-    // setTimeout(() => {
-    //   setPlayerLeft(false)
-    // },1);
+  function handleLeftMove(active: boolean) {
+    if (active) {
+      setPlayerLeft(true);
+    } else {
+      setPlayerLeft(false)
+    }
+
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
     setTimeout(() => { // @ts-ignore
       pointerControls.current.unlock()},1);
   }
-  function handleDownMove() {
-    // handle using is key up or key down etc
-    setPlayerBackward(true);
-    // setTimeout(() => {
-    //   setPlayerBackward(false)
-    // },1);
+  function handleBackwardMove(active: boolean) {
+    if (active) {
+      setPlayerBackward(true);
+    } else {
+      setPlayerBackward(false)
+    }
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
@@ -136,16 +137,16 @@ export default function MobileMovementButtons(
         </div>
 
         <div className={`movementControls__movementContainer`}>
-          <div className={`rightMove`} onClick={handleRightMove}>
+          <div className={`rightMove`} onMouseUp={() => handleRightMove(false)} onMouseDown={() => handleRightMove(true)}>
             &#8594;
           </div>
-          <div className={`leftMove`} onClick={handleLeftMove}>
+          <div className={`leftMove`} onMouseUp={() => handleLeftMove(false)} onMouseDown={() => handleLeftMove(true)}>
             &#8592;
           </div>
-          <div className={`upMove`} onClick={handleUpMove}>
+          <div className={`forwardMove`} onMouseUp={() => handleForwardMove(false)} onMouseDown={() => handleForwardMove(true)}>
             &#8593;
           </div>
-          <div className={`downMove`} onClick={handleDownMove}>
+          <div className={`backwardMove`} onMouseUp={() => handleBackwardMove(false)} onMouseDown={() => handleBackwardMove(true)}>
             &#8595;
           </div>
         </div>
