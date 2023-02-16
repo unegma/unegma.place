@@ -37,7 +37,7 @@ export function jumpFunction(ref: any) {
 }
 
 function App() {
-  const { firstPerson, zoomOn, helperText, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
+  const { firstPerson, zoomOn, helperText, furnished, waterWorks, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
 
   const playerRef = useRef(null)
 
@@ -143,7 +143,7 @@ function App() {
               setShowWarningModal={setShowWarningModal}
               setShowWarningTwoModal={setShowWarningTwoModal}
               space={
-                <ManhattanApartment firstPerson={firstPerson} setRoomNameArray={setRoomNameArray} setRoomCount={setRoomCount} furnished={furnished} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
+                <ManhattanApartment firstPerson={firstPerson} setRoomNameArray={setRoomNameArray} setRoomCount={setRoomCount} furnished={furnished} waterWorks={waterWorks} selectedMesh={selectedMesh} setTarget={setTarget} setSelectedMesh={setSelectedMesh}/>
               }
             />
           }

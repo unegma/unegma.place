@@ -23,6 +23,12 @@ export function toggleFurnished() {
 	}
 }
 
+export function toggleWaterWorks() {
+	return {
+		type: SCENE_INTERACTIONS.TOGGLE_WATER_WORKS,
+	}
+}
+
 export function setSelectedMesh(selectedMesh: number) {
 	return {
 		type: SCENE_INTERACTIONS.SET_SELECTED_MESH,

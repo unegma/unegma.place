@@ -10,6 +10,7 @@ import ApartmentFurnishings from "./ApartmentFurnishings";
 import ApartmentClicks from "./AppartmentClicks";
 import useSceneInteractions from "../hooks/useSceneInteractions";
 import ManhattanApartmentColliders from "./ManhattanApartmentColliders";
+import ManhattanApartmentWaterWorks from "./ManhattanApartmentWaterWorks";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -26,7 +27,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export default function ManhattanApartment({firstPerson, setRoomCount, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomNameArray}: any) {
+export default function ManhattanApartment({waterWorks, firstPerson, setRoomCount, furnished, selectedMesh, setTarget, setSelectedMesh, setRoomNameArray}: any) {
   // const { furnished, selectedMesh, setTarget } = useSceneInteractions(); // todo figure out why this hook isn't defined
 
   const spaceURL = `${process.env.REACT_APP_ASSETS_URL}/manhattan-apartment-transformed.glb`;
@@ -66,6 +67,9 @@ export default function ManhattanApartment({firstPerson, setRoomCount, furnished
 
       { furnished && (
         <ApartmentFurnishings />
+      )}
+      { waterWorks && (
+        <ManhattanApartmentWaterWorks />
       )}
 
       { firstPerson && (

@@ -6,6 +6,7 @@ export const initialState: ISceneInteractions = {
   zoomOn: true,
   gridOn: false,
   furnished: false,
+  waterWorks: false,
   helperText: INITIAL_HELPER_TEXT,
   selectedMesh: 0,
   target: [0,0,0],
@@ -34,6 +35,12 @@ export default function sceneInteractions(state = initialState, action: any) {
         ...state,
         error: '',
         furnished: !state.furnished
+      };
+    case SCENE_INTERACTIONS.TOGGLE_WATER_WORKS:
+      return {
+        ...state,
+        error: '',
+        waterWorks: !state.waterWorks
       };
     case SCENE_INTERACTIONS.TOGGLE_GRID:
       return {

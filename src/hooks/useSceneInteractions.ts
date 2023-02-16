@@ -19,6 +19,7 @@ const useSceneInteractions: any = () => {
   // List of Actions
   const {
     toggleFurnished,
+    toggleWaterWorks,
     toggleGrid,
     toggleZoom,
     setSelectedMesh,
@@ -31,6 +32,7 @@ const useSceneInteractions: any = () => {
   // Bind Actions
   const sceneInteractionsActions = bindActions({
     toggleFurnished,
+    toggleWaterWorks,
     toggleGrid,
     toggleZoom,
     setSelectedMesh,

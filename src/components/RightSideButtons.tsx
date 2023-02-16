@@ -1,14 +1,24 @@
-import {Chair, ChairOutlined, ZoomIn, ZoomOut} from "@mui/icons-material";
+import {Chair, ChairOutlined, Water, WaterOutlined, ZoomIn, ZoomOut} from "@mui/icons-material";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import React from "react";
 import useSceneInteractions from "../hooks/useSceneInteractions";
 
 export function RightSideButtons({firstPerson, pointerControls}: any) {
 
-  const { toggleFurnished, toggleGrid, toggleZoom, zoomOn, furnished } = useSceneInteractions();
+  const { toggleFurnished, toggleWaterWorks, toggleGrid, toggleZoom, zoomOn, furnished, waterWorks } = useSceneInteractions();
 
   const handleToggleFurnished = () => {
     toggleFurnished();
+
+    if (firstPerson) {
+      setTimeout(() => {
+        // @ts-ignore
+        pointerControls.current.unlock()
+      },100)
+    }
+  }
+  const handleToggleWaterWorks = () => {
+    toggleWaterWorks();
 
     if (firstPerson) {
       setTimeout(() => {
@@ -37,6 +47,12 @@ export function RightSideButtons({firstPerson, pointerControls}: any) {
       )}
       { !furnished && (
         <ChairOutlined className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {handleToggleFurnished()}}/>
+      )}
+      { waterWorks && (
+        <Water className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {handleToggleWaterWorks()}}/>
+      )}
+      { !waterWorks && (
+        <WaterOutlined className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {handleToggleWaterWorks()}}/>
       )}
       <GridOnIcon className="pointer" style={{ color: "white", margin: "4px 4px" }} onClick={() => {handleToggleGrid()}}/>
 
