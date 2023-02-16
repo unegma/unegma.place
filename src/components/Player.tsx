@@ -17,7 +17,7 @@ const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
 const rotation = new THREE.Vector3()
 
-export function Player({ grounded, setGrounded, playerRef, pointerControls, jumpFunction}: any) {
+export function Player({ playerLeft, setPlayerLeft, playerRight, setPlayerRight, playerForward, setPlayerForward, playerBackward, setPlayerBackward, grounded, setGrounded, playerRef, pointerControls, jumpFunction}: any) {
   const rapier = useRapier()
   const { camera } = useThree()
   const [, get] = useKeyboardControls()
@@ -32,9 +32,30 @@ export function Player({ grounded, setGrounded, playerRef, pointerControls, jump
     // @ts-ignore
     camera.position.set(...playerRef.current.translation()) // todo might not be needed
 
+    if (forward) {
+      setPlayerForward(true)
+    } else {
+      setPlayerForward(false)
+    }
+    if (backward) {
+      setPlayerBackward(true)
+    } else {
+      setPlayerBackward(false)
+    }
+    if (left) {
+      setPlayerLeft(true)
+    } else {
+      setPlayerLeft(false)
+    }
+    if (right) {
+      setPlayerRight(true)
+    } else {
+      setPlayerRight(false)
+    }
+
     // movement - backward, forward, left, right, are booleans which need converting to numbers
-    frontVector.set(0, 0, backward - forward)
-    sideVector.set(left - right, 0, 0)
+    frontVector.set(0, 0, playerBackward - playerForward)
+    sideVector.set(playerLeft - playerRight, 0, 0)
 
     // todo something seems to break if press option and keys when running (remove tab indexes from everything in navbar (indluding title)
 

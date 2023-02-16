@@ -41,6 +41,10 @@ function App() {
 
   const playerRef = useRef(null)
   const [grounded, setGrounded] = useState(false);
+  const [playerLeft, setPlayerLeft] = useState(false);
+  const [playerRight, setPlayerRight] = useState(false);
+  const [playerForward, setPlayerForward] = useState(false);
+  const [playerBackward, setPlayerBackward] = useState(false);
 
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -102,7 +106,17 @@ function App() {
       </div>
 
       { firstPerson && (
-        <MobileMovementButtons grounded={grounded} pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
+        <MobileMovementButtons
+          grounded={grounded} pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction}
+          playerLeft={playerLeft}
+          setPlayerLeft={setPlayerLeft}
+          playerRight={playerRight}
+          setPlayerRight={setPlayerRight}
+          playerForward={playerForward}
+          setPlayerForward={setPlayerForward}
+          playerBackward={playerBackward}
+          setPlayerBackward={setPlayerBackward}
+        />
       )}
 
       <InfoModal firstPerson={firstPerson} pointerControls={pointerControls} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
@@ -137,6 +151,14 @@ function App() {
           path="/apartment"
           element={
             <SpaceOne
+              playerLeft={playerLeft}
+              setPlayerLeft={setPlayerLeft}
+              playerRight={playerRight}
+              setPlayerRight={setPlayerRight}
+              playerForward={playerForward}
+              setPlayerForward={setPlayerForward}
+              playerBackward={playerBackward}
+              setPlayerBackward={setPlayerBackward}
               grounded={grounded}
               setGrounded={setGrounded}
               playerRef={playerRef}

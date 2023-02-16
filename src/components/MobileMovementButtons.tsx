@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 // import {useKeyboardControls} from "@react-three/drei";
 
-export default function MobileMovementButtons({grounded, pointerControls, playerRef, jumpFunction}:any) {
+export default function MobileMovementButtons(
+  {playerLeft, setPlayerLeft, playerRight, setPlayerRight, playerForward, setPlayerForward, playerBackward, setPlayerBackward, grounded, pointerControls, playerRef, jumpFunction}:any) {
 
   // const [, get] = useKeyboardControls()
   // const { forward, backward, left, right, jump, shift, control, action, place, info, debug } = get()
@@ -30,7 +31,11 @@ export default function MobileMovementButtons({grounded, pointerControls, player
   }
 
   function handleRightMove() {
-    console.log(pointerControls)
+    // handle using is key up or key down etc
+    setPlayerRight(true);
+    // setTimeout(() => {
+    //   setPlayerRight(false)
+    // },1);
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
@@ -38,8 +43,11 @@ export default function MobileMovementButtons({grounded, pointerControls, player
       pointerControls.current.unlock()},1);
   }
   function handleUpMove() {
-
-    console.log(pointerControls)
+    // handle using is key up or key down etc
+    setPlayerForward(true);
+    // setTimeout(() => {
+    //   setPlayerForward(false)
+    // },1);
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
@@ -47,7 +55,11 @@ export default function MobileMovementButtons({grounded, pointerControls, player
       pointerControls.current.unlock()},1);
   }
   function handleLeftMove() {
-    console.log(pointerControls)
+    // handle using is key up or key down etc
+    setPlayerLeft(true);
+    // setTimeout(() => {
+    //   setPlayerLeft(false)
+    // },1);
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
@@ -55,7 +67,11 @@ export default function MobileMovementButtons({grounded, pointerControls, player
       pointerControls.current.unlock()},1);
   }
   function handleDownMove() {
-    console.log(pointerControls)
+    // handle using is key up or key down etc
+    setPlayerBackward(true);
+    // setTimeout(() => {
+    //   setPlayerBackward(false)
+    // },1);
 
     // @ts-ignore
     // pointerControls.current.camera.rotation.y = pointerControls.current.camera.rotation.y -0.1;
