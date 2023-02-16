@@ -17,7 +17,7 @@ const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
 const rotation = new THREE.Vector3()
 
-export function Player({ playerRef, pointerControls, jumpFunction}: any) {
+export function Player({ grounded, setGrounded, playerRef, pointerControls, jumpFunction}: any) {
   const rapier = useRapier()
   const { camera } = useThree()
   const [, get] = useKeyboardControls()
@@ -56,10 +56,11 @@ export function Player({ playerRef, pointerControls, jumpFunction}: any) {
     // @ts-ignore
     const ray = world.castRay(new RAPIER.Ray(playerRef.current.translation(), { x: 0, y: -1, z: 0 }))
     const grounded = ray && ray.collider && Math.abs(ray.toi) <= 1.75
+    setGrounded(grounded);
 
     // todo fix bug where jump triggers i after planting object... (can't seem to replicate)
     if (jump && grounded) { // @ts-ignore
-      jumpFunction(playerRef);
+      jumpFunction(playerRef, grounded);
     }
   })
 

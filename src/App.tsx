@@ -29,17 +29,18 @@ import WarningTwoModal from "./components/WarningTwoModal";
 import MobileMovementButtons from "./components/MobileMovementButtons";
 // import BookingModal from "./components/BookingModal";
 
-export function jumpFunction(ref: any) {
+export function jumpFunction(ref: any, grounded: boolean) {
   let JUMP_HEIGHT = 7.5;
-  // if (grounded) {
+  if (grounded) {
     ref.current.setLinvel({x: 0, y: JUMP_HEIGHT, z: 0})
-  // }
+  }
 }
 
 function App() {
   const { firstPerson, zoomOn, helperText, furnished, waterWorks, selectedMesh, setTarget, setSelectedMesh, setRoomCount, setRoomNameArray } = useSceneInteractions();
 
   const playerRef = useRef(null)
+  const [grounded, setGrounded] = useState(false);
 
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -101,7 +102,7 @@ function App() {
       </div>
 
       { firstPerson && (
-        <MobileMovementButtons pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
+        <MobileMovementButtons grounded={grounded} pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
       )}
 
       <InfoModal firstPerson={firstPerson} pointerControls={pointerControls} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal} />
@@ -136,6 +137,8 @@ function App() {
           path="/apartment"
           element={
             <SpaceOne
+              grounded={grounded}
+              setGrounded={setGrounded}
               playerRef={playerRef}
               jumpFunction={jumpFunction}
               pointerControls={pointerControls}

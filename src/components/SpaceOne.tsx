@@ -17,7 +17,7 @@ import {Player} from "./Player";
 import {FirstPersonSelector} from "./FirstPersonSelector";
 import {Grid} from "./Grid";
 
-export default function SpaceOne({playerRef, jumpFunction, pointerControls, space, cameraPosition, setShowWarningModal, setShowWarningTwoModal}: any) {
+export default function SpaceOne({grounded, setGrounded, playerRef, jumpFunction, pointerControls, space, cameraPosition, setShowWarningModal, setShowWarningTwoModal}: any) {
   const { gridOn, zoomOn, target, firstPerson } = useSceneInteractions();
 
   // const [playerPosition, setPlayerPosition ] = React.useState<any>([0,10,0]);
@@ -50,7 +50,7 @@ export default function SpaceOne({playerRef, jumpFunction, pointerControls, spac
             <Physics gravity={[0, -30, 0]}>
               <Suspense>
                 {space}
-                <Player pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
+                <Player grounded={grounded} setGrounded={setGrounded} pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
                 <Grid />
                 <Environment preset="park" background={true} />
               </Suspense>
