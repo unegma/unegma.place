@@ -137,16 +137,16 @@ export default function MobileMovementButtons(
         </div>
 
         <div className={`movementControls__movementContainer`}>
-          <div className={`rightMove`} onMouseUp={() => handleRightMove(false)} onMouseDown={() => handleRightMove(true)}>
+          <div className={`rightMove`} onTouchStart={() => handleRightMove(true)} onTouchEnd={() => handleRightMove(false)} >
             &#8594;
           </div>
-          <div className={`leftMove`} onMouseUp={() => handleLeftMove(false)} onMouseDown={() => handleLeftMove(true)}>
+          <div className={`leftMove`} onTouchStart={() => handleLeftMove(true)} onTouchEnd={() => handleLeftMove(false)} >
             &#8592;
           </div>
-          <div className={`forwardMove`} onMouseUp={() => handleForwardMove(false)} onMouseDown={() => handleForwardMove(true)}>
+          <div className={`forwardMove`} onTouchStart={() => handleForwardMove(true)} onTouchEnd={() => handleForwardMove(false)} >
             &#8593;
           </div>
-          <div className={`backwardMove`} onMouseUp={() => handleBackwardMove(false)} onMouseDown={() => handleBackwardMove(true)}>
+          <div className={`backwardMove`} onTouchStart={() => handleBackwardMove(true)} onTouchEnd={() => handleBackwardMove(false)} >
             &#8595;
           </div>
         </div>
