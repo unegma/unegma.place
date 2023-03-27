@@ -335,7 +335,9 @@ canvas {
     font-size: 12px !important;
   }
 
-  @media screen and (min-width: 768px) {
+  /*--breakpointMobile: 360px; can't use in media queries */
+  /*--breakpointTablet: 768px; can't use in media queries*/
+  @media screen and (min-width: 1080px) {
     display: none;
   }
 
