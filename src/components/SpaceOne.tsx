@@ -61,7 +61,7 @@ export default function SpaceOne({ playerLeft, setPlayerLeft, playerRight, setPl
                   setPlayerBackward={setPlayerBackward}
                   grounded={grounded} setGrounded={setGrounded} pointerControls={pointerControls} playerRef={playerRef} jumpFunction={jumpFunction} />
                 <Grid />
-                <Environment preset="park" background={true} />
+                <Environment files="https://assets.unegma.net/shared/threejs-environments/park.hdr" background={true} />
               </Suspense>
             </Physics>
           </Canvas>

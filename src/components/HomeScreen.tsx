@@ -60,7 +60,7 @@ export default function HomeScreen({toggleLeftSideDrawer}: {toggleLeftSideDrawer
           <PerspectiveCamera position={[40,40,40]} makeDefault/>
 
           <Suspense>
-            <Environment preset="park" background={true} />
+            <Environment files="https://assets.unegma.net/shared/threejs-environments/park.hdr" background={true} />
 
             <NewYorkBlock position={[0,-40,0]} />
           </Suspense>
