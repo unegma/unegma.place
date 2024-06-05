@@ -1,0 +1,167 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*@font-face {*/
+/*  font-family: "Prata", serif;*/
+/*  font-weight: 400;*/
+/*  font-style: normal;*/
+/*  src: url('/fonts/inter-regular.woff2') format('woff2'),*/
+/*  url('/fonts/inter-regular.woff') format('woff');*/
+/*}*/
+/*@font-face {*/
+/*  font-family: "Montserrat", sans-serif;*/
+/*  !*font-optical-sizing: auto;*!*/
+/*  font-weight: 400;*/
+/*  font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*  font-family: "Albert Sans", sans-serif;*/
+/*  !*font-optical-sizing: auto;*!*/
+/*  font-weight: 400;*/
+/*  font-style: normal;*/
+/*}*/
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 244, 244, 244;
+  --background-end-rgb: 244, 244, 244;
+}
+
+/*@media (prefers-color-scheme: dark) {*/
+/*  :root {*/
+/*    --foreground-rgb: 255, 255, 255;*/
+/*    --background-start-rgb: 0, 0, 0;*/
+/*    --background-end-rgb: 0, 0, 0;*/
+/*  }*/
+/*}*/
+
+body {
+  /*todo can also set the base font color here, but have set on the body tag*/
+  /*color: rgb(var(--foreground-rgb));*/
+  background: rgb(var(--background-start-rgb));
+  /*background: linear-gradient(*/
+  /*    to bottom,*/
+  /*    transparent,*/
+  /*    rgb(var(--background-end-rgb))*/
+  /*  )*/
+  /*  rgb(var(--background-start-rgb));*/
+
+}
+/*@layer utilities {*/
+/*  .text-balance {*/
+/*    text-wrap: balance;*/
+/*  }*/
+/*}*/
+
+
+/*todo might be better to just style each h1 tag with tailwind directly in the tailwind, because if the structure changes, the style shouldnt*/
+/* todo move to component or global styles and set correctly for mobile */
+h1 {
+  /*todo convert to use this*/
+  /*@apply font-prata text-4xl font-light;*/
+  font-family: var(--font-prata);
+
+  font-size: 2.5rem;
+  font-weight: lighter;
+  font-style: normal;
+  line-height: 3.3rem;
+}
+
+h2 {
+  /*todo convert to use this*/
+  /*@apply font-prata text-4xl font-light;*/
+  font-family: var(--font-prata);
+
+  font-size: 2rem;
+  font-weight: lighter;
+  font-style: normal;
+  line-height: 2rem;
+}
+h3 {
+  /*todo convert to use this*/
+  /*@apply font-prata text-4xl font-light;*/
+  font-family: var(--font-prata);
+
+  font-size: 1.5rem;
+  font-weight: lighter;
+  font-style: normal;
+  line-height: 3.3rem;
+}
+
+h4 {
+  /*todo convert to use this*/
+  /*@apply font-prata text-4xl font-light;*/
+  font-family: var(--font-prata);
+
+  font-size: 1.5rem;
+  font-weight: lighter;
+  font-style: normal;
+  line-height: 1.8rem;
+}
+
+.albert {
+  @apply font-albertSans;
+
+  /*font-family: var(--font-albert);*/
+  /*font-family: 'Albert',Helvetica,Arial,Lucida,sans-serif;*/
+  font-weight: 400;
+}
+.prata {
+  @apply font-prata;
+  /*font-family: var(--font-prata);*/
+  /*font-family: 'Prata',Helvetica,Arial,Lucida,sans-serif;*/
+}
+.montserrat {
+  @apply font-montserrat;
+  /*font-family: 'Montserrat', sans-serif;*/
+  /*font-family: var(--font-montserrat);*/
+}
+.meow {
+  @apply font-meow;
+}
+
+
+.button {
+  @apply font-montserrat;
+  /*font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;*/
+  border: 2px solid #222;
+  padding: 6px 15px;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.button:hover {
+  background-color: #222;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.button-black {
+  @apply font-montserrat;
+  /*font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;*/
+  background-color: black;
+  color: white;
+  border: 2px solid #222;
+  padding: 6px 15px;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.button-black:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+/*todo move to tailwind config*/
+.bg-secondary {
+  background-color: #EDDBCD;
+}
+
+.bg-tertiary {
+  background-color: #5da399;
+}

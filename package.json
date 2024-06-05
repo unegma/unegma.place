@@ -1,68 +1,61 @@
 {
-  "name": "spaces",
-  "version": "0.1.0",
+  "name": "unegma.place",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.8.2",
-    "@mui/material": "^5.8.2",
-    "@react-three/drei": "9.34.4",
-    "@react-three/fiber": "^8.10.0",
-    "@react-three/rapier": "0.8.2",
-    "@react-three/xr": "^3.5.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.1",
-    "@types/node": "^16.11.36",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.5",
-    "@types/react-pdf": "^5.7.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-pdf": "^5.7.2",
-    "react-photo-view": "^1.1.2",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "three": "^0.141.0",
-    "typescript": "^4.7.2",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
-    "pull-original": "git pull original main --allow-unrelated-histories",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build-prod": "react-scripts build --prod",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "1-create-bucket": ". .env && aws --profile $PROFILE s3api create-bucket --bucket $AWS_BUCKET_NAME --region $AWS_REGION --create-bucket-configuration LocationConstraint=$AWS_REGION",
-    "2-configure-bucket": ". .env && aws --profile $PROFILE s3api put-bucket-policy --bucket $AWS_BUCKET_NAME --policy file:///$PWD/settings/bucket_policy.json && aws --profile $PROFILE s3 website s3://$AWS_BUCKET_NAME --index-document index.html --error-document index.html",
-    "deploy": ". .env && aws --profile $PROFILE s3 sync --delete ./build s3://$AWS_BUCKET_NAME",
-    "BUILD-AND-DEPLOY": "npm run build && npm run deploy",
-    "BUILD-AND-DEPLOY-PROD": "npm run build-prod && npm run deploy",
-    "DEPLOY": "npm run BUILD-AND-DEPLOY-PROD"
+    "## todo": "Add script for clearing cloudflare cache when deploying; TODO IS A BUILD HAPPENING WHEN DEPLOY-PROD??g",
+    "### might want to do the version bump first because the logs will say the earlier version otherwise during the build (this will also stop running a build with uncommitted stuff, but could cause issues if have to revert a tag": "",
+    "DEPLOY-PROD": "npm version major && NODE_ENV=production npx sst deploy --prod --stage prod && git add . && git commit -am 'Deployment' && git push && git push --tags",
+    "### THIS MIGHT NOT DO A PROD BUILD, BUT RUN A DEV BUILD TO DEV ENVIRONMENT": "MIGHT EVEN WANT TO CHANGE THE APP SO THAT --PROD IS TRUE HERE SO THAT THE STAGING SERVER IS BUILD AS THE PROD SERVER WILL BE",
+    "DEPLOY-DEV": "npm version minor && npx sst deploy --stage staging && git add . && git commit -am 'Deployment' && git push && git push --tags",
+    "### I wonder if this should be timhc22 like the 'stage' which we set manually when creating?": "there is no cloudfront distro created, but there are the buckets, so maybe 'bind' acts as a cloudfront setup would?",
+    "dev-sst": "npx sst dev",
+    "dev-nextjs": "sst bind next dev",
+    "### Run concurrently with &": "// todo not sure why these both have to be run // todo check this is not using the same backend server as the dev server and check why the new sst config means I can run one after the next like I used to with &&",
+    "LOCAL-SERVER": "npm run dev-sst & npm run dev-nextjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "DELETE-DEV": "#npx sst remove --stage staging",
+    "DELETE-PROD": "#NODE_ENV=production npx sst remove --prod --stage prod",
+    "postbuild": "next-sitemap",
+    "analyze": "ANALYZE=true npm run build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@headlessui/react": "^2.0.3",
+    "@heroicons/react": "^2.1.3",
+    "@mui/icons-material": "^5.15.17",
+    "@next/third-parties": "^14.2.3",
+    "@types/nodemailer": "^6.4.15",
+    "markdown-to-jsx": "^7.4.7",
+    "next": "14.2.3",
+    "nodemailer": "^6.9.13",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-hook-form": "^7.51.4",
+    "tailwindcss": "^3.4.3",
+    "yet-another-react-lightbox": "^3.18.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/three": "^0.140.0",
-    "sass": "^1.55.0"
+    "@next/bundle-analyzer": "^14.2.3",
+    "@types/node": "20.12.11",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.19",
+    "aws-cdk-lib": "2.141.0",
+    "constructs": "10.3.0",
+    "cssnano": "^7.0.1",
+    "dotenv": "^16.4.5",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.3",
+    "next-sitemap": "^4.2.3",
+    "postcss": "8.4.38",
+    "raw-loader": "^4.0.2",
+    "sst": "^2.41.5",
+    "typescript": "5.4.5"
   }
 }

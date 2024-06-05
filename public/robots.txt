@@ -1,3 +1,10 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /private
+
+# Host
+Host: https://mycoastalhost.com
+
+# Sitemaps
+Sitemap: https://mycoastalhost.com/sitemap.xml
