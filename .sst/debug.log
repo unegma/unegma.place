@@ -1,0 +1,21 @@
+2024-06-05T22:32:13.387Z  +6867ms [debug] Config loaded {"version":"2.41.5","cdkVersion":"2.132.1","constructsVersion":"10.3.0","config":{"name":"unegmaplacedev","region":"eu-west-2","profile":"unegma","stage":"unegma","ssmPrefix":"/sst/unegmaplacedev/unegma/"},"metafile":{"inputs":{"sst.config.ts":{"bytes":2587,"imports":[{"path":"sst","kind":"import-statement","external":true},{"path":"sst/constructs","kind":"import-statement","external":true},{"path":"aws-cdk-lib/aws-certificatemanager","kind":"import-statement","external":true}],"format":"esm"}},"outputs":{".sst.config.1717626726531.mjs":{"imports":[],"exports":["default"],"entryPoint":"sst.config.ts","inputs":{"sst.config.ts":{"bytesInOutput":1112}},"bytes":1294}}},"paths":{"config":"/Users/timhc22/Downloads/(Repos)/Unegma/(unegma.place)/unegma.place/sst.config.ts","root":"/Users/timhc22/Downloads/(Repos)/Unegma/(unegma.place)/unegma.place","out":"/Users/timhc22/Downloads/(Repos)/Unegma/(unegma.place)/unegma.place/.sst","artifacts":"/Users/timhc22/Downloads/(Repos)/Unegma/(unegma.place)/unegma.place/.sst/artifacts"}}
+2024-06-05T22:32:14.570Z  +1183ms [debug] Using AWS profile unegma
+2024-06-05T22:32:14.571Z     +1ms [debug] Created AWS client IoTClient
+2024-06-05T22:32:14.571Z     +0ms [debug] Getting IoT endpoint
+2024-06-05T22:32:14.589Z    +18ms [debug] Synthesizing stacks...
+2024-06-05T22:32:14.595Z     +6ms [debug] Created AWS client STSClient
+2024-06-05T22:32:14.664Z    +69ms [debug] Using IoT endpoint: a31r4n7ztz47fr-ats.iot.eu-west-2.amazonaws.com
+2024-06-05T22:32:14.664Z     +0ms [debug] Initializing bootstrap context
+2024-06-05T22:32:14.664Z     +0ms [debug] Created AWS client CloudFormationClient
+2024-06-05T22:32:14.699Z    +35ms [debug] Using identity Account: 952351240809 User: 952351240809
+2024-06-05T22:32:14.701Z     +2ms [debug] Generating types in /Users/timhc22/Downloads/(Repos)/Unegma/(unegma.place)/unegma.place/.sst/types
+2024-06-05T22:32:14.877Z   +176ms [debug] Running 1 deferred tasks with concurrency: 9
+2024-06-05T22:32:15.047Z   +170ms [debug] Loaded bootstrap status
+2024-06-05T22:32:15.047Z     +0ms [debug] Bootstrap context initialized {"status":"ready","version":"7.3","bucket":"sstbootstrap-euwest292dc64b9-i9m3zseofuqs"}
+2024-06-05T22:32:15.048Z     +1ms [debug] Created AWS client S3Client
+2024-06-05T22:32:15.138Z    +90ms [debug] 
+2024-06-05T22:32:15.138Z     +0ms [debug] Loading v2 AWS SDK
+2024-06-05T22:32:15.138Z     +0ms [debug] Finished synthesizing
+2024-06-05T22:32:15.241Z   +103ms [debug] IoT connected
+2024-06-05T22:32:15.244Z     +3ms [debug] Fetching metadata for stack unegma-unegmaplacedev-Site failed {"name":"NoSuchKey","$fault":"client","$metadata":{"httpStatusCode":404,"requestId":"D5EQEG6R5TXGKCP5","extendedRequestId":"rIWuQNjReObqCkd1EAHoj+CJA2WlhxPNNucVJAt+eihswPOxGp7cxPaGOB6bqnoS//SwAAUrfvM=","attempts":1,"totalRetryDelay":0},"Code":"NoSuchKey","Key":"stackMetadata/app.unegmaplacedev/stage.unegma/stack.unegma-unegmaplacedev-Site.json","RequestId":"D5EQEG6R5TXGKCP5","HostId":"rIWuQNjReObqCkd1EAHoj+CJA2WlhxPNNucVJAt+eihswPOxGp7cxPaGOB6bqnoS//SwAAUrfvM=","message":"The specified key does not exist."}
+2024-06-05T22:32:15.245Z     +1ms [debug] Created AWS client SSMClient

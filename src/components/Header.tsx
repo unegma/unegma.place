@@ -26,18 +26,18 @@ export default function Header() {
         <div className="flex">
           <Link href="/" onClick={closeMobileMenu} className="">
             <span id="site-header" className="sr-only">My Coastal Host</span>
-            <Image
-              src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"
-              className="mr-6 -mt-1"
-              height={30}
-              width={30}
-              alt="My Coastal Host Logo"
-              // leave this here to prevent warning
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
+            {/*<Image*/}
+            {/*  src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"*/}
+            {/*  className="mr-6 -mt-1"*/}
+            {/*  height={30}*/}
+            {/*  width={30}*/}
+            {/*  alt="My Coastal Host Logo"*/}
+            {/*  // leave this here to prevent warning*/}
+            {/*  style={{*/}
+            {/*    maxWidth: "100%",*/}
+            {/*    height: "auto",*/}
+            {/*  }}*/}
+            {/*/>*/}
           </Link>
         </div>
 
@@ -135,18 +135,18 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" onClick={closeMobileMenu} className="">
               <span className="sr-only">My Coastal Host</span>
-              <Image
-                height={30}
-                width={30}
-                src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"
-                className="-mt-1"
-                alt="My Coastal Host Logo"
-                // leave this here to prevent warning
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-              />
+              {/*<Image*/}
+              {/*  height={30}*/}
+              {/*  width={30}*/}
+              {/*  src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"*/}
+              {/*  className="-mt-1"*/}
+              {/*  alt="My Coastal Host Logo"*/}
+              {/*  // leave this here to prevent warning*/}
+              {/*  style={{*/}
+              {/*    maxWidth: "100%",*/}
+              {/*    height: "auto",*/}
+              {/*  }}*/}
+              {/*/>*/}
             </Link>
             <button
               type="button"

@@ -65,18 +65,18 @@ export default function Footer() {
             <h3 id="logo-heading" className="sr-only">Logo</h3>
           </header>
           <Link href="/#top">
-            <Image
-              src="https://assets.unegma.net/mycoastalhost.com/logo-large-nopadding.png"
-              className="pb-1 pt-4 mb-10"
-              height={57}
-              width={250}
-              alt="My Coastal Host full Logo"
-              // todo this needs fixing on edge and chrome on windows
-              style={{
-                maxWidth: "100%",
-                height: "auto"
-              }}
-            />
+            {/*<Image*/}
+            {/*  src="https://assets.unegma.net/mycoastalhost.com/logo-large-nopadding.png"*/}
+            {/*  className="pb-1 pt-4 mb-10"*/}
+            {/*  height={57}*/}
+            {/*  width={250}*/}
+            {/*  alt="My Coastal Host full Logo"*/}
+            {/*  // todo this needs fixing on edge and chrome on windows*/}
+            {/*  style={{*/}
+            {/*    maxWidth: "100%",*/}
+            {/*    height: "auto"*/}
+            {/*  }}*/}
+            {/*/>*/}
           </Link>
         </section>
       </div>

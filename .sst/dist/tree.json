@@ -1,0 +1,900 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "unegma-unegmaplacedev-Site": {
+        "id": "unegma-unegmaplacedev-Site",
+        "path": "unegma-unegmaplacedev-Site",
+        "children": {
+          "CustomResourceHandler": {
+            "id": "CustomResourceHandler",
+            "path": "unegma-unegmaplacedev-Site/CustomResourceHandler",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplacedev"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "unegma"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.132.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.132.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+                      "s3Key": "69f446380e582530dccfa0109ab162bd0455a30283251587a374f39ee54fad44.zip"
+                    },
+                    "handler": "index.handler",
+                    "memorySize": 1024,
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CustomResourceHandlerServiceRole41AEC181",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs18.x",
+                    "tags": [
+                      {
+                        "key": "sst:app",
+                        "value": "unegmaplacedev"
+                      },
+                      {
+                        "key": "sst:stage",
+                        "value": "unegma"
+                      }
+                    ],
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.132.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.132.1"
+            }
+          },
+          "public": {
+            "id": "public",
+            "path": "unegma-unegmaplacedev-Site/public",
+            "children": {
+              "Bucket": {
+                "id": "Bucket",
+                "path": "unegma-unegmaplacedev-Site/public/Bucket",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "unegma-unegmaplacedev-Site/public/Bucket/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                      "aws:cdk:cloudformation:props": {
+                        "corsConfiguration": {
+                          "corsRules": [
+                            {
+                              "allowedHeaders": [
+                                "*"
+                              ],
+                              "allowedMethods": [
+                                "GET",
+                                "PUT",
+                                "HEAD",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "allowedOrigins": [
+                                "*"
+                              ]
+                            }
+                          ]
+                        },
+                        "ownershipControls": {
+                          "rules": [
+                            {
+                              "objectOwnership": "BucketOwnerPreferred"
+                            }
+                          ]
+                        },
+                        "publicAccessBlockConfiguration": {
+                          "blockPublicAcls": false,
+                          "ignorePublicAcls": false
+                        },
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplacedev"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "unegma"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Policy": {
+                    "id": "Policy",
+                    "path": "unegma-unegmaplacedev-Site/public/Bucket/Policy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "unegma-unegmaplacedev-Site/public/Bucket/Policy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                          "aws:cdk:cloudformation:props": {
+                            "bucket": {
+                              "Ref": "publicBucket5C3DBAB0"
+                            },
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "s3:*",
+                                  "Condition": {
+                                    "Bool": {
+                                      "aws:SecureTransport": "false"
+                                    }
+                                  },
+                                  "Effect": "Deny",
+                                  "Principal": {
+                                    "AWS": "*"
+                                  },
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "publicBucket5C3DBAB0",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "publicBucket5C3DBAB0",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.Bucket",
+                  "version": "2.132.1"
+                }
+              },
+              "Parameter_bucketName": {
+                "id": "Parameter_bucketName",
+                "path": "unegma-unegmaplacedev-Site/public/Parameter_bucketName",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "unegma-unegmaplacedev-Site/public/Parameter_bucketName/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
+                      "aws:cdk:cloudformation:props": {
+                        "name": "/sst/unegmaplacedev/unegma/Bucket/public/bucketName",
+                        "tags": {
+                          "sst:app": "unegmaplacedev",
+                          "sst:stage": "unegma"
+                        },
+                        "type": "String",
+                        "value": {
+                          "Ref": "publicBucket5C3DBAB0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ssm.CfnParameter",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ssm.StringParameter",
+                  "version": "2.132.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "UNPLDevCert": {
+            "id": "UNPLDevCert",
+            "path": "unegma-unegmaplacedev-Site/UNPLDevCert",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.141.0"
+            }
+          },
+          "unegmaplacedev": {
+            "id": "unegmaplacedev",
+            "path": "unegma-unegmaplacedev-Site/unegmaplacedev",
+            "children": {
+              "ServerFunctionRole": {
+                "id": "ServerFunctionRole",
+                "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole",
+                "children": {
+                  "ImportServerFunctionRole": {
+                    "id": "ImportServerFunctionRole",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/ImportServerFunctionRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "AWS": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":iam::952351240809:root"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "maxSessionDuration": 43200,
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplacedev"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "unegma"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "s3:*",
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "publicBucket5C3DBAB0",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "publicBucket5C3DBAB0",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "unegmaplacedevServerFunctionRoleDefaultPolicy87C705C8",
+                            "roles": [
+                              {
+                                "Ref": "unegmaplacedevServerFunctionRoleD60017CF"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.132.1"
+                }
+              },
+              "ServerFunction": {
+                "id": "ServerFunction",
+                "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction",
+                "children": {
+                  "AssetReplacerPolicy": {
+                    "id": "AssetReplacerPolicy",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacerPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacerPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetObject",
+                                    "s3:PutObject"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":s3:::placeholder/*"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "unegmaplacedevServerFunctionAssetReplacerPolicyA5466F96",
+                            "roles": [
+                              {
+                                "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "AssetReplacer": {
+                    "id": "AssetReplacer",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacer",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacer/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "IServerFunctionBucket": {
+                    "id": "IServerFunctionBucket",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/IServerFunctionBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "ServerFunction": {
+                    "id": "ServerFunction",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "architectures": [
+                              "arm64"
+                            ],
+                            "code": {
+                              "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+                              "s3Key": "24443e388227a5ca37e2437cfd8a424d1a0b06b08f8aae2efcaaa187fd7848dc.zip"
+                            },
+                            "description": "Server handler placeholder",
+                            "environment": {
+                              "variables": {
+                                "SST_APP": "unegmaplacedev",
+                                "SST_STAGE": "unegma",
+                                "SST_SSM_PREFIX": "/sst/unegmaplacedev/unegma/",
+                                "SST_Bucket_bucketName_public": {
+                                  "Ref": "publicBucket5C3DBAB0"
+                                }
+                              }
+                            },
+                            "handler": "index.handler",
+                            "memorySize": 1024,
+                            "role": {
+                              "Fn::GetAtt": [
+                                "unegmaplacedevServerFunctionRoleD60017CF",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "unegmaplacedev"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "unegma"
+                              }
+                            ],
+                            "timeout": 10
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "LogRetention": {
+                        "id": "LogRetention",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogRetention",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogRetention/Resource",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "LogGroup": {
+                        "id": "LogGroup",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogGroup",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.132.1"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "Parameter_url": {
+                "id": "Parameter_url",
+                "path": "unegma-unegmaplacedev-Site/unegmaplacedev/Parameter_url",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/Parameter_url/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
+                      "aws:cdk:cloudformation:props": {
+                        "name": "/sst/unegmaplacedev/unegma/NextjsSite/unegmaplacedev/url",
+                        "tags": {
+                          "sst:app": "unegmaplacedev",
+                          "sst:stage": "unegma"
+                        },
+                        "type": "String",
+                        "value": "localhost"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ssm.CfnParameter",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ssm.StringParameter",
+                  "version": "2.132.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
+            "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.132.1"
+                }
+              },
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplacedev"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "unegma"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "logs:PutRetentionPolicy",
+                                    "logs:DeleteRetentionPolicy"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+                            "roles": [
+                              {
+                                "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.132.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.132.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "SSTStackOutputSSTMetadata": {
+            "id": "SSTStackOutputSSTMetadata",
+            "path": "unegma-unegmaplacedev-Site/SSTStackOutputSSTMetadata",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.132.1"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "unegma-unegmaplacedev-Site/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.132.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "unegma-unegmaplacedev-Site/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.132.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.132.1"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.132.1"
+    }
+  }
+}

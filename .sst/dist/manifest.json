@@ -1,0 +1,174 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "unegma-unegmaplacedev-Site.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "unegma-unegmaplacedev-Site.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "unegma-unegmaplacedev-Site": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://952351240809/eu-west-2",
+      "properties": {
+        "templateFile": "unegma-unegmaplacedev-Site.template.json",
+        "terminationProtection": false,
+        "tags": {
+          "sst:app": "unegmaplacedev",
+          "sst:stage": "unegma"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::952351240809:role/cdk-hnb659fds-deploy-role-952351240809-eu-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::952351240809:role/cdk-hnb659fds-cfn-exec-role-952351240809-eu-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-952351240809-eu-west-2/fd10f5cbe228e2b5b5a9328e19e8ff0bf8635c20e1d766a995d9c14b9cac5384.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "unegma-unegmaplacedev-Site.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::952351240809:role/cdk-hnb659fds-lookup-role-952351240809-eu-west-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "unegma-unegmaplacedev-Site.assets"
+      ],
+      "metadata": {
+        "/unegma-unegmaplacedev-Site": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "sst:app",
+                "Value": "unegmaplacedev"
+              },
+              {
+                "Key": "sst:stage",
+                "Value": "unegma"
+              }
+            ]
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerServiceRole41AEC181"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/CustomResourceHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerE8FB56BA"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/public/Bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "publicBucket5C3DBAB0"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/public/Bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "publicBucketPolicy24028FED"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/public/Parameter_bucketName/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "publicParameterbucketName69D24DDB"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevServerFunctionRoleD60017CF"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevServerFunctionRoleDefaultPolicy87C705C8"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacerPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevServerFunctionAssetReplacerPolicyA5466F96"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacer/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevServerFunctionAssetReplacer0B41D9A6"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevServerFunction53C99F16"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevServerFunctionLogRetention39FAFC90"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/unegmaplacedev/Parameter_url/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplacedevParameterurl071D338E"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/SSTStackOutputSSTMetadata": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSTMetadata"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/unegma-unegmaplacedev-Site/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "unegma-unegmaplacedev-Site"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
