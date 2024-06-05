@@ -11,20 +11,20 @@ export default function AboutPage() {
       <section className="mx-auto" aria-labelledby="hero-heading">
         <div className="flex justify-center items-center">
           {/*todo this might need fixing on edge and chrome on windows*/}
-          <Image
-            priority
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj4KICA8ZmlsdGVyIGlkPSJibHVyIiB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAiPgogICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgLz4KICA8L2ZpbHRlcj4KICA8cmVjdCB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNjY2NjY2MiIGZpbHRlcj0idXJsKCNibHVyKSIgLz4KPC9zdmc+Cg=="
-            src="https://assets.unegma.net/mycoastalhost.com/dave.jpg"
-            className="min-w-full h-auto lg:px-8"
-            height={626}
-            width={1600}
-            alt="A picture of the founder Dave sitting on some stairs"
-            // style={{
-            //   maxWidth: "100%",
-            //   height: "auto"
-            // }}
-          />
+          {/*<Image*/}
+          {/*  priority*/}
+          {/*  placeholder="blur"*/}
+          {/*  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj4KICA8ZmlsdGVyIGlkPSJibHVyIiB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAiPgogICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgLz4KICA8L2ZpbHRlcj4KICA8cmVjdCB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNjY2NjY2MiIGZpbHRlcj0idXJsKCNibHVyKSIgLz4KPC9zdmc+Cg=="*/}
+          {/*  src="https://assets.unegma.net/mycoastalhost.com/dave.jpg"*/}
+          {/*  className="min-w-full h-auto lg:px-8"*/}
+          {/*  height={626}*/}
+          {/*  width={1600}*/}
+          {/*  alt="A picture of the founder Dave sitting on some stairs"*/}
+          {/*  // style={{*/}
+          {/*  //   maxWidth: "100%",*/}
+          {/*  //   height: "auto"*/}
+          {/*  // }}*/}
+          {/*/>*/}
         </div>
       </section>
 

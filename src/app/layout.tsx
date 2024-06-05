@@ -85,9 +85,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <div>
         <Header />
 
-        {/*<main className="flex-grow">*/}
-        {/*  {children}*/}
-        {/*</main>*/}
+        <main className="flex-grow">
+          {children}
+        </main>
 
         <Footer />
       </div>
