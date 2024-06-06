@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Image from "next/image";
-import DiscoverOurHomes from "@/components/DiscoverOurHomes";
 import ContactForm from "@/components/ContactForm";
 import Link from 'next/link';
 
@@ -29,7 +28,6 @@ export default function HomePage() {
 
         <header className="flex justify-center items-center pt-14 pb-8">
           <h1 id="hero-heading" className="text-center text-3xl sm:text-3xl md:text-3xl lg:text-4xl">
-            Creating unforgettable experiences<br className="hidden sm:inline-block" /> in the Witterings, West Sussex
           </h1>
         </header>
 

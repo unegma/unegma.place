@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link className="flex flex-col items-center" href={`/about#where-to-find-us`}>
               <LocationOn style={{ fontSize: '1.6rem' }} className="mx-2 mb-2" />
-              <span className="text-lg text-center">East Wittering, West Sussex</span>
+              <span className="text-lg text-center"></span>
             </Link>
             <Link className="flex flex-col items-center" href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER_INTERNATIONAL}`}>
               <PhoneIphoneIcon style={{ fontSize: '1.6rem' }} className="mx-2 mb-2" />

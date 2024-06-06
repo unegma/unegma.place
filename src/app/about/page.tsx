@@ -34,23 +34,14 @@ export default function AboutPage() {
           <h1 id="about-heading" className="mb-4">About</h1>
         </header>
         <article className="flex flex-col text-center justify-center">
-          <p className="text-center mb-6 xl:mb-0">
-            Hi! I’m Dave, I live in the Witterings with <br className="md:hidden"/>my wonderful wife, Ciara, and our <br className="md:hidden"/>two boys, Jack and Cían.<br/>Ciara grew up in the Witterings <br className="md:hidden"/>and I fell for its charm many moons ago.<br/>We finally decided on here to put down <br className="md:hidden"/>roots of our own.<br /><br />
-          </p>
-          <p className="text-center mb-6 xl:mb-0">
-            I bring over 10 years experience in hospitality <br className="md:hidden"/>and a deep love for the local area.
-            <br/>My goal is to provide my guests with the <br className="md:hidden"/>best possible stay, ensuring you can relax,<br/>take in that sea air and live like a <br className="md:hidden"/>local for the time that you’re here.<br /><br />
-          </p>
-          <p className="text-center mb-6 xl:mb-0">
-            Come and create unforgettable memories.<br/>Whether you&apos;re seeking adventure or relaxation, <br className="md:hidden"/>the Witterings has something <br className="md:hidden"/>special for everyone.<br/>Feel free to <a className="underline" href={`tel:${process.env.PHONE_NUMBER_INTERNATIONAL}`}>drop a call</a>, I look forward to <br className="md:hidden"/>welcoming you to this beautiful place we call home.<br/><br/>
-          </p>
+
           <br/>
           {/*<p>*/}
           {/*  We are committed to providing our guests with the best possible stay at our homes.<br />*/}
           {/*  Feel free to <a className="underline" href={`tel:${process.env.PHONE_NUMBER_INTERNATIONAL}`}>drop us a call</a>, we would love to share our passion for this beautiful part of the United Kingdom.<br />*/}
           {/*  We hope you will enjoy your stay, make unforgettable memories, and have plenty of great stories to tell for years to come.<br /><br />*/}
           {/*</p>*/}
-          <p className="meow text-4xl">Dave Holden</p>
+          {/*<p className="meow text-4xl">Dave Holden</p>*/}
           {/*<p className="mt-4">*/}
           {/*  <Link href="/terms"><span className="underline">Click here</span> to read our terms and conditions.</Link><br /><br />*/}
           {/*</p>*/}
@@ -60,17 +51,17 @@ export default function AboutPage() {
       {/* Section 2: Where to Find Us */}
       <section className="container mx-auto pt-20 mb-2" aria-labelledby="location-heading">
         <div className="flex flex-row justify-center">
-          <h2 id="location-heading" className="mb-8 pt-2">Where to find us</h2>
+          {/*<h2 id="location-heading" className="mb-8 pt-2">Where to find us</h2>*/}
         </div>
         <div className="flex flex-row justify-center">
-          <iframe
-            height={400}
-            className="w-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d174266.9322733805!2d-0.9877210517101149!3d50.77977447780302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48745125eca04c5b%3A0x6bd424999330e5b3!2sEast%20Wittering%2C%20Chichester!5e0!3m2!1sen!2suk!4v1716056535450!5m2!1sen!2suk"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            aria-label="Map showing location of West Wittering"
-          ></iframe>
+          {/*<iframe*/}
+          {/*  height={400}*/}
+          {/*  className="w-full"*/}
+          {/*  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d174266.9322733805!2d-0.9877210517101149!3d50.77977447780302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48745125eca04c5b%3A0x6bd424999330e5b3!2sEast%20Wittering%2C%20Chichester!5e0!3m2!1sen!2suk!4v1716056535450!5m2!1sen!2suk"*/}
+          {/*  loading="lazy"*/}
+          {/*  referrerPolicy="no-referrer-when-downgrade"*/}
+          {/*  aria-label="Map showing location of West Wittering"*/}
+          {/*></iframe>*/}
         </div>
       </section>
 
