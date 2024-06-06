@@ -38,6 +38,7 @@ export default function Header() {
             {/*    height: "auto",*/}
             {/*  }}*/}
             {/*/>*/}
+            <p className="mr-10 text-center">unegma.<br/>place</p>
           </Link>
         </div>
 
