@@ -206,3 +206,7 @@ add facebook app id and update previews in telegram and facebook etc
 
 link google search console to analytics
 https://analytics.google.com/analytics/web/?pli=1#/a314491645p441845473/admin/integrations/search-console/new
+
+
+
+TODO WHY IS IT SAYING AWS SECRET KEY IN THIS REPO?
