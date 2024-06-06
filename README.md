@@ -29,6 +29,7 @@ leave ssl on flexible, but add config rule:
 https://dash.cloudflare.com/ab8feb6f7b259f1cabdcd3c60a5a9aef/unegma.ai/rules/configuration-rules
 
 rule name: Strict Rewrite, custom field expression, field hostname, equals unegma.x (can add ORs), then SSL to strict (might need to do the same for y.unegma.x)
+configuration rule, custom filter expression, hostname equals x.com, ssl strict
 
 ---
 
