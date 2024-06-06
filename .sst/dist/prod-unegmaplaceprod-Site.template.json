@@ -181,41 +181,20 @@
     }
    }
   },
-  "unegmaplaceprodServerFunctionRole802EF6FF": {
-   "Type": "AWS::IAM::Role",
+  "unegmaplaceprodS3BucketA264F3C0": {
+   "Type": "AWS::S3::Bucket",
    "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "AWS": {
-         "Fn::Join": [
-          "",
-          [
-           "arn:",
-           {
-            "Ref": "AWS::Partition"
-           },
-           ":iam::952351240809:root"
-          ]
-         ]
-        }
-       }
-      },
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "Service": "lambda.amazonaws.com"
-       }
-      }
-     ],
-     "Version": "2012-10-17"
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
     },
-    "MaxSessionDuration": 43200,
     "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     },
      {
       "Key": "sst:app",
       "Value": "unegmaplaceprod"
@@ -225,20 +204,33 @@
       "Value": "prod"
      }
     ]
-   }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
   },
-  "unegmaplaceprodServerFunctionRoleDefaultPolicy84598F08": {
-   "Type": "AWS::IAM::Policy",
+  "unegmaplaceprodS3BucketPolicyF5BECDD0": {
+   "Type": "AWS::S3::BucketPolicy",
    "Properties": {
+    "Bucket": {
+     "Ref": "unegmaplaceprodS3BucketA264F3C0"
+    },
     "PolicyDocument": {
      "Statement": [
       {
        "Action": "s3:*",
-       "Effect": "Allow",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
        "Resource": [
         {
          "Fn::GetAtt": [
-          "publicBucket5C3DBAB0",
+          "unegmaplaceprodS3BucketA264F3C0",
           "Arn"
          ]
         },
@@ -248,7 +240,7 @@
           [
            {
             "Fn::GetAtt": [
-             "publicBucket5C3DBAB0",
+             "unegmaplaceprodS3BucketA264F3C0",
              "Arn"
             ]
            },
@@ -257,16 +249,106 @@
          ]
         }
        ]
+      },
+      {
+       "Action": [
+        "s3:PutBucketPolicy",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "unegmaplaceprodS3BucketA264F3C0",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "unegmaplaceprodS3BucketA264F3C0",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:GetObject",
+       "Effect": "Allow",
+       "Principal": {
+        "CanonicalUser": {
+         "Fn::GetAtt": [
+          "unegmaplaceprodDistributionOrigin3S3OriginA5563126",
+          "S3CanonicalUserId"
+         ]
+        }
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "unegmaplaceprodS3BucketA264F3C0",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
       }
      ],
      "Version": "2012-10-17"
+    }
+   }
+  },
+  "unegmaplaceprodS3BucketAutoDeleteObjectsCustomResourceFEAECCB4": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
     },
-    "PolicyName": "unegmaplaceprodServerFunctionRoleDefaultPolicy84598F08",
-    "Roles": [
-     {
-      "Ref": "unegmaplaceprodServerFunctionRole802EF6FF"
-     }
-    ]
+    "BucketName": {
+     "Ref": "unegmaplaceprodS3BucketA264F3C0"
+    }
+   },
+   "DependsOn": [
+    "unegmaplaceprodS3BucketPolicyF5BECDD0"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "unegmaplaceprodCloudFrontFunctionAEA34E5A": {
+   "Type": "AWS::CloudFront::Function",
+   "Properties": {
+    "AutoPublish": true,
+    "FunctionCode": "function handler(r){var e=r.request;return e.headers[\"x-forwarded-host\"]=e.headers.host,e.cookies.__prerender_bypass&&(e.headers[\"x-prerender-bypass\"]={value:\"true\"}),e}\n",
+    "FunctionConfig": {
+     "Comment": "eu-west-2produnegmaplaceprodSiteceprodCloudFrontFunction9F2AF822",
+     "Runtime": "cloudfront-js-1.0"
+    },
+    "Name": "eu-west-2produnegmaplaceprodSiteceprodCloudFrontFunction9F2AF822"
    }
   },
   "unegmaplaceprodServerFunctionAssetReplacerPolicy86A9AEB9": {
@@ -314,14 +396,211 @@
      ]
     },
     "bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-    "key": "24443e388227a5ca37e2437cfd8a424d1a0b06b08f8aae2efcaaa187fd7848dc.zip",
-    "replacements": []
+    "key": "014d29deb2317e5bdf5150d481927008b021ae3682432dbf19844b82bf1c4d54.zip",
+    "replacements": [
+     {
+      "files": "**/*.@(*js|json|html)",
+      "search": "{{ CACHE_BUCKET_NAME }}",
+      "replace": {
+       "Ref": "unegmaplaceprodS3BucketA264F3C0"
+      }
+     },
+     {
+      "files": "**/*.@(*js|json|html)",
+      "search": "{{ CACHE_BUCKET_KEY_PREFIX }}",
+      "replace": "_cache"
+     },
+     {
+      "files": "**/*.@(*js|json|html)",
+      "search": "{{ CACHE_BUCKET_REGION }}",
+      "replace": "eu-west-2"
+     }
+    ]
    },
    "DependsOn": [
     "unegmaplaceprodServerFunctionAssetReplacerPolicy86A9AEB9"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
+  },
+  "unegmaplaceprodServerFunctionServiceRoleCCF3E859": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   },
+   "DependsOn": [
+    "unegmaplaceprodServerFunctionAssetReplacerC75151BA"
+   ]
+  },
+  "unegmaplaceprodServerFunctionServiceRoleDefaultPolicy304EBD4D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "publicBucket5C3DBAB0",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "publicBucket5C3DBAB0",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging",
+        "s3:Abort*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "unegmaplaceprodS3BucketA264F3C0",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "unegmaplaceprodS3BucketA264F3C0",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "sqs:SendMessage",
+        "sqs:GetQueueAttributes",
+        "sqs:GetQueueUrl"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "unegmaplaceprodRevalidationQueue6FEB1362",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:Query",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "unegmaplaceprodRevalidationTableF3A32427",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "unegmaplaceprodRevalidationTableF3A32427",
+             "Arn"
+            ]
+           },
+           "/index/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodServerFunctionServiceRoleDefaultPolicy304EBD4D",
+    "Roles": [
+     {
+      "Ref": "unegmaplaceprodServerFunctionServiceRoleCCF3E859"
+     }
+    ]
+   },
+   "DependsOn": [
+    "unegmaplaceprodServerFunctionAssetReplacerC75151BA"
+   ]
   },
   "unegmaplaceprodServerFunction40745DA7": {
    "Type": "AWS::Lambda::Function",
@@ -331,24 +610,39 @@
     ],
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "24443e388227a5ca37e2437cfd8a424d1a0b06b08f8aae2efcaaa187fd7848dc.zip"
+     "S3Key": "014d29deb2317e5bdf5150d481927008b021ae3682432dbf19844b82bf1c4d54.zip"
     },
-    "Description": "Server handler placeholder",
+    "Description": "Next.js server",
     "Environment": {
      "Variables": {
+      "CACHE_BUCKET_NAME": {
+       "Ref": "unegmaplaceprodS3BucketA264F3C0"
+      },
+      "CACHE_BUCKET_KEY_PREFIX": "_cache",
+      "CACHE_BUCKET_REGION": "eu-west-2",
       "SST_APP": "unegmaplaceprod",
       "SST_STAGE": "prod",
       "SST_SSM_PREFIX": "/sst/unegmaplaceprod/prod/",
       "SST_Bucket_bucketName_public": {
        "Ref": "publicBucket5C3DBAB0"
+      },
+      "REVALIDATION_QUEUE_URL": {
+       "Ref": "unegmaplaceprodRevalidationQueue6FEB1362"
+      },
+      "REVALIDATION_QUEUE_REGION": "eu-west-2",
+      "CACHE_DYNAMO_TABLE": {
+       "Ref": "unegmaplaceprodRevalidationTableF3A32427"
       }
      }
     },
-    "Handler": "index.handler",
+    "Handler": "server-index.handler",
+    "Layers": [
+     "arn:aws:lambda:eu-west-2:226609089145:layer:sst-extension-arm64:2"
+    ],
     "MemorySize": 1024,
     "Role": {
      "Fn::GetAtt": [
-      "unegmaplaceprodServerFunctionRole802EF6FF",
+      "unegmaplaceprodServerFunctionServiceRoleCCF3E859",
       "Arn"
      ]
     },
@@ -367,8 +661,8 @@
    },
    "DependsOn": [
     "unegmaplaceprodServerFunctionAssetReplacerC75151BA",
-    "unegmaplaceprodServerFunctionRoleDefaultPolicy84598F08",
-    "unegmaplaceprodServerFunctionRole802EF6FF"
+    "unegmaplaceprodServerFunctionServiceRoleDefaultPolicy304EBD4D",
+    "unegmaplaceprodServerFunctionServiceRoleCCF3E859"
    ]
   },
   "unegmaplaceprodServerFunctionLogRetention79CA25C0": {
@@ -397,6 +691,1461 @@
     "unegmaplaceprodServerFunctionAssetReplacerC75151BA"
    ]
   },
+  "unegmaplaceprodServerFunctionFunctionUrl77EF1A9F": {
+   "Type": "AWS::Lambda::Url",
+   "Properties": {
+    "AuthType": "NONE",
+    "InvokeMode": "BUFFERED",
+    "TargetFunctionArn": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodServerFunction40745DA7",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "unegmaplaceprodServerFunctionAssetReplacerC75151BA"
+   ]
+  },
+  "unegmaplaceprodServerFunctioninvokefunctionurlEC80E9A6": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunctionUrl",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodServerFunction40745DA7",
+      "Arn"
+     ]
+    },
+    "FunctionUrlAuthType": "NONE",
+    "Principal": "*"
+   },
+   "DependsOn": [
+    "unegmaplaceprodServerFunctionAssetReplacerC75151BA"
+   ]
+  },
+  "unegmaplaceprodImageFunctionServiceRole780EAF87": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodImageFunctionServiceRoleDefaultPolicyBEBB1DEF": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:GetObject",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "unegmaplaceprodS3BucketA264F3C0",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodImageFunctionServiceRoleDefaultPolicyBEBB1DEF",
+    "Roles": [
+     {
+      "Ref": "unegmaplaceprodImageFunctionServiceRole780EAF87"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodImageFunctionE8C8FDE1": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Architectures": [
+     "arm64"
+    ],
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+     "S3Key": "2e0035e1d0729984a78532ecc27e6eea7ada1215ba0d13ca6274729cfb366b39.zip"
+    },
+    "Description": "Next.js image optimizer",
+    "Environment": {
+     "Variables": {
+      "BUCKET_NAME": {
+       "Ref": "unegmaplaceprodS3BucketA264F3C0"
+      },
+      "BUCKET_KEY_PREFIX": "_assets"
+     }
+    },
+    "Handler": "index.handler",
+    "MemorySize": 1536,
+    "Role": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodImageFunctionServiceRole780EAF87",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ],
+    "Timeout": 25
+   },
+   "DependsOn": [
+    "unegmaplaceprodImageFunctionServiceRoleDefaultPolicyBEBB1DEF",
+    "unegmaplaceprodImageFunctionServiceRole780EAF87"
+   ]
+  },
+  "unegmaplaceprodImageFunctionLogRetention06B0B90F": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "unegmaplaceprodImageFunctionE8C8FDE1"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 3
+   }
+  },
+  "unegmaplaceprodImageFunctionFunctionUrlE1FFB53F": {
+   "Type": "AWS::Lambda::Url",
+   "Properties": {
+    "AuthType": "NONE",
+    "TargetFunctionArn": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodImageFunctionE8C8FDE1",
+      "Arn"
+     ]
+    }
+   }
+  },
+  "unegmaplaceprodImageFunctioninvokefunctionurl6D0BDB33": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunctionUrl",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodImageFunctionE8C8FDE1",
+      "Arn"
+     ]
+    },
+    "FunctionUrlAuthType": "NONE",
+    "Principal": "*"
+   }
+  },
+  "unegmaplaceprodS3AssetUploaderPolicy40FCADF9": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CustomResourceHandlerE8FB56BA",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:DeleteObject"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "unegmaplaceprodS3BucketA264F3C0",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "unegmaplaceprodS3BucketA264F3C0",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:GetObject",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":s3:::cdk-hnb659fds-assets-952351240809-eu-west-2/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodS3AssetUploaderPolicy40FCADF9",
+    "Roles": [
+     {
+      "Ref": "CustomResourceHandlerServiceRole41AEC181"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodS3AssetUploader487764C7": {
+   "Type": "Custom::S3Uploader",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomResourceHandlerE8FB56BA",
+      "Arn"
+     ]
+    },
+    "sources": [
+     {
+      "bucketName": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+      "objectKey": "71bb1d97819a9f514195d81a50be2d3963464722c76e5192e09ae9db9dfdb431.zip"
+     }
+    ],
+    "destinationBucketName": {
+     "Ref": "unegmaplaceprodS3BucketA264F3C0"
+    },
+    "textEncoding": "utf-8",
+    "fileOptions": [
+     {
+      "files": "**",
+      "ignore": "_assets/_next/**",
+      "cacheControl": "public,max-age=0,s-maxage=86400,stale-while-revalidate=8640"
+     },
+     {
+      "files": "_assets/_next/**",
+      "cacheControl": "public,max-age=31536000,immutable"
+     }
+    ],
+    "replaceValues": []
+   },
+   "DependsOn": [
+    "unegmaplaceprodS3AssetUploaderPolicy40FCADF9"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "unegmaplaceprodServerCache4BB77711": {
+   "Type": "AWS::CloudFront::CachePolicy",
+   "Properties": {
+    "CachePolicyConfig": {
+     "Comment": "SST server response cache policy",
+     "DefaultTTL": 0,
+     "MaxTTL": 31536000,
+     "MinTTL": 0,
+     "Name": "produnegmaplaceprodSiteunegmaplaceprodServerCache0F5B01CA-eu-west-2",
+     "ParametersInCacheKeyAndForwardedToOrigin": {
+      "CookiesConfig": {
+       "CookieBehavior": "none"
+      },
+      "EnableAcceptEncodingBrotli": true,
+      "EnableAcceptEncodingGzip": true,
+      "HeadersConfig": {
+       "HeaderBehavior": "whitelist",
+       "Headers": [
+        "accept",
+        "rsc",
+        "next-router-prefetch",
+        "next-router-state-tree",
+        "next-url",
+        "x-prerender-bypass",
+        "x-prerender-revalidate"
+       ]
+      },
+      "QueryStringsConfig": {
+       "QueryStringBehavior": "all"
+      }
+     }
+    }
+   }
+  },
+  "unegmaplaceprodDistributionOrigin3S3OriginA5563126": {
+   "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+   "Properties": {
+    "CloudFrontOriginAccessIdentityConfig": {
+     "Comment": "Identity for produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF"
+    }
+   }
+  },
+  "unegmaplaceprodDistributionFEBF90AD": {
+   "Type": "AWS::CloudFront::Distribution",
+   "Properties": {
+    "DistributionConfig": {
+     "Aliases": [
+      "unegma.place"
+     ],
+     "CacheBehaviors": [
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS",
+        "PUT",
+        "PATCH",
+        "POST",
+        "DELETE"
+       ],
+       "CachePolicyId": {
+        "Ref": "unegmaplaceprodServerCache4BB77711"
+       },
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "FunctionAssociations": [
+        {
+         "EventType": "viewer-request",
+         "FunctionARN": {
+          "Fn::GetAtt": [
+           "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+           "FunctionARN"
+          ]
+         }
+        }
+       ],
+       "LambdaFunctionAssociations": [],
+       "OriginRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+       "PathPattern": "api/*",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS",
+        "PUT",
+        "PATCH",
+        "POST",
+        "DELETE"
+       ],
+       "CachePolicyId": {
+        "Ref": "unegmaplaceprodServerCache4BB77711"
+       },
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "FunctionAssociations": [
+        {
+         "EventType": "viewer-request",
+         "FunctionARN": {
+          "Fn::GetAtt": [
+           "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+           "FunctionARN"
+          ]
+         }
+        }
+       ],
+       "LambdaFunctionAssociations": [],
+       "OriginRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+       "PathPattern": "_next/data/*",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS",
+        "PUT",
+        "PATCH",
+        "POST",
+        "DELETE"
+       ],
+       "CachePolicyId": {
+        "Ref": "unegmaplaceprodServerCache4BB77711"
+       },
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "FunctionAssociations": [
+        {
+         "EventType": "viewer-request",
+         "FunctionARN": {
+          "Fn::GetAtt": [
+           "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+           "FunctionARN"
+          ]
+         }
+        }
+       ],
+       "LambdaFunctionAssociations": [],
+       "OriginRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+       "PathPattern": "_next/image*",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin27D9F565F",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": ".DS_Store",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "BUILD_ID",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "_next/*",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "android-chrome-192x192.png",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "android-chrome-384x384.png",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "apple-touch-icon.png",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "browserconfig.xml",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "favicon-16x16.png",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "favicon-32x32.png",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "favicon.ico",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "mstile-150x150.png",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "robots.txt",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "site.webmanifest",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "sitemap-0.xml",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      },
+      {
+       "AllowedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+       "CachedMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ],
+       "Compress": true,
+       "PathPattern": "sitemap.xml",
+       "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "ViewerProtocolPolicy": "redirect-to-https"
+      }
+     ],
+     "DefaultCacheBehavior": {
+      "AllowedMethods": [
+       "GET",
+       "HEAD",
+       "OPTIONS",
+       "PUT",
+       "PATCH",
+       "POST",
+       "DELETE"
+      ],
+      "CachePolicyId": {
+       "Ref": "unegmaplaceprodServerCache4BB77711"
+      },
+      "CachedMethods": [
+       "GET",
+       "HEAD",
+       "OPTIONS"
+      ],
+      "Compress": true,
+      "FunctionAssociations": [
+       {
+        "EventType": "viewer-request",
+        "FunctionARN": {
+         "Fn::GetAtt": [
+          "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+          "FunctionARN"
+         ]
+        }
+       }
+      ],
+      "LambdaFunctionAssociations": [],
+      "OriginRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+      "TargetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+      "ViewerProtocolPolicy": "redirect-to-https"
+     },
+     "DefaultRootObject": "",
+     "Enabled": true,
+     "HttpVersion": "http2",
+     "IPV6Enabled": true,
+     "Origins": [
+      {
+       "CustomOriginConfig": {
+        "OriginProtocolPolicy": "https-only",
+        "OriginReadTimeout": 10,
+        "OriginSSLProtocols": [
+         "TLSv1.2"
+        ]
+       },
+       "DomainName": {
+        "Fn::Select": [
+         0,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             1,
+             {
+              "Fn::Split": [
+               "//",
+               {
+                "Fn::GetAtt": [
+                 "unegmaplaceprodServerFunctionFunctionUrl77EF1A9F",
+                 "FunctionUrl"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "Id": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B"
+      },
+      {
+       "CustomOriginConfig": {
+        "OriginProtocolPolicy": "https-only",
+        "OriginSSLProtocols": [
+         "TLSv1.2"
+        ]
+       },
+       "DomainName": {
+        "Fn::Select": [
+         0,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             1,
+             {
+              "Fn::Split": [
+               "//",
+               {
+                "Fn::GetAtt": [
+                 "unegmaplaceprodImageFunctionFunctionUrlE1FFB53F",
+                 "FunctionUrl"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "Id": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin27D9F565F"
+      },
+      {
+       "DomainName": {
+        "Fn::GetAtt": [
+         "unegmaplaceprodS3BucketA264F3C0",
+         "RegionalDomainName"
+        ]
+       },
+       "Id": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+       "OriginPath": "/_assets",
+       "S3OriginConfig": {
+        "OriginAccessIdentity": {
+         "Fn::Join": [
+          "",
+          [
+           "origin-access-identity/cloudfront/",
+           {
+            "Ref": "unegmaplaceprodDistributionOrigin3S3OriginA5563126"
+           }
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "ViewerCertificate": {
+      "AcmCertificateArn": "arn:aws:acm:us-east-1:952351240809:certificate/297a2855-fab1-42eb-b137-a40237e90996",
+      "MinimumProtocolVersion": "TLSv1.2_2021",
+      "SslSupportMethod": "sni-only"
+     }
+    },
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodServerFunctionInvalidatorPolicy1A5E3C93": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "cloudfront:CreateInvalidation",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":cloudfront::952351240809:distribution/",
+          {
+           "Ref": "unegmaplaceprodDistributionFEBF90AD"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodServerFunctionInvalidatorPolicy1A5E3C93",
+    "Roles": [
+     {
+      "Ref": "unegmaplaceprodServerFunctionServiceRoleCCF3E859"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodCloudFrontInvalidatorPolicy52E12F87": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "cloudfront:GetInvalidation",
+        "cloudfront:CreateInvalidation"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":cloudfront::952351240809:distribution/",
+          {
+           "Ref": "unegmaplaceprodDistributionFEBF90AD"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodCloudFrontInvalidatorPolicy52E12F87",
+    "Roles": [
+     {
+      "Ref": "CustomResourceHandlerServiceRole41AEC181"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodCloudFrontInvalidatorF6763E7A": {
+   "Type": "Custom::CloudFrontInvalidator",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomResourceHandlerE8FB56BA",
+      "Arn"
+     ]
+    },
+    "version": "OoUqYxBjY6ErFpj-s5QTw",
+    "distributionId": {
+     "Ref": "unegmaplaceprodDistributionFEBF90AD"
+    },
+    "paths": [
+     "/*"
+    ],
+    "wait": false
+   },
+   "DependsOn": [
+    "unegmaplaceprodCloudFrontInvalidatorPolicy52E12F87",
+    "unegmaplaceprodS3AssetUploader487764C7"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "unegmaplaceprodRevalidationQueue6FEB1362": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+    "FifoQueue": true,
+    "ReceiveMessageWaitTimeSeconds": 20,
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodRevalidationFunctionServiceRoleDefaultPolicyB687542E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility",
+        "sqs:GetQueueUrl",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "unegmaplaceprodRevalidationQueue6FEB1362",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodRevalidationFunctionServiceRoleDefaultPolicyB687542E",
+    "Roles": [
+     {
+      "Ref": "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodRevalidationFunctionA0C833F2": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+     "S3Key": "172266d8edc0d2c770ebbc0eef0c9742024a2854a359db53d8163a500cd3e577.zip"
+    },
+    "Description": "Next.js revalidator",
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ],
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "unegmaplaceprodRevalidationFunctionServiceRoleDefaultPolicyB687542E",
+    "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6"
+   ]
+  },
+  "unegmaplaceprodRevalidationFunctionSqsEventSourceprodunegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC6A04CCAD": {
+   "Type": "AWS::Lambda::EventSourceMapping",
+   "Properties": {
+    "BatchSize": 5,
+    "EventSourceArn": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodRevalidationQueue6FEB1362",
+      "Arn"
+     ]
+    },
+    "FunctionName": {
+     "Ref": "unegmaplaceprodRevalidationFunctionA0C833F2"
+    }
+   }
+  },
+  "unegmaplaceprodRevalidationTableF3A32427": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "tag",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "path",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "revalidatedAt",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "revalidate",
+      "KeySchema": [
+       {
+        "AttributeName": "path",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "revalidatedAt",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "tag",
+      "KeyType": "HASH"
+     },
+     {
+      "AttributeName": "path",
+      "KeyType": "RANGE"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "revalidate"
+       }
+      ],
+      "PointInTimeRecoverySpecification": {
+       "PointInTimeRecoveryEnabled": true
+      },
+      "Region": "eu-west-2"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodRevalidationInsertFunctionServiceRoleDefaultPolicyCC0BF47F": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "unegmaplaceprodRevalidationTableF3A32427",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodRevalidationInsertFunctionServiceRoleDefaultPolicyCC0BF47F",
+    "Roles": [
+     {
+      "Ref": "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodRevalidationInsertFunctionAF051350": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+     "S3Key": "af70a61c02008171e34ec8d0d1df15af6150738a5d4342c0623380256b647845.zip"
+    },
+    "Description": "Next.js revalidation data insert",
+    "Environment": {
+     "Variables": {
+      "CACHE_DYNAMO_TABLE": {
+       "Ref": "unegmaplaceprodRevalidationTableF3A32427"
+      }
+     }
+    },
+    "Handler": "index.handler",
+    "MemorySize": 128,
+    "Role": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ],
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "unegmaplaceprodRevalidationInsertFunctionServiceRoleDefaultPolicyCC0BF47F",
+    "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058"
+   ]
+  },
+  "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleDefaultPolicyF4C789C4": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "unegmaplaceprodRevalidationInsertFunctionAF051350",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "unegmaplaceprodRevalidationInsertFunctionAF051350",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleDefaultPolicyF4C789C4",
+    "Roles": [
+     {
+      "Ref": "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B"
+     }
+    ]
+   }
+  },
+  "unegmaplaceprodRevalidationProviderframeworkonEvent0FEC873E": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+     "S3Key": "3542be390685e0c8353d92ccb5796d343cd93ca946b6b0de798004206a199adc.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "unegmaplaceprodRevalidationInsertFunctionAF051350",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Tags": [
+     {
+      "Key": "sst:app",
+      "Value": "unegmaplaceprod"
+     },
+     {
+      "Key": "sst:stage",
+      "Value": "prod"
+     }
+    ],
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleDefaultPolicyF4C789C4",
+    "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B"
+   ]
+  },
+  "unegmaplaceprodRevalidationProviderframeworkonEventLogRetentionEADA8EF8": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "unegmaplaceprodRevalidationProviderframeworkonEvent0FEC873E"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 1
+   }
+  },
+  "unegmaplaceprodRevalidationResource99AC0683": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "unegmaplaceprodRevalidationProviderframeworkonEvent0FEC873E",
+      "Arn"
+     ]
+    },
+    "version": "1717634254301"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
   "unegmaplaceprodParameterurl90BBA345": {
    "Type": "AWS::SSM::Parameter",
    "Properties": {
@@ -406,8 +2155,64 @@
      "sst:stage": "prod"
     },
     "Type": "String",
-    "Value": "localhost"
+    "Value": "https://unegma.place"
    }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ]
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+     "S3Key": "6c1e9b465fa4b2d651dbc9ce3e732d8702a7b19137327684a71d89f1d355f1a2.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Lambda function for auto-deleting objects in ",
+       {
+        "Ref": "unegmaplaceprodS3BucketA264F3C0"
+       },
+       " S3 bucket."
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+   ]
   },
   "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": {
    "Type": "AWS::IAM::Role",
@@ -508,6 +2313,9 @@
   }
  },
  "Outputs": {
+  "SiteUrl": {
+   "Value": "https://unegma.place"
+  },
   "SSTMetadata": {
    "Value": {
     "Fn::Join": [
@@ -517,21 +2325,32 @@
       {
        "Ref": "publicBucket5C3DBAB0"
       },
-      "\",\"notifications\":[],\"notificationNames\":[]}},{\"id\":\"unegmaplaceprod\",\"addr\":\"c8b9932a9d696b656d3792b9280268a1cdf6040688\",\"stack\":\"prod-unegmaplaceprod-Site\",\"data\":{\"mode\":\"placeholder\",\"path\":\".\",\"runtime\":\"nodejs18.x\",\"server\":\"",
+      "\",\"notifications\":[],\"notificationNames\":[]}},{\"id\":\"unegmaplaceprod\",\"addr\":\"c8b9932a9d696b656d3792b9280268a1cdf6040688\",\"stack\":\"prod-unegmaplaceprod-Site\",\"data\":{\"mode\":\"deployed\",\"path\":\".\",\"runtime\":\"nodejs18.x\",\"customDomainUrl\":\"https://unegma.place\",\"url\":\"https://",
+      {
+       "Fn::GetAtt": [
+        "unegmaplaceprodDistributionFEBF90AD",
+        "DomainName"
+       ]
+      },
+      "\",\"edge\":false,\"server\":\"",
       {
        "Fn::GetAtt": [
         "unegmaplaceprodServerFunction40745DA7",
         "Arn"
        ]
       },
-      "\",\"secrets\":[]},\"type\":\"NextjsSite\"},{\"id\":\"ServerFunction\",\"addr\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"stack\":\"prod-unegmaplaceprod-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
+      "\",\"secrets\":[],\"routes\":{\"logGroupPrefix\":\"/sst/lambda/",
+      {
+       "Ref": "unegmaplaceprodServerFunction40745DA7"
+      },
+      "\",\"data\":[{\"route\":\"/\",\"logGroupPath\":\"/8a5edab2/\"},{\"route\":\"/_not-found\",\"logGroupPath\":\"/788bf135/_not-found\"},{\"route\":\"/about\",\"logGroupPath\":\"/979bddc4/about\"},{\"route\":\"/api/email\",\"logGroupPath\":\"/9ab7d54c/api/email\"},{\"route\":\"/favicon.ico\",\"logGroupPath\":\"/b1803648/favicon.ico\"},{\"route\":\"/privacy\",\"logGroupPath\":\"/0ece7f7c/privacy\"},{\"route\":\"/terms\",\"logGroupPath\":\"/2dda5c6b/terms\"}]}},\"type\":\"NextjsSite\"},{\"id\":\"ServerFunction\",\"addr\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"stack\":\"prod-unegmaplaceprod-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
       {
        "Fn::GetAtt": [
         "unegmaplaceprodServerFunction40745DA7",
         "Arn"
        ]
       },
-      "\",\"runtime\":\"nodejs18.x\",\"handler\":\"index.handler\",\"localId\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"secrets\":[]}}]}"
+      "\",\"runtime\":\"nodejs18.x\",\"handler\":\"index.handler\",\"missingSourcemap\":true,\"localId\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"secrets\":[]}}]}"
      ]
     ]
    }
