@@ -4,7 +4,7 @@ Allow: /
 Disallow: /private
 
 # Host
-Host: https://mycoastalhost.com
+Host: https://unegma.place
 
 # Sitemaps
-Sitemap: https://mycoastalhost.com/sitemap.xml
+Sitemap: https://unegma.place/sitemap.xml
