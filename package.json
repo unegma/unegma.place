@@ -17,7 +17,7 @@
     "start": "next start",
     "lint": "next lint",
     "DELETE-DEV": "#npx sst remove --stage staging",
-    "DELETE-PROD": "NODE_ENV=production npx sst remove --prod --stage prod",
+    "DELETE-PROD": "#NODE_ENV=production npx sst remove --prod --stage prod",
     "postbuild": "next-sitemap",
     "analyze": "ANALYZE=true npm run build"
   },
