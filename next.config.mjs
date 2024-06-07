@@ -29,7 +29,8 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'assets.unegma.net',
         port: '',
-        pathname:  process.env.NODE_ENV === 'production' ? `${process.env.BASE_URL}/**` : `${process.env.DEV_BASE_URL}/**`
+        pathname: '/unegma.place/unegma.place/**',
+        // pathname:  process.env.NODE_ENV === 'production' ? `${process.env.BASE_URL}/**` : `${process.env.DEV_BASE_URL}/**`
       },
     ],
   },

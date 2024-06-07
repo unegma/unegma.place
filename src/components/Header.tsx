@@ -26,19 +26,19 @@ export default function Header() {
         <div className="flex">
           <Link href="/" onClick={closeMobileMenu} className="">
             <span id="site-header" className="sr-only">My Coastal Host</span>
-            {/*<Image*/}
-            {/*  src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"*/}
-            {/*  className="mr-6 -mt-1"*/}
-            {/*  height={30}*/}
-            {/*  width={30}*/}
-            {/*  alt="My Coastal Host Logo"*/}
-            {/*  // leave this here to prevent warning*/}
-            {/*  style={{*/}
-            {/*    maxWidth: "100%",*/}
-            {/*    height: "auto",*/}
-            {/*  }}*/}
-            {/*/>*/}
-            <p className="mr-10 text-center">unegma.<br/>place</p>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
+              className="mr-6 -mt-1 opacity-90"
+              height={30}
+              width={30}
+              alt="My Coastal Host Logo"
+              // leave this here to prevent warning
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+            {/*<p className="mr-10 text-center">unegma.place</p>*/}
           </Link>
         </div>
 
