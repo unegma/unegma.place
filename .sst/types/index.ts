@@ -18,7 +18,16 @@ declare module "sst/node/bucket" {
 import "sst/node/site";
 declare module "sst/node/site" {
   export interface NextjsSiteResources {
-    "unegmaplaceprod": {
+    "unegmaplacedev": {
+      url: string;
+    }
+  }
+}
+
+import "sst/node/site";
+declare module "sst/node/site" {
+  export interface NextjsSiteResources {
+    "unegmaplacedev": {
       url: string;
     }
   }

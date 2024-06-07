@@ -2,8 +2,10 @@ import * as React from 'react';
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Link from 'next/link';
+import VideoComponent from "@/components/VideoComponent";
 
 export default function HomePage() {
+
   return (
     <>
       {/* Hero Section */}
@@ -39,6 +41,8 @@ export default function HomePage() {
           {/*>*/}
           {/*  Explore the Witterings*/}
           {/*</Link>*/}
+
+          <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough2.mp4`} />
         </div>
       </section>
 
