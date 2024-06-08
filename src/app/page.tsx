@@ -42,7 +42,7 @@ export default function HomePage() {
           {/*  Explore the Witterings*/}
           {/*</Link>*/}
 
-          <header className=" text-white absolute px-10 md:px-40 z-50">
+          <header className=" text-white absolute px-10 md:px-40 z-10">
             <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-2xl leading-snug sm:text-3xl sm:leading-snug md:text-5xl md:leading-snug lg:text-6xl ">
               {process.env.NEXT_PUBLIC_TITLE_POSTFIX}
             </h1>

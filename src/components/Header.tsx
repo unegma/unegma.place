@@ -136,18 +136,18 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" onClick={closeMobileMenu} className="">
               <span className="sr-only">{process.env.NEXT_PUBLIC_TITLE}</span>
-              {/*<Image*/}
-              {/*  height={30}*/}
-              {/*  width={30}*/}
-              {/*  src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"*/}
-              {/*  className="-mt-1"*/}
-              {/*  alt="{process.env.NEXT_PUBLIC_TITLE} Logo"*/}
-              {/*  // leave this here to prevent warning*/}
-              {/*  style={{*/}
-              {/*    maxWidth: "100%",*/}
-              {/*    height: "auto",*/}
-              {/*  }}*/}
-              {/*/>*/}
+              <Image
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
+                className="-mt-1 opacity-80"
+                height={40}
+                width={40}
+                alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
+                // leave this here to prevent warning
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
             </Link>
             <button
               type="button"

@@ -15,10 +15,28 @@ declare module "sst/node/bucket" {
   }
 }
 
+import "sst/node/bucket";
+declare module "sst/node/bucket" {
+  export interface BucketResources {
+    "public": {
+      bucketName: string;
+    }
+  }
+}
+
 import "sst/node/site";
 declare module "sst/node/site" {
   export interface NextjsSiteResources {
-    "unegmaplaceprod": {
+    "unegmaplacedev": {
+      url: string;
+    }
+  }
+}
+
+import "sst/node/site";
+declare module "sst/node/site" {
+  export interface NextjsSiteResources {
+    "unegmaplacedev": {
       url: string;
     }
   }
