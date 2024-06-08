@@ -1,32 +1,32 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "unegma-unegmaplacedev-Site.assets": {
+    "prod-unegmaplaceprod-Site.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "unegma-unegmaplacedev-Site.assets.json",
+        "file": "prod-unegmaplaceprod-Site.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "unegma-unegmaplacedev-Site": {
+    "prod-unegmaplaceprod-Site": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://952351240809/eu-west-2",
       "properties": {
-        "templateFile": "unegma-unegmaplacedev-Site.template.json",
+        "templateFile": "prod-unegmaplaceprod-Site.template.json",
         "terminationProtection": false,
         "tags": {
-          "sst:app": "unegmaplacedev",
-          "sst:stage": "unegma"
+          "sst:app": "unegmaplaceprod",
+          "sst:stage": "prod"
         },
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::952351240809:role/cdk-hnb659fds-deploy-role-952351240809-eu-west-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::952351240809:role/cdk-hnb659fds-cfn-exec-role-952351240809-eu-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-952351240809-eu-west-2/fd10f5cbe228e2b5b5a9328e19e8ff0bf8635c20e1d766a995d9c14b9cac5384.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-952351240809-eu-west-2/46fb0030b2c3c1dadf4bab93914f699640a567cbb1344ce75a8bf2271c98955e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "unegma-unegmaplacedev-Site.assets"
+          "prod-unegmaplaceprod-Site.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::952351240809:role/cdk-hnb659fds-lookup-role-952351240809-eu-west-2",
@@ -35,134 +35,356 @@
         }
       },
       "dependencies": [
-        "unegma-unegmaplacedev-Site.assets"
+        "prod-unegmaplaceprod-Site.assets"
       ],
       "metadata": {
-        "/unegma-unegmaplacedev-Site": [
+        "/prod-unegmaplaceprod-Site": [
           {
             "type": "aws:cdk:stack-tags",
             "data": [
               {
                 "Key": "sst:app",
-                "Value": "unegmaplacedev"
+                "Value": "unegmaplaceprod"
               },
               {
                 "Key": "sst:stage",
-                "Value": "unegma"
+                "Value": "prod"
               }
             ]
           }
         ],
-        "/unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole/Resource": [
+        "/prod-unegmaplaceprod-Site/CustomResourceHandler/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomResourceHandlerServiceRole41AEC181"
           }
         ],
-        "/unegma-unegmaplacedev-Site/CustomResourceHandler/Resource": [
+        "/prod-unegmaplaceprod-Site/CustomResourceHandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomResourceHandlerE8FB56BA"
           }
         ],
-        "/unegma-unegmaplacedev-Site/public/Bucket/Resource": [
+        "/prod-unegmaplaceprod-Site/public/Bucket/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "publicBucket5C3DBAB0"
           }
         ],
-        "/unegma-unegmaplacedev-Site/public/Bucket/Policy/Resource": [
+        "/prod-unegmaplaceprod-Site/public/Bucket/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "publicBucketPolicy24028FED"
           }
         ],
-        "/unegma-unegmaplacedev-Site/public/Parameter_bucketName/Resource": [
+        "/prod-unegmaplaceprod-Site/public/Parameter_bucketName/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "publicParameterbucketName69D24DDB"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevServerFunctionRoleD60017CF"
+            "data": "unegmaplaceprodS3BucketA264F3C0"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/DefaultPolicy/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevServerFunctionRoleDefaultPolicy87C705C8"
+            "data": "unegmaplaceprodS3BucketPolicyF5BECDD0"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacerPolicy/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/AutoDeleteObjectsCustomResource/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevServerFunctionAssetReplacerPolicyA5466F96"
+            "data": "unegmaplaceprodS3BucketAutoDeleteObjectsCustomResourceFEAECCB4"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacer/Default": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevServerFunctionAssetReplacer0B41D9A6"
+            "data": "unegmaplaceprodCloudFrontFunctionAEA34E5A"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/AssetReplacerPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevServerFunction53C99F16"
+            "data": "unegmaplaceprodServerFunctionAssetReplacerPolicy86A9AEB9"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogRetention/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/AssetReplacer/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevServerFunctionLogRetention39FAFC90"
+            "data": "unegmaplaceprodServerFunctionAssetReplacerC75151BA"
           }
         ],
-        "/unegma-unegmaplacedev-Site/unegmaplacedev/Parameter_url/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "unegmaplacedevParameterurl071D338E"
+            "data": "unegmaplaceprodServerFunctionServiceRoleCCF3E859"
           }
         ],
-        "/unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerFunctionServiceRoleDefaultPolicy304EBD4D"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerFunction40745DA7"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerFunctionLogRetention79CA25C0"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/FunctionUrl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerFunctionFunctionUrl77EF1A9F"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/invoke-function-url": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerFunctioninvokefunctionurlEC80E9A6"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodImageFunctionServiceRole780EAF87"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodImageFunctionServiceRoleDefaultPolicyBEBB1DEF"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodImageFunctionE8C8FDE1"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodImageFunctionLogRetention06B0B90F"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/FunctionUrl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodImageFunctionFunctionUrlE1FFB53F"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/invoke-function-url": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodImageFunctioninvokefunctionurl6D0BDB33"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/S3AssetUploaderPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodS3AssetUploaderPolicy40FCADF9"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/S3AssetUploader/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodS3AssetUploader487764C7"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerCache/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerCache4BB77711"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Origin3/S3Origin/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodDistributionOrigin3S3OriginA5563126"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodDistributionFEBF90AD"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunctionInvalidatorPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodServerFunctionInvalidatorPolicy1A5E3C93"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontInvalidatorPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodCloudFrontInvalidatorPolicy52E12F87"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontInvalidator/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodCloudFrontInvalidatorF6763E7A"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationQueue/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationQueue6FEB1362"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationFunctionServiceRoleDefaultPolicyB687542E"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationFunctionA0C833F2"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/SqsEventSource:produnegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationFunctionSqsEventSourceprodunegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC6A04CCAD"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationTable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationTableF3A32427"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationInsertFunctionServiceRoleDefaultPolicyCC0BF47F"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationInsertFunctionAF051350"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleDefaultPolicyF4C789C4"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationProviderframeworkonEvent0FEC873E"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationProviderframeworkonEventLogRetentionEADA8EF8"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodRevalidationResource99AC0683"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/unegmaplaceprod/Parameter_url/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "unegmaplaceprodParameterurl90BBA345"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
           }
         ],
-        "/unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+        "/prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
           }
         ],
-        "/unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+        "/prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
           }
         ],
-        "/unegma-unegmaplacedev-Site/SSTStackOutputSSTMetadata": [
+        "/prod-unegmaplaceprod-Site/SSTStackOutputSiteUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SiteUrl"
+          }
+        ],
+        "/prod-unegmaplaceprod-Site/SSTStackOutputSSTMetadata": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SSTMetadata"
           }
         ],
-        "/unegma-unegmaplacedev-Site/BootstrapVersion": [
+        "/prod-unegmaplaceprod-Site/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/unegma-unegmaplacedev-Site/CheckBootstrapVersion": [
+        "/prod-unegmaplaceprod-Site/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "unegma-unegmaplacedev-Site"
+      "displayName": "prod-unegmaplaceprod-Site"
     },
     "Tree": {
       "type": "cdk:tree",
