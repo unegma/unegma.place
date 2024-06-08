@@ -31,7 +31,7 @@ export default function Header() {
               className="mr-6 -mt-1 opacity-80"
               height={40}
               width={40}
-              alt="My Coastal Host Logo"
+              alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
               // leave this here to prevent warning
               style={{
                 maxWidth: "100%",

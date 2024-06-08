@@ -42,9 +42,9 @@ export async function POST(request: NextRequest) {
     const mailOptions: Mail.Options = {
       from: process.env.NODE_ENV === 'production' ? process.env.MY_EMAIL : process.env.MY_EMAIL_DEV,
       to: process.env.NODE_ENV === 'production' ? process.env.MY_EMAIL : process.env.MY_EMAIL_DEV,
-      bcc: "tim+mycoastalhost@unegma.com",
+      bcc: "tim+unegmaplace@unegma.com",
       // cc: email, (uncomment this line if you want to send a copy to the sender)
-      subject: `[My Coastal Host] Message from ${name} (${email})`,
+      subject: `[Unegma.Place] Message from ${name} (${email})`,
       text: message,
     };
 
