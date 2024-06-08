@@ -91,7 +91,7 @@ const ContactForm = () => {
         )}
 
         {submitted && !errored && (
-          <p className="text-center" aria-live="polite">Thank you for your message. We will be in touch! <br/><br/><span className="meow text-3xl">Dave</span></p>
+          <p className="text-center" aria-live="polite">Thank you for your message. We will be in touch!</p>
         )}
 
         {errored && (
