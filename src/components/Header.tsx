@@ -28,9 +28,9 @@ export default function Header() {
             <span id="site-header" className="sr-only">My Coastal Host</span>
             <Image
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
-              className="mr-6 -mt-1 opacity-90"
-              height={30}
-              width={30}
+              className="mr-6 -mt-1 opacity-80"
+              height={40}
+              width={40}
               alt="My Coastal Host Logo"
               // leave this here to prevent warning
               style={{

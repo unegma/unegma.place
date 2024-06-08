@@ -17,7 +17,7 @@ import CookieConsent from "@/components/CookieConsent";
 import Head from "next/head";
 
 export const metadata: Metadata = {
-  title: `${process.env.NEXT_PUBLIC_TITLE} ${process.env.NEXT_PUBLIC_TITLE_POSTFIX}`,
+  title: `${process.env.NEXT_PUBLIC_TITLE} | ${process.env.NEXT_PUBLIC_TITLE_POSTFIX}`,
   description: `${process.env.NEXT_PUBLIC_DESCRIPTION}`,
   // charset: 'UTF-8', // todo check this is added automatically
   // viewport: 'width=device-width, initial-scale=1',

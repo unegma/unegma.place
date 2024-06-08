@@ -28,10 +28,10 @@ export default function HomePage() {
           {/*/>*/}
         </div>
 
-        <header className="flex justify-center items-center pt-14 pb-8">
-          <h1 id="hero-heading" className="text-center text-3xl sm:text-3xl md:text-3xl lg:text-4xl">
-          </h1>
-        </header>
+        {/*<header className="flex justify-center items-center pt-14 pb-8">*/}
+        {/*  <h1 id="hero-heading" className="text-center text-3xl sm:text-3xl md:text-3xl lg:text-4xl">*/}
+        {/*  </h1>*/}
+        {/*</header>*/}
 
         <div className="flex justify-center items-center pb-12">
           {/*<Link*/}
@@ -42,7 +42,18 @@ export default function HomePage() {
           {/*  Explore the Witterings*/}
           {/*</Link>*/}
 
-          <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough2.mp4`} />
+          <header className=" text-white absolute px-10 md:px-40 z-50">
+            <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-5xl sm:text-5xl md:text-5xl lg:text-6xl">
+              {process.env.NEXT_PUBLIC_TITLE_POSTFIX}
+            </h1>
+            <p className=" text-center text-xl sm:text-xl md:text-xl lg:text-2xl">
+              {process.env.NEXT_PUBLIC_DESCRIPTION}
+            </p>
+          </header>
+
+          <div className="opacity-100 brightness-50">
+            <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough2.mp4`} />
+          </div>
         </div>
       </section>
 
