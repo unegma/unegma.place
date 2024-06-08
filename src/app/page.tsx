@@ -43,10 +43,10 @@ export default function HomePage() {
           {/*</Link>*/}
 
           <header className=" text-white absolute px-10 md:px-40 z-50">
-            <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-xl leading-snug sm:text-2xl sm:leading-snug md:text-5xl md:leading-snug lg:text-6xl ">
+            <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-2xl leading-snug sm:text-3xl sm:leading-snug md:text-5xl md:leading-snug lg:text-6xl ">
               {process.env.NEXT_PUBLIC_TITLE_POSTFIX}
             </h1>
-            <p className=" text-center text-sm sm:text-lg md:text-2xl lg:text-2xl">
+            <p className="hidden sm:block text-center text-sm sm:text-lg md:text-2xl lg:text-2xl">
               {process.env.NEXT_PUBLIC_DESCRIPTION}
             </p>
           </header>
