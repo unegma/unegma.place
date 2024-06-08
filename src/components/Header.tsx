@@ -25,7 +25,7 @@ export default function Header() {
       <nav className="mx-auto flex max-w-full justify-between items-center px-6 lg:px-8 py-5" aria-label="Global">
         <div className="flex">
           <Link href="/" onClick={closeMobileMenu} className="">
-            <span id="site-header" className="sr-only">My Coastal Host</span>
+            <span id="site-header" className="sr-only">{process.env.NEXT_PUBLIC_TITLE}</span>
             <Image
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
               className="mr-6 -mt-1 opacity-80"
@@ -135,13 +135,13 @@ export default function Header() {
         <Dialog.Panel className="fixed text-black inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-5 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 text-xl">
           <div className="flex items-center justify-between">
             <Link href="/" onClick={closeMobileMenu} className="">
-              <span className="sr-only">My Coastal Host</span>
+              <span className="sr-only">{process.env.NEXT_PUBLIC_TITLE}</span>
               {/*<Image*/}
               {/*  height={30}*/}
               {/*  width={30}*/}
               {/*  src="https://assets.unegma.net/mycoastalhost.com/logo-small-nopadding.png"*/}
               {/*  className="-mt-1"*/}
-              {/*  alt="My Coastal Host Logo"*/}
+              {/*  alt="{process.env.NEXT_PUBLIC_TITLE} Logo"*/}
               {/*  // leave this here to prevent warning*/}
               {/*  style={{*/}
               {/*    maxWidth: "100%",*/}
@@ -233,7 +233,7 @@ export default function Header() {
                   <Link
                     target="_blank"
                     href={`${process.env.NEXT_PUBLIC_FACEBOOK_LINK}`}
-                    aria-label="My Coastal Host Facebook link"
+                    aria-label="{process.env.NEXT_PUBLIC_TITLE} Facebook link"
                     className="flex justify-center items-center p-2 rounded-full border-2 border-gray-800"
                     onClick={closeMobileMenu}
                   >
@@ -242,7 +242,7 @@ export default function Header() {
                   <Link
                     target="_blank"
                     href={`${process.env.NEXT_PUBLIC_INSTAGRAM_LINK}`}
-                    aria-label="My Coastal Host Instagram link"
+                    aria-label="{process.env.NEXT_PUBLIC_TITLE} Instagram link"
                     className="flex justify-center items-center p-2 rounded-full border-2 border-gray-800"
                     onClick={closeMobileMenu}
                   >
