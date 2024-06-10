@@ -28,7 +28,7 @@ export default function Header() {
             <span id="site-header" className="sr-only">{process.env.NEXT_PUBLIC_TITLE}</span>
             <Image
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
-              className="-mt-1 opacity-80"
+              className="-mt-1 opacity-80 p-1"
               height={40}
               width={40}
               alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
@@ -156,7 +156,7 @@ export default function Header() {
               <span className="sr-only">{process.env.NEXT_PUBLIC_TITLE}</span>
               <Image
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
-                className="-mt-1 opacity-80"
+                className="-mt-1 opacity-80 p-1"
                 height={40}
                 width={40}
                 alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
