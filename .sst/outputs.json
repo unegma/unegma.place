@@ -1,3 +1,5 @@
 {
-  "unegma-unegmaplacedev-Site": {}
+  "prod-unegmaplaceprod-Site": {
+    "SiteUrl": "https://unegma.place"
+  }
 }
