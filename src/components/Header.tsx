@@ -24,18 +24,32 @@ export default function Header() {
     <header id="top" aria-labelledby="site-header" className="">
       <nav className="mx-auto flex max-w-full justify-between items-center px-6 lg:px-8 py-5" aria-label="Global">
         <div className="flex">
-          <Link href="/" onClick={closeMobileMenu} className="">
+          <Link href="/" onClick={closeMobileMenu} className="flex flex-row">
             <span id="site-header" className="sr-only">{process.env.NEXT_PUBLIC_TITLE}</span>
             <Image
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/tiny-logo.png`}
-              className="mr-6 -mt-1 opacity-80"
+              className="-mt-1 opacity-80"
               height={40}
               width={40}
               alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
               // leave this here to prevent warning
               style={{
+                width: "50px",
                 maxWidth: "100%",
                 height: "auto",
+              }}
+            />
+            <Image
+              src={`https://assets.unegma.net/shared/unegma-logos/unegma-logo-wide.png`}
+              className=""
+              height={57}
+              width={250}
+              alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
+              // todo this needs fixing on edge and chrome on windows
+              style={{
+                width: "100px",
+                maxWidth: "100%",
+                height: "auto"
               }}
             />
             {/*<p className="mr-10 text-center">unegma.place</p>*/}
@@ -148,6 +162,7 @@ export default function Header() {
                 alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
                 // leave this here to prevent warning
                 style={{
+                  width: "50px",
                   maxWidth: "100%",
                   height: "auto",
                 }}

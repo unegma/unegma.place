@@ -3,6 +3,7 @@ import Link from 'next/link';
 import * as React from "react";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import { Email, Facebook, Instagram, LocationOn } from "@mui/icons-material";
+import {date} from "zod";
 
 export default function Footer() {
   return (
@@ -78,6 +79,18 @@ export default function Footer() {
               }}
             />
           </Link>
+        </section>
+
+        {/* Contact Information */}
+        {/*todo move to global font color (they arent being applied somehow)*/}
+        <section className="pb-3 my-5 md:my-4 text-gray-800" aria-labelledby="contact-info-heading">
+          <header>
+            <h3 id="contact-info-heading" className="sr-only">Contact Information</h3>
+          </header>
+          <div className="flex justify-end items-end">
+            {/*todo add extra info to this tag, or maybe even use Link?*/}
+            <p><span className="underline">unegma.place</span> &copy; is a subsidiary of <a className="underline" href="https://unegma.com" target="_blank">unegma.com</a></p>
+          </div>
         </section>
       </div>
     </footer>
