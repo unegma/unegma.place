@@ -23,8 +23,8 @@ export default function PropertyGrid() {
                 <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough2.mp4`} />
               </div>
 
-              <header className="absolute">
-                <h3 id={`property-title-${index}`} className="leading-10 mt-2 text-3xl text-white">{property.name}</h3>
+              <header className="absolute flex justify-center items-center w-full">
+                <h3 id={`property-title-${index}`} className="inline-block leading-10 mt-2 text-3xl md:text-lg lg:text-3xl text-white">{property.name}</h3>
                 {/*<h4 className="mb-3">{property.location}</h4>*/}
               </header>
               {/*<p className="text-gray-400">{property.price}</p>*/}
