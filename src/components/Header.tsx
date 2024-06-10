@@ -109,20 +109,24 @@ export default function Header() {
             {/*  Explore the Witterings*/}
             {/*</Link>*/}
 
-            <Link href="/about" className="leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
-              About
-            </Link>
           </div>
 
           {/*right menu*/}
           <div className="flex space-x-4">
-            <Link href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER_INTERNATIONAL}`} className="flex flex-row leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
-              <PhoneIphoneIcon className="mx-2" />
-              <span className="hidden md:block text-gray-700">{process.env.NEXT_PUBLIC_PHONE_NUMBER}</span>
+            {/*<Link href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER_INTERNATIONAL}`} className="flex flex-row leading-6 hover:text-gray-400" onClick={closeMobileMenu}>*/}
+            {/*  <PhoneIphoneIcon className="mx-2" />*/}
+            {/*  <span className="hidden md:block text-gray-700">{process.env.NEXT_PUBLIC_PHONE_NUMBER}</span>*/}
+            {/*</Link>*/}
+            {/*<Link href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`} className="flex flex-row leading-6 hover:text-gray-400" onClick={closeMobileMenu}>*/}
+            {/*  <Email className="mx-2" />*/}
+            {/*  <span className="hidden md:block text-gray-700">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>*/}
+            {/*</Link>*/}
+
+            <Link href="/about" className="leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
+              About
             </Link>
-            <Link href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`} className="flex flex-row leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
-              <Email className="mx-2" />
-              <span className="hidden md:block text-gray-700">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
+            <Link href="#contact" className="leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
+              Contact
             </Link>
           </div>
         </Popover.Group>
@@ -210,44 +214,48 @@ export default function Header() {
                 >
                   About
                 </Link>
-                <Link
-                  href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER_INTERNATIONAL}`}
-                  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"
-                  onClick={closeMobileMenu}
-                >
-                  <PhoneIphoneIcon className="mr-2" />
-                  <span>{process.env.NEXT_PUBLIC_PHONE_NUMBER}</span>
+                <Link href="#contact" className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"
+                      onClick={closeMobileMenu}>
+                  Contact
                 </Link>
-                <Link
-                  href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`}
-                  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"
-                  onClick={closeMobileMenu}
-                >
-                  <Email className="mr-2" />
-                  <span>{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
-                </Link>
+                {/*<Link*/}
+                {/*  href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER_INTERNATIONAL}`}*/}
+                {/*  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"*/}
+                {/*  onClick={closeMobileMenu}*/}
+                {/*>*/}
+                {/*  <PhoneIphoneIcon className="mr-2" />*/}
+                {/*  <span>{process.env.NEXT_PUBLIC_PHONE_NUMBER}</span>*/}
+                {/*</Link>*/}
+                {/*<Link*/}
+                {/*  href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`}*/}
+                {/*  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"*/}
+                {/*  onClick={closeMobileMenu}*/}
+                {/*>*/}
+                {/*  <Email className="mr-2" />*/}
+                {/*  <span>{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>*/}
+                {/*</Link>*/}
               </div>
 
               <div className="py-6">
                 <div className="flex justify-start items-center gap-4">
-                  <Link
-                    target="_blank"
-                    href={`${process.env.NEXT_PUBLIC_FACEBOOK_LINK}`}
-                    aria-label="{process.env.NEXT_PUBLIC_TITLE} Facebook link"
-                    className="flex justify-center items-center p-2 rounded-full border-2 border-gray-800"
-                    onClick={closeMobileMenu}
-                  >
-                    <Facebook style={{ fontSize: '2rem' }} className="text-gray-800" />
-                  </Link>
-                  <Link
-                    target="_blank"
-                    href={`${process.env.NEXT_PUBLIC_INSTAGRAM_LINK}`}
-                    aria-label="{process.env.NEXT_PUBLIC_TITLE} Instagram link"
-                    className="flex justify-center items-center p-2 rounded-full border-2 border-gray-800"
-                    onClick={closeMobileMenu}
-                  >
-                    <Instagram style={{ fontSize: '2rem' }} className="text-gray-800" />
-                  </Link>
+                  {/*<Link*/}
+                  {/*  target="_blank"*/}
+                  {/*  href={`${process.env.NEXT_PUBLIC_FACEBOOK_LINK}`}*/}
+                  {/*  aria-label="{process.env.NEXT_PUBLIC_TITLE} Facebook link"*/}
+                  {/*  className="flex justify-center items-center p-2 rounded-full border-2 border-gray-800"*/}
+                  {/*  onClick={closeMobileMenu}*/}
+                  {/*>*/}
+                  {/*  <Facebook style={{ fontSize: '2rem' }} className="text-gray-800" />*/}
+                  {/*</Link>*/}
+                  {/*<Link*/}
+                  {/*  target="_blank"*/}
+                  {/*  href={`${process.env.NEXT_PUBLIC_INSTAGRAM_LINK}`}*/}
+                  {/*  aria-label="{process.env.NEXT_PUBLIC_TITLE} Instagram link"*/}
+                  {/*  className="flex justify-center items-center p-2 rounded-full border-2 border-gray-800"*/}
+                  {/*  onClick={closeMobileMenu}*/}
+                  {/*>*/}
+                  {/*  <Instagram style={{ fontSize: '2rem' }} className="text-gray-800" />*/}
+                  {/*</Link>*/}
                 </div>
               </div>
             </div>
