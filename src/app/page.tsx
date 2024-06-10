@@ -3,6 +3,7 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Link from 'next/link';
 import VideoComponent from "@/components/VideoComponent";
+import DiscoverOurHomes from "@/components/DiscoverOurHomes";
 
 export default function HomePage() {
 
@@ -57,6 +58,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Discover Our Homes Section */}
+      <DiscoverOurHomes />
 
       {/* Contact Form Section */}
       <section className="bg-secondary" aria-labelledby="contact-form-heading">

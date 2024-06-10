@@ -87,7 +87,7 @@ export default function Footer() {
           <header>
             <h3 id="contact-info-heading" className="sr-only">Contact Information</h3>
           </header>
-          <div className="flex justify-end items-end">
+          <div className="flex justify-center items-center">
             {/*todo add extra info to this tag, or maybe even use Link?*/}
             <p><span className="underline">unegma.place</span> &copy; is a subsidiary of <a className="underline" href="https://unegma.com" target="_blank">unegma.com</a></p>
           </div>
