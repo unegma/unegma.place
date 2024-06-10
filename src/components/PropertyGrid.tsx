@@ -15,7 +15,7 @@ export default function PropertyGrid() {
       <header>
         <h2 id="property-grid-heading" className="sr-only">Property Listings</h2>
       </header>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {properties.map((property, index) => (
           <article key={index} className="relative overflow-hidden" aria-labelledby={`property-title-${index}`}>
             <div className="flex flex-col justify-center p-1 bg-white text-center">
@@ -24,8 +24,8 @@ export default function PropertyGrid() {
               </div>
 
               <header className="absolute flex flex-col justify-center items-center w-full">
-                <h3 id={`property-title-${index}`} className="inline-block leading-10 mt-2 text-3xl text-white">{property.name}</h3>
-                <h4 className="mb-3 text-gray-100">{property.description}</h4>
+                <h3 id={`property-title-${index}`} className="inline-block leading-10 mt-2 text-3xl text-white albert">{property.name}</h3>
+                <h4 className="mb-3 text-gray-100 montserrat">{property.description}</h4>
               </header>
               {/*<p className="text-gray-400">{property.price}</p>*/}
               {/*<p className="text-gray-600">{property.guests} • {property.beds} • {property.features}</p>*/}

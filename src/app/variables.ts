@@ -3,6 +3,16 @@ export const properties = [
     name: "Ark Coworking",
     miniDescription: "Private Office",
     description: "Private Office",
+  },
+  {
+    name: "Ark Coworking",
+    miniDescription: "Private Office",
+    description: "Private Office",
+  },
+  {
+    name: "Ark Coworking",
+    miniDescription: "Private Office",
+    description: "Private Office",
     // titleDescription: ["Welcome to Downsea, a beautifully crafted, coastal retreat; just a few steps from East Wittering beach.", "Relax and unwind in this stunning and spacious, scandi-beach interior then step outside onto the patio and soak in that much needed sea air. Close to bustling East Wittering village with cafe’s, restaurants and shops and nearby to the stunning Blue Flag beach at West Wittering."],
     // url: "/where-to-stay/downsea",
     // mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5047.093229303024!2d-0.871055!3d50.76544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487451e99575e50f%3A0x2ef7dd9165c0d459!2sDownsea%3A%20Luxury%20Seaside%20Home%20with%20Hot%20Tub%20(My%20Coastal%20Host)!5e0!3m2!1sen!2suk!4v1716045966487!5m2!1sen!2suk",

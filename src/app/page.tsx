@@ -3,7 +3,9 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Link from 'next/link';
 import VideoComponent from "@/components/VideoComponent";
-import DiscoverOurHomes from "@/components/DiscoverOurHomes";
+import Flythroughs from "@/components/Flythroughs";
+import LidarScans from "@/components/LidarScans";
+import ThreeSixty from "@/components/ThreeSixty";
 
 export default function HomePage() {
 
@@ -34,7 +36,7 @@ export default function HomePage() {
         {/*  </h1>*/}
         {/*</header>*/}
 
-        <div className="flex justify-center items-center pb-12">
+        <div className="flex justify-center items-center pb-0">
           {/*<Link*/}
           {/*  aria-label="Read more about the witterings as an area in general"*/}
           {/*  href="/explore-the-witterings"*/}
@@ -43,11 +45,11 @@ export default function HomePage() {
           {/*  Explore the Witterings*/}
           {/*</Link>*/}
 
-          <header className=" text-white absolute px-10 md:px-40 z-10">
+          <header className="text-white absolute px-10 md:px-40 z-10">
             <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-2xl leading-snug sm:text-3xl sm:leading-snug md:text-5xl md:leading-snug lg:text-6xl ">
               {process.env.NEXT_PUBLIC_TITLE_POSTFIX}
             </h1>
-            <p className="hidden sm:block text-center text-sm sm:text-lg md:text-2xl lg:text-2xl">
+            <p className="montserrat hidden sm:block text-center text-sm sm:text-lg md:text-2xl lg:text-2xl">
               {process.env.NEXT_PUBLIC_DESCRIPTION}
             </p>
           </header>
@@ -59,7 +61,9 @@ export default function HomePage() {
       </section>
 
       {/* Discover Our Homes Section */}
-      <DiscoverOurHomes />
+      <Flythroughs />
+      <LidarScans />
+      <ThreeSixty />
 
       {/* Contact Form Section */}
       <section className="bg-secondary" aria-labelledby="contact-form-heading">
