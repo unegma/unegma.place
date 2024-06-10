@@ -122,10 +122,10 @@ export default function Header() {
             {/*  <span className="hidden md:block text-gray-700">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>*/}
             {/*</Link>*/}
 
-            <Link href="/about" className="leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
+            <Link href="/about" className="leading-6 hover:text-gray-400 text-lg" onClick={closeMobileMenu}>
               About
             </Link>
-            <Link href="#contact" className="leading-6 hover:text-gray-400" onClick={closeMobileMenu}>
+            <Link href="#contact" className="leading-6 hover:text-gray-400 text-lg" onClick={closeMobileMenu}>
               Contact
             </Link>
           </div>
@@ -209,12 +209,12 @@ export default function Header() {
                 {/*</Link>*/}
                 <Link
                   href="/about"
-                  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50 text-lg text-center"
                   onClick={closeMobileMenu}
                 >
                   About
                 </Link>
-                <Link href="#contact" className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"
+                <Link href="#contact" className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50 text-lg text-center"
                       onClick={closeMobileMenu}>
                   Contact
                 </Link>
@@ -236,8 +236,9 @@ export default function Header() {
                 {/*</Link>*/}
               </div>
 
+
               <div className="py-6">
-                <div className="flex justify-start items-center gap-4">
+                <div className="flex justify-center items-center gap-4 ">
                   {/*<Link*/}
                   {/*  target="_blank"*/}
                   {/*  href={`${process.env.NEXT_PUBLIC_FACEBOOK_LINK}`}*/}
@@ -256,6 +257,20 @@ export default function Header() {
                   {/*>*/}
                   {/*  <Instagram style={{ fontSize: '2rem' }} className="text-gray-800" />*/}
                   {/*</Link>*/}
+                  <Link href="/#top">
+                    <Image
+                      src={`https://assets.unegma.net/shared/unegma-logos/unegma-logo-wide.png`}
+                      className="pb-1 pt-4 mb-10"
+                      height={57}
+                      width={250}
+                      alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
+                      // todo this needs fixing on edge and chrome on windows
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto"
+                      }}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
