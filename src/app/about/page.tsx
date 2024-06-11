@@ -66,12 +66,12 @@ export default function AboutPage() {
       </section>
 
       {/* Section 3: Contact Form */}
-      <section className="flex justify-center items-center py-10 flex-col">
+      <section className="flex justify-center items-center py-10 flex-col  bg-unegma">
         <ContactForm />
       </section>
 
       {/* Footer */}
-      <footer className="bg-secondary">
+      <footer className="">
         <div className="flex justify-center items-center py-10 flex-col">
           <p className="albert">
             <Link target="_blank" href="https://unegma.com">made and hosted by <span className="underline">unegma</span></Link>

@@ -7,7 +7,7 @@ import {date} from "zod";
 
 export default function Footer() {
   return (
-    <footer className="py-4 mt-auto" aria-labelledby="footer-heading">
+    <footer className="py-4 mt-auto bg-secondary" aria-labelledby="footer-heading">
       <div className="container mx-auto px-4 pt-8">
 
         {/* Footer Heading for ARIA */}

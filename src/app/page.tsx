@@ -66,7 +66,7 @@ export default function HomePage() {
       <ThreeSixty />
 
       {/* Contact Form Section */}
-      <section className="bg-secondary" aria-labelledby="contact-form-heading">
+      <section className="bg-unegma" aria-labelledby="contact-form-heading">
         <div className="flex justify-center items-center py-10 flex-col">
           <ContactForm />
         </div>
