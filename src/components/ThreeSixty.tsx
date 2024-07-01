@@ -14,7 +14,7 @@ export default function ThreeSixty() {
       <div className="mx-auto px-6 md:px-20 py-6">
         <header className="flex justify-center items-center pt-12 pb-4">
           <h1 id="spaces-heading" className="text-center text-3xl sm:text-2xl md:text-3xl lg:text-4xl">
-            360 Photos
+            Digital Reconstructions
           </h1>
         </header>
 
