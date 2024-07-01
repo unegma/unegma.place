@@ -24,8 +24,8 @@ export default function PropertyGrid({properties}: any) {
               </div>
 
               <header className="absolute flex flex-col justify-center items-center w-full">
-                <h3 id={`property-title-${index}`} className="inline-block mb-1 lg:mb-3 leading-10 mt-2 text-4xl md:text-lg lg:text-3xl text-white albert">{property.name}</h3>
-                <h4 className="mb-3 text-2xl md:text-lg md:leading-4 lg:text-2xl text-gray-100 montserrat">{property.description}</h4>
+                <h3 id={`property-title-${index}`} className="inline-block mb-1 lg:mb-3 leading-10 mt-2 text-4xl md:text-lg lg:text-3xl text-white albert select-none">{property.name}</h3>
+                <h4 className="mb-3 text-2xl md:text-lg md:leading-4 lg:text-2xl text-gray-100 montserrat select-none">{property.description}</h4>
               </header>
               {/*<p className="text-gray-400">{property.price}</p>*/}
               {/*<p className="text-gray-600">{property.guests} • {property.beds} • {property.features}</p>*/}
