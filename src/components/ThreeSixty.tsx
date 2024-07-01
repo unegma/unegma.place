@@ -8,7 +8,7 @@ import Link from 'next/link';
  *
  * @constructor
  */
-export default function ThreeSixty() {
+export default function ThreeSixty({properties}: any) {
   return (
     <section className="" aria-labelledby="spaces-heading">
       <div className="mx-auto px-6 md:px-20 py-6">
@@ -18,7 +18,7 @@ export default function ThreeSixty() {
           </h1>
         </header>
 
-        <PropertyGrid />
+        <PropertyGrid properties={properties.digital} />
 
         {/*<div className="flex justify-center items-center pb-6 pt-4">*/}
         {/*  <Link aria-label="See all homes available at our locations" href="/where-to-stay" className="button-black text-xl">*/}

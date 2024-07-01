@@ -7,18 +7,18 @@ import {date} from "zod";
 
 export default function Footer() {
   return (
-    <footer className="py-4 mt-auto bg-secondary" aria-labelledby="footer-heading">
+    <footer id="footer-heading" className="py-4 mt-auto" aria-labelledby="footer-heading">
       <div className="container mx-auto px-4 pt-8">
 
         {/* Footer Heading for ARIA */}
-        <h2 id="footer-heading" className="sr-only">Footer</h2>
+        {/*<h2 id="footer-heading" className="sr-only">Footer</h2>*/}
 
         {/* Social Media Links */}
-        <section className="container mx-auto px-4 mb-8 text-gray-700" aria-labelledby="social-media-heading">
-          <header>
-            <h3 id="social-media-heading" className="sr-only">Social Media Links</h3>
-          </header>
-          <nav className="flex justify-center items-center gap-4" aria-label="Social Media Links">
+        {/*<section className="container mx-auto px-4 mb-8 text-gray-700" aria-labelledby="social-media-heading">*/}
+        {/*  <header>*/}
+        {/*    <h3 id="social-media-heading" className="sr-only">Social Media Links</h3>*/}
+        {/*  </header>*/}
+        {/*  <nav className="flex justify-center items-center gap-4" aria-label="Social Media Links">*/}
             {/*<Link*/}
             {/*  target="_blank"*/}
             {/*  href={`${process.env.NEXT_PUBLIC_FACEBOOK_LINK}`}*/}
@@ -35,16 +35,16 @@ export default function Footer() {
             {/*>*/}
             {/*  <Instagram style={{ fontSize: '1.5rem' }} className="text-gray-800" />*/}
             {/*</Link>*/}
-          </nav>
-        </section>
+          {/*</nav>*/}
+        {/*</section>*/}
 
         {/* Contact Information */}
         {/*todo move to global font color (they arent being applied somehow)*/}
-        <section className="pb-3 my-5 md:my-4 text-gray-800" aria-labelledby="contact-info-heading">
-          <header>
-            <h3 id="contact-info-heading" className="sr-only">Contact Information</h3>
-          </header>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/*<section className="pb-3 my-5 md:my-4 text-gray-800" aria-labelledby="contact-info-heading">*/}
+        {/*  <header>*/}
+        {/*    <h3 id="contact-info-heading" className="sr-only">Contact Information</h3>*/}
+        {/*  </header>*/}
+        {/*  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">*/}
             {/*<Link className="flex flex-col items-center" href={`/about#where-to-find-us`}>*/}
             {/*  <LocationOn style={{ fontSize: '1.6rem' }} className="mx-2 mb-2" />*/}
             {/*  <span className="text-lg text-center"></span>*/}
@@ -57,8 +57,8 @@ export default function Footer() {
             {/*  <Email style={{ fontSize: '1.6rem' }} className="mx-2 mb-2" />*/}
             {/*  <span className="text-lg">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>*/}
             {/*</Link>*/}
-          </div>
-        </section>
+          {/*</div>*/}
+        {/*</section>*/}
 
         {/* Logo */}
         <section className="flex justify-center items-center" aria-labelledby="logo-heading">
@@ -68,7 +68,7 @@ export default function Footer() {
           <Link href="/#top">
             <Image
               src={`https://assets.unegma.net/shared/unegma-logos/unegma-logo-wide.png`}
-              className="pb-1 pt-4 mb-10"
+              className="pt-4 mt-9"
               height={57}
               width={250}
               alt={`${process.env.NEXT_PUBLIC_TITLE} Logo`}
@@ -83,13 +83,21 @@ export default function Footer() {
 
         {/* Contact Information */}
         {/*todo move to global font color (they arent being applied somehow)*/}
-        <section className="pb-3 my-5 md:my-4 text-gray-800" aria-labelledby="contact-info-heading">
+        <section className="pb-3 mb-3 mt-1 text-gray-800" aria-labelledby="contact-info-heading">
           <header>
             <h3 id="contact-info-heading" className="sr-only">Contact Information</h3>
           </header>
           <div className="flex justify-center items-center">
             {/*todo add extra info to this tag, or maybe even use Link?*/}
             <p><span className="underline">unegma.place</span> &copy; is a subsidiary of <a className="underline" href="https://unegma.com" target="_blank">unegma.com</a></p>
+          </div>
+          <div className="flex justify-center items-center py-2 flex-col">
+            <p className="albert">
+              <Link target="_blank" href="https://unegma.com">made and hosted by <span className="underline">unegma</span></Link>
+              <span> - our&nbsp;
+                <Link href="/privacy" className="underline">privacy policy</Link>
+            </span>
+            </p>
           </div>
         </section>
       </div>

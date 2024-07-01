@@ -6,6 +6,7 @@ import VideoComponent from "@/components/VideoComponent";
 import Flythroughs from "@/components/Flythroughs";
 import LidarScans from "@/components/LidarScans";
 import ThreeSixty from "@/components/ThreeSixty";
+import {properties} from "@/app/variables";
 
 export default function HomePage() {
 
@@ -55,18 +56,18 @@ export default function HomePage() {
           </header>
 
           <div className="opacity-100 brightness-50 w-full">
-            <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough2.mp4`} />
+            <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough5-small.mp4`} />
           </div>
         </div>
       </section>
 
       {/* Discover Our Homes Section */}
-      <Flythroughs />
-      <LidarScans />
-      <ThreeSixty />
+      <Flythroughs properties={properties} />
+      {/*<LidarScans />*/}
+      <ThreeSixty  properties={properties} />
 
       {/* Contact Form Section */}
-      <section className="bg-unegma" aria-labelledby="contact-form-heading">
+      <section className="bg-secondary" aria-labelledby="contact-form-heading">
         <div className="flex justify-center items-center py-10 flex-col">
           <ContactForm />
         </div>

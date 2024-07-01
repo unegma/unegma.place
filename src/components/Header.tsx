@@ -136,7 +136,7 @@ export default function Header() {
             {/*  <span className="hidden md:block text-gray-700">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>*/}
             {/*</Link>*/}
 
-            <Link href="/about" className="leading-6 hover:text-gray-400 text-lg" onClick={closeMobileMenu}>
+            <Link href="#footer-heading" className="leading-6 hover:text-gray-400 text-lg" onClick={closeMobileMenu}>
               About
             </Link>
             <Link href="#contact" className="leading-6 hover:text-gray-400 text-lg" onClick={closeMobileMenu}>

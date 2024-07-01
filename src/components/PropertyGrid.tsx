@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { properties } from "@/app/variables";
+
 import Link from 'next/link';
 import VideoComponent from "@/components/VideoComponent";
 import * as React from "react";
@@ -9,18 +9,18 @@ import * as React from "react";
  * This template is used on the home page and at the bottom of explore the witterings.
  * @constructor
  */
-export default function PropertyGrid() {
+export default function PropertyGrid({properties}: any) {
   return (
     <section className="mx-auto px-0 py-8" aria-labelledby="property-grid-heading">
       <header>
         <h2 id="property-grid-heading" className="sr-only">Property Listings</h2>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
-        {properties.map((property, index) => (
+        {properties.map((property: any, index: any) => (
           <article key={index} className="relative overflow-hidden" aria-labelledby={`property-title-${index}`}>
             <div className="flex flex-col justify-center p-1 bg-white text-center">
               <div className="opacity-100 brightness-50">
-                <VideoComponent src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough2.mp4`} />
+                <VideoComponent src={property.video} />
               </div>
 
               <header className="absolute flex flex-col justify-center items-center w-full">
