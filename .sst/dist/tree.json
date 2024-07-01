@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "unegma-unegmaplacedev-Site": {
-        "id": "unegma-unegmaplacedev-Site",
-        "path": "unegma-unegmaplacedev-Site",
+      "prod-unegmaplaceprod-Site": {
+        "id": "prod-unegmaplaceprod-Site",
+        "path": "prod-unegmaplaceprod-Site",
         "children": {
           "CustomResourceHandler": {
             "id": "CustomResourceHandler",
-            "path": "unegma-unegmaplacedev-Site/CustomResourceHandler",
+            "path": "prod-unegmaplaceprod-Site/CustomResourceHandler",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole",
+                "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
+                    "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.132.1"
@@ -26,7 +26,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/ServiceRole/Resource",
+                    "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -59,11 +59,11 @@
                         "tags": [
                           {
                             "key": "sst:app",
-                            "value": "unegmaplacedev"
+                            "value": "unegmaplaceprod"
                           },
                           {
                             "key": "sst:stage",
-                            "value": "unegma"
+                            "value": "prod"
                           }
                         ]
                       }
@@ -81,11 +81,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Code",
+                "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Code/Stage",
+                    "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.132.1"
@@ -93,7 +93,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Code/AssetBucket",
+                    "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.132.1"
@@ -107,13 +107,13 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "unegma-unegmaplacedev-Site/CustomResourceHandler/Resource",
+                "path": "prod-unegmaplaceprod-Site/CustomResourceHandler/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-                      "s3Key": "69f446380e582530dccfa0109ab162bd0455a30283251587a374f39ee54fad44.zip"
+                      "s3Key": "bed34e7e320ba647293a751bee793d8b28c1cbc68a732d6b6d2cf77c50f12014.zip"
                     },
                     "handler": "index.handler",
                     "memorySize": 1024,
@@ -127,11 +127,11 @@
                     "tags": [
                       {
                         "key": "sst:app",
-                        "value": "unegmaplacedev"
+                        "value": "unegmaplaceprod"
                       },
                       {
                         "key": "sst:stage",
-                        "value": "unegma"
+                        "value": "prod"
                       }
                     ],
                     "timeout": 900
@@ -150,15 +150,15 @@
           },
           "public": {
             "id": "public",
-            "path": "unegma-unegmaplacedev-Site/public",
+            "path": "prod-unegmaplaceprod-Site/public",
             "children": {
               "Bucket": {
                 "id": "Bucket",
-                "path": "unegma-unegmaplacedev-Site/public/Bucket",
+                "path": "prod-unegmaplaceprod-Site/public/Bucket",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "unegma-unegmaplacedev-Site/public/Bucket/Resource",
+                    "path": "prod-unegmaplaceprod-Site/public/Bucket/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                       "aws:cdk:cloudformation:props": {
@@ -195,11 +195,11 @@
                         "tags": [
                           {
                             "key": "sst:app",
-                            "value": "unegmaplacedev"
+                            "value": "unegmaplaceprod"
                           },
                           {
                             "key": "sst:stage",
-                            "value": "unegma"
+                            "value": "prod"
                           }
                         ]
                       }
@@ -211,11 +211,11 @@
                   },
                   "Policy": {
                     "id": "Policy",
-                    "path": "unegma-unegmaplacedev-Site/public/Bucket/Policy",
+                    "path": "prod-unegmaplaceprod-Site/public/Bucket/Policy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "unegma-unegmaplacedev-Site/public/Bucket/Policy/Resource",
+                        "path": "prod-unegmaplaceprod-Site/public/Bucket/Policy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
                           "aws:cdk:cloudformation:props": {
@@ -282,18 +282,18 @@
               },
               "Parameter_bucketName": {
                 "id": "Parameter_bucketName",
-                "path": "unegma-unegmaplacedev-Site/public/Parameter_bucketName",
+                "path": "prod-unegmaplaceprod-Site/public/Parameter_bucketName",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "unegma-unegmaplacedev-Site/public/Parameter_bucketName/Resource",
+                    "path": "prod-unegmaplaceprod-Site/public/Parameter_bucketName/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
                       "aws:cdk:cloudformation:props": {
-                        "name": "/sst/unegmaplacedev/unegma/Bucket/public/bucketName",
+                        "name": "/sst/unegmaplaceprod/prod/Bucket/public/bucketName",
                         "tags": {
-                          "sst:app": "unegmaplacedev",
-                          "sst:stage": "unegma"
+                          "sst:app": "unegmaplaceprod",
+                          "sst:stage": "prod"
                         },
                         "type": "String",
                         "value": {
@@ -318,103 +318,85 @@
               "version": "10.3.0"
             }
           },
-          "UNPLDevCert": {
-            "id": "UNPLDevCert",
-            "path": "unegma-unegmaplacedev-Site/UNPLDevCert",
+          "UNPLProdCert": {
+            "id": "UNPLProdCert",
+            "path": "prod-unegmaplaceprod-Site/UNPLProdCert",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.141.0"
             }
           },
-          "unegmaplacedev": {
-            "id": "unegmaplacedev",
-            "path": "unegma-unegmaplacedev-Site/unegmaplacedev",
+          "unegmaplaceprod": {
+            "id": "unegmaplaceprod",
+            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod",
             "children": {
-              "ServerFunctionRole": {
-                "id": "ServerFunctionRole",
-                "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole",
+              "S3Bucket": {
+                "id": "S3Bucket",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket",
                 "children": {
-                  "ImportServerFunctionRole": {
-                    "id": "ImportServerFunctionRole",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/ImportServerFunctionRole",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.132.1"
-                    }
-                  },
                   "Resource": {
                     "id": "Resource",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/Resource",
                     "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                       "aws:cdk:cloudformation:props": {
-                        "assumeRolePolicyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "AWS": {
-                                  "Fn::Join": [
-                                    "",
-                                    [
-                                      "arn:",
-                                      {
-                                        "Ref": "AWS::Partition"
-                                      },
-                                      ":iam::952351240809:root"
-                                    ]
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "Service": "lambda.amazonaws.com"
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
+                        "publicAccessBlockConfiguration": {
+                          "blockPublicAcls": true,
+                          "blockPublicPolicy": true,
+                          "ignorePublicAcls": true,
+                          "restrictPublicBuckets": true
                         },
-                        "maxSessionDuration": 43200,
                         "tags": [
                           {
+                            "key": "aws-cdk:auto-delete-objects",
+                            "value": "true"
+                          },
+                          {
                             "key": "sst:app",
-                            "value": "unegmaplacedev"
+                            "value": "unegmaplaceprod"
                           },
                           {
                             "key": "sst:stage",
-                            "value": "unegma"
+                            "value": "prod"
                           }
                         ]
                       }
                     },
                     "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
                       "version": "2.132.1"
                     }
                   },
-                  "DefaultPolicy": {
-                    "id": "DefaultPolicy",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/DefaultPolicy",
+                  "Policy": {
+                    "id": "Policy",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/Policy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunctionRole/DefaultPolicy/Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/Policy/Resource",
                         "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
                           "aws:cdk:cloudformation:props": {
+                            "bucket": {
+                              "Ref": "unegmaplaceprodS3BucketA264F3C0"
+                            },
                             "policyDocument": {
                               "Statement": [
                                 {
                                   "Action": "s3:*",
-                                  "Effect": "Allow",
+                                  "Condition": {
+                                    "Bool": {
+                                      "aws:SecureTransport": "false"
+                                    }
+                                  },
+                                  "Effect": "Deny",
+                                  "Principal": {
+                                    "AWS": "*"
+                                  },
                                   "Resource": [
                                     {
                                       "Fn::GetAtt": [
-                                        "publicBucket5C3DBAB0",
+                                        "unegmaplaceprodS3BucketA264F3C0",
                                         "Arn"
                                       ]
                                     },
@@ -424,7 +406,7 @@
                                         [
                                           {
                                             "Fn::GetAtt": [
-                                              "publicBucket5C3DBAB0",
+                                              "unegmaplaceprodS3BucketA264F3C0",
                                               "Arn"
                                             ]
                                           },
@@ -433,46 +415,161 @@
                                       ]
                                     }
                                   ]
+                                },
+                                {
+                                  "Action": [
+                                    "s3:PutBucketPolicy",
+                                    "s3:GetBucket*",
+                                    "s3:List*",
+                                    "s3:DeleteObject*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "unegmaplaceprodS3BucketA264F3C0",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "unegmaplaceprodS3BucketA264F3C0",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Action": "s3:GetObject",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "CanonicalUser": {
+                                      "Fn::GetAtt": [
+                                        "unegmaplaceprodDistributionOrigin3S3OriginA5563126",
+                                        "S3CanonicalUserId"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "unegmaplaceprodS3BucketA264F3C0",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/*"
+                                      ]
+                                    ]
+                                  }
                                 }
                               ],
                               "Version": "2012-10-17"
-                            },
-                            "policyName": "unegmaplacedevServerFunctionRoleDefaultPolicy87C705C8",
-                            "roles": [
-                              {
-                                "Ref": "unegmaplacedevServerFunctionRoleD60017CF"
-                              }
-                            ]
+                            }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
                           "version": "2.132.1"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "AutoDeleteObjectsCustomResource": {
+                    "id": "AutoDeleteObjectsCustomResource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/AutoDeleteObjectsCustomResource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3Bucket/AutoDeleteObjectsCustomResource/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
                       "version": "2.132.1"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "fqn": "aws-cdk-lib.aws_s3.Bucket",
+                  "version": "2.132.1"
+                }
+              },
+              "SSTExtension": {
+                "id": "SSTExtension",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/SSTExtension",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.132.1"
+                }
+              },
+              "CloudFrontFunction": {
+                "id": "CloudFrontFunction",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontFunction",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "autoPublish": true,
+                        "functionCode": "function handler(r){var e=r.request;return e.headers[\"x-forwarded-host\"]=e.headers.host,e.cookies.__prerender_bypass&&(e.headers[\"x-prerender-bypass\"]={value:\"true\"}),e}\n",
+                        "functionConfig": {
+                          "comment": "eu-west-2produnegmaplaceprodSiteceprodCloudFrontFunction9F2AF822",
+                          "runtime": "cloudfront-js-1.0"
+                        },
+                        "name": "eu-west-2produnegmaplaceprodSiteceprodCloudFrontFunction9F2AF822"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnFunction",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.Function",
                   "version": "2.132.1"
                 }
               },
               "ServerFunction": {
                 "id": "ServerFunction",
-                "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction",
                 "children": {
                   "AssetReplacerPolicy": {
                     "id": "AssetReplacerPolicy",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacerPolicy",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/AssetReplacerPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacerPolicy/Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/AssetReplacerPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -500,7 +597,7 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "unegmaplacedevServerFunctionAssetReplacerPolicyA5466F96",
+                            "policyName": "unegmaplaceprodServerFunctionAssetReplacerPolicy86A9AEB9",
                             "roles": [
                               {
                                 "Ref": "CustomResourceHandlerServiceRole41AEC181"
@@ -521,11 +618,11 @@
                   },
                   "AssetReplacer": {
                     "id": "AssetReplacer",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacer",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/AssetReplacer",
                     "children": {
                       "Default": {
                         "id": "Default",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/AssetReplacer/Default",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/AssetReplacer/Default",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnResource",
                           "version": "2.132.1"
@@ -539,7 +636,7 @@
                   },
                   "IServerFunctionBucket": {
                     "id": "IServerFunctionBucket",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/IServerFunctionBucket",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/IServerFunctionBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.132.1"
@@ -547,11 +644,228 @@
                   },
                   "ServerFunction": {
                     "id": "ServerFunction",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction",
                     "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.132.1"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ],
+                                "tags": [
+                                  {
+                                    "key": "sst:app",
+                                    "value": "unegmaplaceprod"
+                                  },
+                                  {
+                                    "key": "sst:stage",
+                                    "value": "prod"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.132.1"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "s3:*",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "publicBucket5C3DBAB0",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "publicBucket5C3DBAB0",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "s3:GetObject*",
+                                            "s3:GetBucket*",
+                                            "s3:List*",
+                                            "s3:DeleteObject*",
+                                            "s3:PutObject",
+                                            "s3:PutObjectLegalHold",
+                                            "s3:PutObjectRetention",
+                                            "s3:PutObjectTagging",
+                                            "s3:PutObjectVersionTagging",
+                                            "s3:Abort*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "unegmaplaceprodS3BucketA264F3C0",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "unegmaplaceprodS3BucketA264F3C0",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "sqs:SendMessage",
+                                            "sqs:GetQueueAttributes",
+                                            "sqs:GetQueueUrl"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::GetAtt": [
+                                              "unegmaplaceprodRevalidationQueue6FEB1362",
+                                              "Arn"
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "Action": [
+                                            "dynamodb:BatchGetItem",
+                                            "dynamodb:GetRecords",
+                                            "dynamodb:GetShardIterator",
+                                            "dynamodb:Query",
+                                            "dynamodb:GetItem",
+                                            "dynamodb:Scan",
+                                            "dynamodb:ConditionCheckItem",
+                                            "dynamodb:BatchWriteItem",
+                                            "dynamodb:PutItem",
+                                            "dynamodb:UpdateItem",
+                                            "dynamodb:DeleteItem",
+                                            "dynamodb:DescribeTable"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "unegmaplaceprodRevalidationTableF3A32427",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "unegmaplaceprodRevalidationTableF3A32427",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/index/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "unegmaplaceprodServerFunctionServiceRoleDefaultPolicy304EBD4D",
+                                    "roles": [
+                                      {
+                                        "Ref": "unegmaplaceprodServerFunctionServiceRoleCCF3E859"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.132.1"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.132.1"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
@@ -560,24 +874,39 @@
                             ],
                             "code": {
                               "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-                              "s3Key": "24443e388227a5ca37e2437cfd8a424d1a0b06b08f8aae2efcaaa187fd7848dc.zip"
+                              "s3Key": "6c957ea63c7d5aea2c018ede953162c9dfdfde6f7e3ee90ba9de49cb092e73ee.zip"
                             },
-                            "description": "Server handler placeholder",
+                            "description": "Next.js server",
                             "environment": {
                               "variables": {
-                                "SST_APP": "unegmaplacedev",
-                                "SST_STAGE": "unegma",
-                                "SST_SSM_PREFIX": "/sst/unegmaplacedev/unegma/",
+                                "CACHE_BUCKET_NAME": {
+                                  "Ref": "unegmaplaceprodS3BucketA264F3C0"
+                                },
+                                "CACHE_BUCKET_KEY_PREFIX": "_cache",
+                                "CACHE_BUCKET_REGION": "eu-west-2",
+                                "SST_APP": "unegmaplaceprod",
+                                "SST_STAGE": "prod",
+                                "SST_SSM_PREFIX": "/sst/unegmaplaceprod/prod/",
                                 "SST_Bucket_bucketName_public": {
                                   "Ref": "publicBucket5C3DBAB0"
+                                },
+                                "REVALIDATION_QUEUE_URL": {
+                                  "Ref": "unegmaplaceprodRevalidationQueue6FEB1362"
+                                },
+                                "REVALIDATION_QUEUE_REGION": "eu-west-2",
+                                "CACHE_DYNAMO_TABLE": {
+                                  "Ref": "unegmaplaceprodRevalidationTableF3A32427"
                                 }
                               }
                             },
-                            "handler": "index.handler",
+                            "handler": "server-index.handler",
+                            "layers": [
+                              "arn:aws:lambda:eu-west-2:226609089145:layer:sst-extension-arm64:2"
+                            ],
                             "memorySize": 1024,
                             "role": {
                               "Fn::GetAtt": [
-                                "unegmaplacedevServerFunctionRoleD60017CF",
+                                "unegmaplaceprodServerFunctionServiceRoleCCF3E859",
                                 "Arn"
                               ]
                             },
@@ -585,11 +914,11 @@
                             "tags": [
                               {
                                 "key": "sst:app",
-                                "value": "unegmaplacedev"
+                                "value": "unegmaplaceprod"
                               },
                               {
                                 "key": "sst:stage",
-                                "value": "unegma"
+                                "value": "prod"
                               }
                             ],
                             "timeout": 10
@@ -602,11 +931,11 @@
                       },
                       "LogRetention": {
                         "id": "LogRetention",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogRetention",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/LogRetention",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogRetention/Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/LogRetention/Resource",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.CfnResource",
                               "version": "2.132.1"
@@ -620,19 +949,72 @@
                       },
                       "LogGroup": {
                         "id": "LogGroup",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/LogGroup",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/LogGroup",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.132.1"
                         }
                       },
+                      "FunctionUrl": {
+                        "id": "FunctionUrl",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/FunctionUrl",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/FunctionUrl/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Url",
+                              "aws:cdk:cloudformation:props": {
+                                "authType": "NONE",
+                                "invokeMode": "BUFFERED",
+                                "targetFunctionArn": {
+                                  "Fn::GetAtt": [
+                                    "unegmaplaceprodServerFunction40745DA7",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_lambda.CfnUrl",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.FunctionUrl",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "invoke-function-url": {
+                        "id": "invoke-function-url",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/invoke-function-url",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                          "aws:cdk:cloudformation:props": {
+                            "action": "lambda:InvokeFunctionUrl",
+                            "functionName": {
+                              "Fn::GetAtt": [
+                                "unegmaplaceprodServerFunction40745DA7",
+                                "Arn"
+                              ]
+                            },
+                            "functionUrlAuthType": "NONE",
+                            "principal": "*"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                          "version": "2.132.1"
+                        }
+                      },
                       "Code": {
                         "id": "Code",
-                        "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Code",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/Code",
                         "children": {
                           "Stage": {
                             "id": "Stage",
-                            "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Code/Stage",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/Code/Stage",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.AssetStaging",
                               "version": "2.132.1"
@@ -640,7 +1022,7 @@
                           },
                           "AssetBucket": {
                             "id": "AssetBucket",
-                            "path": "unegma-unegmaplacedev-Site/unegmaplacedev/ServerFunction/ServerFunction/Code/AssetBucket",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunction/ServerFunction/Code/AssetBucket",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                               "version": "2.132.1"
@@ -664,23 +1046,2044 @@
                   "version": "10.3.0"
                 }
               },
-              "Parameter_url": {
-                "id": "Parameter_url",
-                "path": "unegma-unegmaplacedev-Site/unegmaplacedev/Parameter_url",
+              "ImageFunction": {
+                "id": "ImageFunction",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "unegmaplaceprod"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "prod"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "s3:GetObject",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "unegmaplaceprodS3BucketA264F3C0",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/*"
+                                          ]
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "unegmaplaceprodImageFunctionServiceRoleDefaultPolicyBEBB1DEF",
+                                "roles": [
+                                  {
+                                    "Ref": "unegmaplaceprodImageFunctionServiceRole780EAF87"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "architectures": [
+                          "arm64"
+                        ],
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+                          "s3Key": "241ff399e959e92e210b28bb38a1d425dca3508f8aa18fbeff502db8107f207d.zip"
+                        },
+                        "description": "Next.js image optimizer",
+                        "environment": {
+                          "variables": {
+                            "BUCKET_NAME": {
+                              "Ref": "unegmaplaceprodS3BucketA264F3C0"
+                            },
+                            "BUCKET_KEY_PREFIX": "_assets"
+                          }
+                        },
+                        "handler": "index.handler",
+                        "memorySize": 1536,
+                        "role": {
+                          "Fn::GetAtt": [
+                            "unegmaplaceprodImageFunctionServiceRole780EAF87",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplaceprod"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ],
+                        "timeout": 25
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "LogRetention": {
+                    "id": "LogRetention",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/LogRetention",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/LogRetention/Resource",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "LogGroup": {
+                    "id": "LogGroup",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/LogGroup",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "FunctionUrl": {
+                    "id": "FunctionUrl",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/FunctionUrl",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/FunctionUrl/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Url",
+                          "aws:cdk:cloudformation:props": {
+                            "authType": "NONE",
+                            "targetFunctionArn": {
+                              "Fn::GetAtt": [
+                                "unegmaplaceprodImageFunctionE8C8FDE1",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnUrl",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.FunctionUrl",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "invoke-function-url": {
+                    "id": "invoke-function-url",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ImageFunction/invoke-function-url",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                      "aws:cdk:cloudformation:props": {
+                        "action": "lambda:InvokeFunctionUrl",
+                        "functionName": {
+                          "Fn::GetAtt": [
+                            "unegmaplaceprodImageFunctionE8C8FDE1",
+                            "Arn"
+                          ]
+                        },
+                        "functionUrlAuthType": "NONE",
+                        "principal": "*"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.132.1"
+                }
+              },
+              "Asset0": {
+                "id": "Asset0",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Asset0",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Asset0/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Asset0/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.132.1"
+                }
+              },
+              "S3AssetUploaderPolicy": {
+                "id": "S3AssetUploaderPolicy",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3AssetUploaderPolicy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "unegma-unegmaplacedev-Site/unegmaplacedev/Parameter_url/Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3AssetUploaderPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "lambda:InvokeFunction",
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::GetAtt": [
+                                  "CustomResourceHandlerE8FB56BA",
+                                  "Arn"
+                                ]
+                              }
+                            },
+                            {
+                              "Action": [
+                                "s3:ListBucket",
+                                "s3:PutObject",
+                                "s3:DeleteObject"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "unegmaplaceprodS3BucketA264F3C0",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      {
+                                        "Fn::GetAtt": [
+                                          "unegmaplaceprodS3BucketA264F3C0",
+                                          "Arn"
+                                        ]
+                                      },
+                                      "/*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Action": "s3:GetObject",
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":s3:::cdk-hnb659fds-assets-952351240809-eu-west-2/*"
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "unegmaplaceprodS3AssetUploaderPolicy40FCADF9",
+                        "roles": [
+                          {
+                            "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.132.1"
+                }
+              },
+              "S3AssetUploader": {
+                "id": "S3AssetUploader",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3AssetUploader",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/S3AssetUploader/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.132.1"
+                }
+              },
+              "ServerCache": {
+                "id": "ServerCache",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerCache",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerCache/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::CachePolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "cachePolicyConfig": {
+                          "name": "produnegmaplaceprodSiteunegmaplaceprodServerCache0F5B01CA-eu-west-2",
+                          "comment": "SST server response cache policy",
+                          "minTtl": 0,
+                          "maxTtl": 31536000,
+                          "defaultTtl": 0,
+                          "parametersInCacheKeyAndForwardedToOrigin": {
+                            "cookiesConfig": {
+                              "cookieBehavior": "none"
+                            },
+                            "headersConfig": {
+                              "headerBehavior": "whitelist",
+                              "headers": [
+                                "accept",
+                                "rsc",
+                                "next-router-prefetch",
+                                "next-router-state-tree",
+                                "next-url",
+                                "x-prerender-bypass",
+                                "x-prerender-revalidate"
+                              ]
+                            },
+                            "enableAcceptEncodingGzip": true,
+                            "enableAcceptEncodingBrotli": true,
+                            "queryStringsConfig": {
+                              "queryStringBehavior": "all"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnCachePolicy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.CachePolicy",
+                  "version": "2.132.1"
+                }
+              },
+              "ServerOriginRequestPolicy": {
+                "id": "ServerOriginRequestPolicy",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerOriginRequestPolicy",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.132.1"
+                }
+              },
+              "CDN": {
+                "id": "CDN",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CDN",
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "Distribution": {
+                "id": "Distribution",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution",
+                "children": {
+                  "Origin1": {
+                    "id": "Origin1",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Origin1",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "Origin2": {
+                    "id": "Origin2",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Origin2",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "Origin3": {
+                    "id": "Origin3",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Origin3",
+                    "children": {
+                      "S3Origin": {
+                        "id": "S3Origin",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Origin3/S3Origin",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Origin3/S3Origin/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+                              "aws:cdk:cloudformation:props": {
+                                "cloudFrontOriginAccessIdentityConfig": {
+                                  "comment": "Identity for produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Distribution/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
+                      "aws:cdk:cloudformation:props": {
+                        "distributionConfig": {
+                          "enabled": true,
+                          "origins": [
+                            {
+                              "domainName": {
+                                "Fn::Select": [
+                                  0,
+                                  {
+                                    "Fn::Split": [
+                                      "/",
+                                      {
+                                        "Fn::Select": [
+                                          1,
+                                          {
+                                            "Fn::Split": [
+                                              "//",
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "unegmaplaceprodServerFunctionFunctionUrl77EF1A9F",
+                                                  "FunctionUrl"
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              "id": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+                              "customOriginConfig": {
+                                "originSslProtocols": [
+                                  "TLSv1.2"
+                                ],
+                                "originProtocolPolicy": "https-only",
+                                "originReadTimeout": 10
+                              }
+                            },
+                            {
+                              "domainName": {
+                                "Fn::Select": [
+                                  0,
+                                  {
+                                    "Fn::Split": [
+                                      "/",
+                                      {
+                                        "Fn::Select": [
+                                          1,
+                                          {
+                                            "Fn::Split": [
+                                              "//",
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "unegmaplaceprodImageFunctionFunctionUrlE1FFB53F",
+                                                  "FunctionUrl"
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              "id": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin27D9F565F",
+                              "customOriginConfig": {
+                                "originSslProtocols": [
+                                  "TLSv1.2"
+                                ],
+                                "originProtocolPolicy": "https-only"
+                              }
+                            },
+                            {
+                              "domainName": {
+                                "Fn::GetAtt": [
+                                  "unegmaplaceprodS3BucketA264F3C0",
+                                  "RegionalDomainName"
+                                ]
+                              },
+                              "id": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "originPath": "/_assets",
+                              "s3OriginConfig": {
+                                "originAccessIdentity": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "origin-access-identity/cloudfront/",
+                                      {
+                                        "Ref": "unegmaplaceprodDistributionOrigin3S3OriginA5563126"
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "defaultCacheBehavior": {
+                            "pathPattern": "*",
+                            "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+                            "allowedMethods": [
+                              "GET",
+                              "HEAD",
+                              "OPTIONS",
+                              "PUT",
+                              "PATCH",
+                              "POST",
+                              "DELETE"
+                            ],
+                            "cachedMethods": [
+                              "GET",
+                              "HEAD",
+                              "OPTIONS"
+                            ],
+                            "cachePolicyId": {
+                              "Ref": "unegmaplaceprodServerCache4BB77711"
+                            },
+                            "compress": true,
+                            "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                            "viewerProtocolPolicy": "redirect-to-https",
+                            "functionAssociations": [
+                              {
+                                "functionArn": {
+                                  "Fn::GetAtt": [
+                                    "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+                                    "FunctionARN"
+                                  ]
+                                },
+                                "eventType": "viewer-request"
+                              }
+                            ],
+                            "lambdaFunctionAssociations": []
+                          },
+                          "aliases": [
+                            "unegma.place"
+                          ],
+                          "cacheBehaviors": [
+                            {
+                              "pathPattern": "api/*",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PUT",
+                                "PATCH",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": {
+                                "Ref": "unegmaplaceprodServerCache4BB77711"
+                              },
+                              "compress": true,
+                              "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                              "viewerProtocolPolicy": "redirect-to-https",
+                              "functionAssociations": [
+                                {
+                                  "functionArn": {
+                                    "Fn::GetAtt": [
+                                      "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+                                      "FunctionARN"
+                                    ]
+                                  },
+                                  "eventType": "viewer-request"
+                                }
+                              ],
+                              "lambdaFunctionAssociations": []
+                            },
+                            {
+                              "pathPattern": "_next/data/*",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin1C937E31B",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PUT",
+                                "PATCH",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": {
+                                "Ref": "unegmaplaceprodServerCache4BB77711"
+                              },
+                              "compress": true,
+                              "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                              "viewerProtocolPolicy": "redirect-to-https",
+                              "functionAssociations": [
+                                {
+                                  "functionArn": {
+                                    "Fn::GetAtt": [
+                                      "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+                                      "FunctionARN"
+                                    ]
+                                  },
+                                  "eventType": "viewer-request"
+                                }
+                              ],
+                              "lambdaFunctionAssociations": []
+                            },
+                            {
+                              "pathPattern": "_next/image*",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin27D9F565F",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PUT",
+                                "PATCH",
+                                "POST",
+                                "DELETE"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": {
+                                "Ref": "unegmaplaceprodServerCache4BB77711"
+                              },
+                              "compress": true,
+                              "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                              "viewerProtocolPolicy": "redirect-to-https",
+                              "functionAssociations": [
+                                {
+                                  "functionArn": {
+                                    "Fn::GetAtt": [
+                                      "unegmaplaceprodCloudFrontFunctionAEA34E5A",
+                                      "FunctionARN"
+                                    ]
+                                  },
+                                  "eventType": "viewer-request"
+                                }
+                              ],
+                              "lambdaFunctionAssociations": []
+                            },
+                            {
+                              "pathPattern": ".DS_Store",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "BUILD_ID",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "_next/*",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "android-chrome-192x192.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "android-chrome-384x384.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "android-chrome-512x512.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "apple-touch-icon.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "browserconfig.xml",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "favicon-16x16.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "favicon-32x32.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "favicon.ico",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "mstile-150x150.png",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "robots.txt",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "site.webmanifest",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "sitemap-0.xml",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "sitemap.xml",
+                              "targetOriginId": "produnegmaplaceprodSiteunegmaplaceprodDistributionOrigin342D28FEF",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            }
+                          ],
+                          "defaultRootObject": "",
+                          "httpVersion": "http2",
+                          "ipv6Enabled": true,
+                          "viewerCertificate": {
+                            "acmCertificateArn": "arn:aws:acm:us-east-1:952351240809:certificate/297a2855-fab1-42eb-b137-a40237e90996",
+                            "minimumProtocolVersion": "TLSv1.2_2021",
+                            "sslSupportMethod": "sni-only"
+                          }
+                        },
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplaceprod"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnDistribution",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.Distribution",
+                  "version": "2.132.1"
+                }
+              },
+              "ServerFunctionInvalidatorPolicy": {
+                "id": "ServerFunctionInvalidatorPolicy",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunctionInvalidatorPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/ServerFunctionInvalidatorPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "cloudfront:CreateInvalidation",
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":cloudfront::952351240809:distribution/",
+                                    {
+                                      "Ref": "unegmaplaceprodDistributionFEBF90AD"
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "unegmaplaceprodServerFunctionInvalidatorPolicy1A5E3C93",
+                        "roles": [
+                          {
+                            "Ref": "unegmaplaceprodServerFunctionServiceRoleCCF3E859"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.132.1"
+                }
+              },
+              "CloudFrontInvalidatorPolicy": {
+                "id": "CloudFrontInvalidatorPolicy",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontInvalidatorPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontInvalidatorPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "cloudfront:GetInvalidation",
+                                "cloudfront:CreateInvalidation"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":cloudfront::952351240809:distribution/",
+                                    {
+                                      "Ref": "unegmaplaceprodDistributionFEBF90AD"
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "unegmaplaceprodCloudFrontInvalidatorPolicy52E12F87",
+                        "roles": [
+                          {
+                            "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.132.1"
+                }
+              },
+              "CloudFrontInvalidator": {
+                "id": "CloudFrontInvalidator",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontInvalidator",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/CloudFrontInvalidator/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.132.1"
+                }
+              },
+              "RevalidationQueue": {
+                "id": "RevalidationQueue",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationQueue",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationQueue/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
+                      "aws:cdk:cloudformation:props": {
+                        "fifoQueue": true,
+                        "receiveMessageWaitTimeSeconds": 20,
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplaceprod"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_sqs.CfnQueue",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_sqs.Queue",
+                  "version": "2.132.1"
+                }
+              },
+              "RevalidationFunction": {
+                "id": "RevalidationFunction",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "unegmaplaceprod"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "prod"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "sqs:ReceiveMessage",
+                                        "sqs:ChangeMessageVisibility",
+                                        "sqs:GetQueueUrl",
+                                        "sqs:DeleteMessage",
+                                        "sqs:GetQueueAttributes"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "unegmaplaceprodRevalidationQueue6FEB1362",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "unegmaplaceprodRevalidationFunctionServiceRoleDefaultPolicyB687542E",
+                                "roles": [
+                                  {
+                                    "Ref": "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+                          "s3Key": "1ba55841e103bf9d32e9eb8aca91b288472bda2b04aeb027169e6364ba788974.zip"
+                        },
+                        "description": "Next.js revalidator",
+                        "handler": "index.handler",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "unegmaplaceprodRevalidationFunctionServiceRoleF46142C6",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplaceprod"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ],
+                        "timeout": 30
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "SqsEventSource:produnegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC": {
+                    "id": "SqsEventSource:produnegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/SqsEventSource:produnegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationFunction/SqsEventSource:produnegmaplaceprodSiteunegmaplaceprodRevalidationQueue6C8810EC/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::EventSourceMapping",
+                          "aws:cdk:cloudformation:props": {
+                            "batchSize": 5,
+                            "eventSourceArn": {
+                              "Fn::GetAtt": [
+                                "unegmaplaceprodRevalidationQueue6FEB1362",
+                                "Arn"
+                              ]
+                            },
+                            "functionName": {
+                              "Ref": "unegmaplaceprodRevalidationFunctionA0C833F2"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnEventSourceMapping",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.EventSourceMapping",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.132.1"
+                }
+              },
+              "RevalidationTable": {
+                "id": "RevalidationTable",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationTable",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationTable/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
+                      "aws:cdk:cloudformation:props": {
+                        "attributeDefinitions": [
+                          {
+                            "attributeName": "tag",
+                            "attributeType": "S"
+                          },
+                          {
+                            "attributeName": "path",
+                            "attributeType": "S"
+                          },
+                          {
+                            "attributeName": "revalidatedAt",
+                            "attributeType": "N"
+                          }
+                        ],
+                        "billingMode": "PAY_PER_REQUEST",
+                        "globalSecondaryIndexes": [
+                          {
+                            "indexName": "revalidate",
+                            "keySchema": [
+                              {
+                                "attributeName": "path",
+                                "keyType": "HASH"
+                              },
+                              {
+                                "attributeName": "revalidatedAt",
+                                "keyType": "RANGE"
+                              }
+                            ],
+                            "projection": {
+                              "projectionType": "ALL"
+                            }
+                          }
+                        ],
+                        "keySchema": [
+                          {
+                            "attributeName": "tag",
+                            "keyType": "HASH"
+                          },
+                          {
+                            "attributeName": "path",
+                            "keyType": "RANGE"
+                          }
+                        ],
+                        "replicas": [
+                          {
+                            "region": "eu-west-2",
+                            "globalSecondaryIndexes": [
+                              {
+                                "indexName": "revalidate"
+                              }
+                            ],
+                            "pointInTimeRecoverySpecification": {
+                              "pointInTimeRecoveryEnabled": true
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+                  "version": "2.132.1"
+                }
+              },
+              "RevalidationInsertFunction": {
+                "id": "RevalidationInsertFunction",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "unegmaplaceprod"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "prod"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "dynamodb:BatchWriteItem",
+                                        "dynamodb:PutItem",
+                                        "dynamodb:DescribeTable"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "unegmaplaceprodRevalidationTableF3A32427",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "unegmaplaceprodRevalidationInsertFunctionServiceRoleDefaultPolicyCC0BF47F",
+                                "roles": [
+                                  {
+                                    "Ref": "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.132.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationInsertFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+                          "s3Key": "082a4d6ce9f17cdaccdf19466e4d0e7efd8d98b9cee665e796eda6c96760a6a4.zip"
+                        },
+                        "description": "Next.js revalidation data insert",
+                        "environment": {
+                          "variables": {
+                            "CACHE_DYNAMO_TABLE": {
+                              "Ref": "unegmaplaceprodRevalidationTableF3A32427"
+                            }
+                          }
+                        },
+                        "handler": "index.handler",
+                        "memorySize": 128,
+                        "role": {
+                          "Fn::GetAtt": [
+                            "unegmaplaceprodRevalidationInsertFunctionServiceRole91787058",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "unegmaplaceprod"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ],
+                        "timeout": 900
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.132.1"
+                }
+              },
+              "RevalidationProvider": {
+                "id": "RevalidationProvider",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider",
+                "children": {
+                  "framework-onEvent": {
+                    "id": "framework-onEvent",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.132.1"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ],
+                                "tags": [
+                                  {
+                                    "key": "sst:app",
+                                    "value": "unegmaplaceprod"
+                                  },
+                                  {
+                                    "key": "sst:stage",
+                                    "value": "prod"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.132.1"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "unegmaplaceprodRevalidationInsertFunctionAF051350",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "unegmaplaceprodRevalidationInsertFunctionAF051350",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleDefaultPolicyF4C789C4",
+                                    "roles": [
+                                      {
+                                        "Ref": "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.132.1"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.132.1"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
+                              "s3Key": "3542be390685e0c8353d92ccb5796d343cd93ca946b6b0de798004206a199adc.zip"
+                            },
+                            "description": "AWS CDK resource provider framework - onEvent (prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider)",
+                            "environment": {
+                              "variables": {
+                                "USER_ON_EVENT_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "unegmaplaceprodRevalidationInsertFunctionAF051350",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "handler": "framework.onEvent",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "unegmaplaceprodRevalidationProviderframeworkonEventServiceRoleBC8E763B",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "unegmaplaceprod"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "prod"
+                              }
+                            ],
+                            "timeout": 900
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "LogRetention": {
+                        "id": "LogRetention",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/LogRetention",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/LogRetention/Resource",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.132.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_logs.LogRetention",
+                          "version": "2.132.1"
+                        }
+                      },
+                      "LogGroup": {
+                        "id": "LogGroup",
+                        "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationProvider/framework-onEvent/LogGroup",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.132.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.custom_resources.Provider",
+                  "version": "2.132.1"
+                }
+              },
+              "RevalidationResource": {
+                "id": "RevalidationResource",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/RevalidationResource/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.132.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.132.1"
+                }
+              },
+              "Parameter_url": {
+                "id": "Parameter_url",
+                "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Parameter_url",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-unegmaplaceprod-Site/unegmaplaceprod/Parameter_url/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
                       "aws:cdk:cloudformation:props": {
-                        "name": "/sst/unegmaplacedev/unegma/NextjsSite/unegmaplacedev/url",
+                        "name": "/sst/unegmaplaceprod/prod/NextjsSite/unegmaplaceprod/url",
                         "tags": {
-                          "sst:app": "unegmaplacedev",
-                          "sst:stage": "unegma"
+                          "sst:app": "unegmaplaceprod",
+                          "sst:stage": "prod"
                         },
                         "type": "String",
-                        "value": "localhost"
+                        "value": "https://unegma.place"
                       }
                     },
                     "constructInfo": {
@@ -700,17 +3103,51 @@
               "version": "10.3.0"
             }
           },
+          "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
+            "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "path": "prod-unegmaplaceprod-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "children": {
+              "Staging": {
+                "id": "Staging",
+                "path": "prod-unegmaplaceprod-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.AssetStaging",
+                  "version": "2.132.1"
+                }
+              },
+              "Role": {
+                "id": "Role",
+                "path": "prod-unegmaplaceprod-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.132.1"
+                }
+              },
+              "Handler": {
+                "id": "Handler",
+                "path": "prod-unegmaplaceprod-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.132.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CustomResourceProviderBase",
+              "version": "2.132.1"
+            }
+          },
           "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
             "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
-            "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
             "children": {
               "Code": {
                 "id": "Code",
-                "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                    "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.132.1"
@@ -718,7 +3155,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                    "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.132.1"
@@ -732,11 +3169,11 @@
               },
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
+                    "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.132.1"
@@ -744,7 +3181,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                    "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -777,11 +3214,11 @@
                         "tags": [
                           {
                             "key": "sst:app",
-                            "value": "unegmaplacedev"
+                            "value": "unegmaplaceprod"
                           },
                           {
                             "key": "sst:stage",
-                            "value": "unegma"
+                            "value": "prod"
                           }
                         ]
                       }
@@ -793,11 +3230,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                    "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                        "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -841,7 +3278,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "unegma-unegmaplacedev-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                "path": "prod-unegmaplaceprod-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.132.1"
@@ -853,9 +3290,17 @@
               "version": "10.3.0"
             }
           },
+          "SSTStackOutputSiteUrl": {
+            "id": "SSTStackOutputSiteUrl",
+            "path": "prod-unegmaplaceprod-Site/SSTStackOutputSiteUrl",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.132.1"
+            }
+          },
           "SSTStackOutputSSTMetadata": {
             "id": "SSTStackOutputSSTMetadata",
-            "path": "unegma-unegmaplacedev-Site/SSTStackOutputSSTMetadata",
+            "path": "prod-unegmaplaceprod-Site/SSTStackOutputSSTMetadata",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.132.1"
@@ -863,7 +3308,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "unegma-unegmaplacedev-Site/BootstrapVersion",
+            "path": "prod-unegmaplaceprod-Site/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.132.1"
@@ -871,7 +3316,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "unegma-unegmaplacedev-Site/CheckBootstrapVersion",
+            "path": "prod-unegmaplaceprod-Site/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.132.1"
