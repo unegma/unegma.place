@@ -13,8 +13,6 @@ android-chrome-384x384.png
 android-chrome-192x192.png
 BUILD_ID
 .DS_Store
-_next/static/zK3ga9XpO0Jlt52vSLCaS/_ssgManifest.js
-_next/static/zK3ga9XpO0Jlt52vSLCaS/_buildManifest.js
 _next/static/media/fd4db3eb5472fc27-s.woff2
 _next/static/media/ec159349637c90ad-s.woff2
 _next/static/media/e1c529c04de64b40-s.p.woff2
@@ -36,7 +34,7 @@ _next/static/media/25acad4436a3d1b5-s.woff2
 _next/static/media/1fec31e74ba38015-s.woff2
 _next/static/media/0e573d465da2cd65-s.woff2
 _next/static/media/05a31a2ca4975f99-s.woff2
-_next/static/css/6fb3d185153fa4c8.css
+_next/static/css/1d2718ef8b03369d.css
 _next/static/chunks/webpack-f8b73f2d5d2b3cc5.js
 _next/static/chunks/polyfills-78c92fac7aa8fdd8.js
 _next/static/chunks/main-app-819c3b33e56e8db7.js
@@ -55,8 +53,10 @@ _next/static/chunks/app/not-found-ff61a7c020dcc25d.js
 _next/static/chunks/app/layout-6e57250c89d7d077.js
 _next/static/chunks/app/privacy/page-dc524e9212672d03.js
 _next/static/chunks/app/_not-found/page-3fb1e6d314c2d9fd.js
-zK3ga9XpO0Jlt52vSLCaS/privacy.cache
-zK3ga9XpO0Jlt52vSLCaS/index.cache
-zK3ga9XpO0Jlt52vSLCaS/favicon.ico.cache
-zK3ga9XpO0Jlt52vSLCaS/_not-found.cache
-zK3ga9XpO0Jlt52vSLCaS/500.cache
+_next/static/HGU6C525xRYVmtu7oVYom/_ssgManifest.js
+_next/static/HGU6C525xRYVmtu7oVYom/_buildManifest.js
+HGU6C525xRYVmtu7oVYom/privacy.cache
+HGU6C525xRYVmtu7oVYom/index.cache
+HGU6C525xRYVmtu7oVYom/favicon.ico.cache
+HGU6C525xRYVmtu7oVYom/_not-found.cache
+HGU6C525xRYVmtu7oVYom/500.cache
