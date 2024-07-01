@@ -13,7 +13,7 @@ export default function Flythroughs({properties}: any) {
     <section className="bg-secondary" aria-labelledby="spaces-heading">
       <div className="mx-auto px-6 md:px-20 py-6">
         <header className="flex justify-center items-center pt-12 pb-4">
-          <h1 id="spaces-heading" className="text-center text-3xl sm:text-2xl md:text-3xl lg:text-4xl">
+          <h1 id="spaces-heading" className="text-center leading-9 text-3xl sm:text-2xl md:text-3xl lg:text-4xl">
             AI Generated Flythroughs
           </h1>
         </header>
