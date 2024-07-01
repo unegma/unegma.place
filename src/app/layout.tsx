@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: `${process.env.NEXT_PUBLIC_TITLE}`,
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_ASSETS_URL}/unegma-logos/unegma-place-logo.png`,
+        url: `${process.env.NEXT_PUBLIC_SHARED_ASSETS_URL}/unegma-logos/unegma-place-logo.png`,
         width: 400,
         height: 400,
         alt: `${process.env.NEXT_PUBLIC_TITLE} Logo`,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     description: `${process.env.NEXT_PUBLIC_DESCRIPTION}`,
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_ASSETS_URL}/unegma-logos/unegma-place-logo.png`,
+        url: `${process.env.NEXT_PUBLIC_SHARED_ASSETS_URL}/unegma-logos/unegma-place-logo.png`,
         width: 400,
         height: 400,
         alt: `${process.env.NEXT_PUBLIC_TITLE} Logo`,
