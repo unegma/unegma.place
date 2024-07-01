@@ -46,8 +46,8 @@ export default function HomePage() {
           {/*  Explore the Witterings*/}
           {/*</Link>*/}
 
-          <header className="text-white absolute px-10 md:px-40 z-10">
-            <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-2xl leading-snug sm:text-3xl sm:leading-snug md:text-5xl md:leading-snug lg:text-6xl ">
+          <header className="text-white absolute px-10 md:px-40 z-10 w-full">
+            <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-2xl leading-snug sm:text-3xl sm:leading-snug md:text-5xl md:leading-snug lg:text-5xl ">
               {process.env.NEXT_PUBLIC_TITLE_POSTFIX}
             </h1>
             <p className="montserrat hidden sm:block text-center text-sm sm:text-lg md:text-2xl lg:text-2xl">
