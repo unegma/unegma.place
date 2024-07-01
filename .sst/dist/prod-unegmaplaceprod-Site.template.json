@@ -396,7 +396,7 @@
      ]
     },
     "bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-    "key": "ff6391bd3af76394471cb73195bc18f2c6c95533658473fc10e3fdc3f3564269.zip",
+    "key": "9f782339f7cef055bca232ad1591f82c453bde01d9472daaa126301bf94fecf5.zip",
     "replacements": [
      {
       "files": "**/*.@(*js|json|html)",
@@ -610,7 +610,7 @@
     ],
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "ff6391bd3af76394471cb73195bc18f2c6c95533658473fc10e3fdc3f3564269.zip"
+     "S3Key": "9f782339f7cef055bca232ad1591f82c453bde01d9472daaa126301bf94fecf5.zip"
     },
     "Description": "Next.js server",
     "Environment": {
@@ -807,7 +807,7 @@
     ],
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "474be49d7df9f52d5c76670450d0a24dff61e9ddfdd7de8f59ebe5d5eeb839f0.zip"
+     "S3Key": "241ff399e959e92e210b28bb38a1d425dca3508f8aa18fbeff502db8107f207d.zip"
     },
     "Description": "Next.js image optimizer",
     "Environment": {
@@ -977,7 +977,7 @@
     "sources": [
      {
       "bucketName": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-      "objectKey": "473af022055389ed84af7c4f7652e062c1744ca75567fa20aa6b3d7a88174992.zip"
+      "objectKey": "bc7ab2cdb8caec48266a36f5ecb937f02925f6c203e3f3d5d50223157b4c35b9.zip"
      }
     ],
     "destinationBucketName": {
@@ -1669,7 +1669,7 @@
       "Arn"
      ]
     },
-    "version": "MaKcJmrZfeqK4r_NgfbsG",
+    "version": "3iKdBgs23V5nLkGXzykoC",
     "distributionId": {
      "Ref": "unegmaplaceprodDistributionFEBF90AD"
     },
@@ -1782,7 +1782,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "d68372b85dea14efb1946fb39c200ac38ea8e8e345e194c1f46a96c83ad81828.zip"
+     "S3Key": "55a65bdbbbefaa20096f0918ccb96cc9e87d3acc0917c1376688e3a3b3f0c090.zip"
     },
     "Description": "Next.js revalidator",
     "Handler": "index.handler",
@@ -1964,7 +1964,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "ae4741818e9eea4453ef99d3f9c817fe290e89f1a0919dd169b4a5c2446d7c3b.zip"
+     "S3Key": "b66997767eedeba037577a95feb45f313439d966958aeb784e37ed43b5b8006e.zip"
     },
     "Description": "Next.js revalidation data insert",
     "Environment": {
@@ -2158,7 +2158,7 @@
       "Arn"
      ]
     },
-    "version": "1718071811935"
+    "version": "1719860650997"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
@@ -2360,7 +2360,7 @@
       {
        "Ref": "unegmaplaceprodServerFunction40745DA7"
       },
-      "\",\"data\":[{\"route\":\"/\",\"logGroupPath\":\"/8a5edab2/\"},{\"route\":\"/_not-found\",\"logGroupPath\":\"/788bf135/_not-found\"},{\"route\":\"/about\",\"logGroupPath\":\"/979bddc4/about\"},{\"route\":\"/api/email\",\"logGroupPath\":\"/9ab7d54c/api/email\"},{\"route\":\"/favicon.ico\",\"logGroupPath\":\"/b1803648/favicon.ico\"},{\"route\":\"/privacy\",\"logGroupPath\":\"/0ece7f7c/privacy\"},{\"route\":\"/terms\",\"logGroupPath\":\"/2dda5c6b/terms\"}]}},\"type\":\"NextjsSite\"},{\"id\":\"ServerFunction\",\"addr\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"stack\":\"prod-unegmaplaceprod-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
+      "\",\"data\":[{\"route\":\"/\",\"logGroupPath\":\"/8a5edab2/\"},{\"route\":\"/_not-found\",\"logGroupPath\":\"/788bf135/_not-found\"},{\"route\":\"/api/email\",\"logGroupPath\":\"/9ab7d54c/api/email\"},{\"route\":\"/favicon.ico\",\"logGroupPath\":\"/b1803648/favicon.ico\"},{\"route\":\"/privacy\",\"logGroupPath\":\"/0ece7f7c/privacy\"},{\"route\":\"/terms\",\"logGroupPath\":\"/2dda5c6b/terms\"}]}},\"type\":\"NextjsSite\"},{\"id\":\"ServerFunction\",\"addr\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"stack\":\"prod-unegmaplaceprod-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
       {
        "Fn::GetAtt": [
         "unegmaplaceprodServerFunction40745DA7",
