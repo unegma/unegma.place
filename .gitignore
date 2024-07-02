@@ -37,5 +37,5 @@ yarn-error.log*
 # IDE
 .idea
 
-# TODO URGENT CHECK VERSION HISTORY (SEE README)
+# TODO URGENT CHECK VERSION HISTORY (SEE README) - why are secrets being dumped to log?
 .sst/debug.log
