@@ -203,7 +203,7 @@ export default function Header() {
                           aria-hidden="true"
                         />
                       </Disclosure.Button>
-                      <Disclosure.Panel className="mt-2 space-y-2">
+                      <Disclosure.Panel className="mt-2 space-y-2 border-b-2 pb-2">
                         <Disclosure.Button
                           as="a"
                           href="/services/flythroughs"
