@@ -99,7 +99,7 @@ export default function FlythroughsTemplate({ property }: any) {
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 py-10 md:p-10 gap-2 md:gap-10">
           <div className="text-left md:text-right md:px-4">
-            <h1 className="pb-2 uppercase text-4xl md:text-3xl lg:text-4xl" aria-labelledby="property-name-heading">Flythroughs</h1>
+            <h1 className="pb-2 uppercase text-4xl md:text-2xl lg:text-4xl" aria-labelledby="property-name-heading">Flythroughs</h1>
             <h2 id="property-name-heading" className="pb-2 leading-9 text-2xl">AI generated flythroughs</h2>
           </div>
           <div>
