@@ -1,6 +1,6 @@
 {
   "name": "unegma.place",
-  "version": "25.0.0",
+  "version": "26.0.0",
   "private": true,
   "scripts": {
     "## todo": "Add script for clearing cloudflare cache when deploying; TODO IS A BUILD HAPPENING WHEN DEPLOY-PROD??g",
