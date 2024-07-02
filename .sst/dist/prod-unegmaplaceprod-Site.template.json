@@ -396,7 +396,7 @@
      ]
     },
     "bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-    "key": "6665a2bd7b87be8418226e9e9157ccb2801d4c79871f89d537bbf99468434266.zip",
+    "key": "25ee09a4d39110cea6af15a567fc73557aa60d0cbbd072b7bbba342bb48d913d.zip",
     "replacements": [
      {
       "files": "**/*.@(*js|json|html)",
@@ -610,7 +610,7 @@
     ],
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "6665a2bd7b87be8418226e9e9157ccb2801d4c79871f89d537bbf99468434266.zip"
+     "S3Key": "25ee09a4d39110cea6af15a567fc73557aa60d0cbbd072b7bbba342bb48d913d.zip"
     },
     "Description": "Next.js server",
     "Environment": {
@@ -977,7 +977,7 @@
     "sources": [
      {
       "bucketName": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-      "objectKey": "a28e3924845602e6ef026d16f7c0e3b803313cfba7ae64a58b060dd5d07182af.zip"
+      "objectKey": "e6bba5d078dc82b13d891353eb31ac9b7e61121f70a52d4b946fb07c85be0e63.zip"
      }
     ],
     "destinationBucketName": {
@@ -1669,7 +1669,7 @@
       "Arn"
      ]
     },
-    "version": "HGU6C525xRYVmtu7oVYom",
+    "version": "wjCOCNSC9WR5rSh-xC8hl",
     "distributionId": {
      "Ref": "unegmaplaceprodDistributionFEBF90AD"
     },
@@ -1782,7 +1782,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "973dc861f9012cb243cace396a5210f3599cd0f592841eacc32e4ae02eb6c037.zip"
+     "S3Key": "1e60b99a853d48a5348b0df40d08e15c71fca37c58d43308e7c02b643d3bcadc.zip"
     },
     "Description": "Next.js revalidator",
     "Handler": "index.handler",
@@ -1964,7 +1964,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-952351240809-eu-west-2",
-     "S3Key": "1d930318ebf6ecfb54f5a5b2729bb28debafa68163602beaca141ae50502664b.zip"
+     "S3Key": "b77f5e3014c9198aabadd273dd82855a8a0a8c797c2583a94f34d7a3e2772db4.zip"
     },
     "Description": "Next.js revalidation data insert",
     "Environment": {
@@ -2158,7 +2158,7 @@
       "Arn"
      ]
     },
-    "version": "1719870059087"
+    "version": "1719882977326"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
@@ -2360,7 +2360,7 @@
       {
        "Ref": "unegmaplaceprodServerFunction40745DA7"
       },
-      "\",\"data\":[{\"route\":\"/\",\"logGroupPath\":\"/8a5edab2/\"},{\"route\":\"/_not-found\",\"logGroupPath\":\"/788bf135/_not-found\"},{\"route\":\"/api/email\",\"logGroupPath\":\"/9ab7d54c/api/email\"},{\"route\":\"/favicon.ico\",\"logGroupPath\":\"/b1803648/favicon.ico\"},{\"route\":\"/privacy\",\"logGroupPath\":\"/0ece7f7c/privacy\"}]}},\"type\":\"NextjsSite\"},{\"id\":\"ServerFunction\",\"addr\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"stack\":\"prod-unegmaplaceprod-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
+      "\",\"data\":[{\"route\":\"/\",\"logGroupPath\":\"/8a5edab2/\"},{\"route\":\"/_not-found\",\"logGroupPath\":\"/788bf135/_not-found\"},{\"route\":\"/api/email\",\"logGroupPath\":\"/9ab7d54c/api/email\"},{\"route\":\"/favicon.ico\",\"logGroupPath\":\"/b1803648/favicon.ico\"},{\"route\":\"/privacy\",\"logGroupPath\":\"/0ece7f7c/privacy\"},{\"route\":\"/services/3d-reconstructions\",\"logGroupPath\":\"/a808cf4c/services/3d-reconstructions\"},{\"route\":\"/services/augmented-reality\",\"logGroupPath\":\"/f3b11bab/services/augmented-reality\"},{\"route\":\"/services/flythroughs\",\"logGroupPath\":\"/e2abdd16/services/flythroughs\"},{\"route\":\"/services/lidar-scans\",\"logGroupPath\":\"/34c8ec42/services/lidar-scans\"}]}},\"type\":\"NextjsSite\"},{\"id\":\"ServerFunction\",\"addr\":\"c8e34982a3ec3f1711b8e5f5be78255f009e96723e\",\"stack\":\"prod-unegmaplaceprod-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
       {
        "Fn::GetAtt": [
         "unegmaplaceprodServerFunction40745DA7",
