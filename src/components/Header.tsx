@@ -70,54 +70,66 @@ export default function Header() {
 
         {/*dropdown menu*/}
         {/*todo have set this to black just in case something changes, but it seems like the black is being added from somewhere and not sure where */}
-        <Popover.Group className="hidden items-center lg:grow lg:justify-between lg:flex lg:gap-x-12">
+        <Popover.Group className="hidden items-center lg:flex lg:gap-x-5">
+        {/*<Popover.Group className="hidden items-center lg:grow lg:justify-between lg:flex lg:gap-x-12">*/}
           <div className="flex space-x-4">
-            {/*<Popover className="relative">*/}
-            {/*  {({ close }) => (*/}
-            {/*    <>*/}
-            {/*      <Popover.Button className="flex items-center gap-x-1 leading-6 hover:text-gray-400">*/}
-            {/*        Where to Stay*/}
-            {/*        <ChevronDownIcon className="h-5 w-5 flex-none" aria-hidden="true" />*/}
-            {/*      </Popover.Button>*/}
+            <Popover className="relative">
+              {({ close }) => (
+                <>
+                  <Popover.Button className="flex items-center gap-x-1 leading-6 hover:text-gray-400 text-lg">
+                    Services
+                    <ChevronDownIcon className="h-5 w-5 flex-none" aria-hidden="true" />
+                  </Popover.Button>
 
-            {/*      <Transition*/}
-            {/*        as={Fragment}*/}
-            {/*        enter="transition ease-out duration-200"*/}
-            {/*        enterFrom="opacity-0 translate-y-1"*/}
-            {/*        enterTo="opacity-100 translate-y-0"*/}
-            {/*        leave="transition ease-in duration-150"*/}
-            {/*        leaveFrom="opacity-100 translate-y-0"*/}
-            {/*        leaveTo="opacity-0 translate-y-1"*/}
-            {/*      >*/}
-            {/*        <Popover.Panel className="absolute text-black -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-1xl bg-white shadow-lg ring-1 ring-gray-900/5">*/}
-            {/*          <div className="p-4">*/}
-            {/*            <div className="group relative flex items-center gap-x-6 rounded-lg p-4 leading-6 hover:bg-gray-50">*/}
-            {/*              <div className="flex-auto">*/}
-            {/*                <Link href="/where-to-stay" className="block border-b-2" onClick={() => close()}>*/}
-            {/*                  All Homes*/}
-            {/*                  <span className="absolute inset-0" />*/}
-            {/*                </Link>*/}
-            {/*              </div>*/}
-            {/*            </div>*/}
-            {/*            {properties.map((property) => (*/}
-            {/*              <div*/}
-            {/*                key={property.name}*/}
-            {/*                className="group relative flex items-center gap-x-6 rounded-lg p-4 leading-6 hover:bg-gray-50"*/}
-            {/*              >*/}
-            {/*                <div className="flex-auto">*/}
-            {/*                  <Link href={property.url} className="block" onClick={() => close()}>*/}
-            {/*                    {property.name}*/}
-            {/*                    <span className="absolute inset-0" />*/}
-            {/*                  </Link>*/}
-            {/*                </div>*/}
-            {/*              </div>*/}
-            {/*            ))}*/}
-            {/*          </div>*/}
-            {/*        </Popover.Panel>*/}
-            {/*      </Transition>*/}
-            {/*    </>*/}
-            {/*  )}*/}
-            {/*</Popover>*/}
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute text-black -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-1xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                      <div className="p-4">
+                        {/*<div className="group relative flex items-center gap-x-6 rounded-lg p-4 leading-6 hover:bg-gray-50">*/}
+                        {/*  <div className="flex-auto">*/}
+                        {/*    <Link href="/where-to-stay" className="block border-b-2" onClick={() => close()}>*/}
+                        {/*      All Homes*/}
+                        {/*      <span className="absolute inset-0" />*/}
+                        {/*    </Link>*/}
+                        {/*  </div>*/}
+                        {/*</div>*/}
+                        <div
+                          key={'flythroughs'}
+                          className="group relative flex items-center gap-x-6 rounded-lg p-4 leading-6 hover:bg-gray-50"
+                        >
+                          <div className="flex-auto">
+                            <Link href={"services/flythroughs"} className="block" onClick={() => close()}>
+                              Flythroughs
+                              <span className="absolute inset-0" />
+                            </Link>
+                          </div>
+                        </div>
+                        {properties.digital.map((property: any) => (
+                          <div
+                            key={property.name}
+                            className="group relative flex items-center gap-x-6 rounded-lg p-4 leading-6 hover:bg-gray-50"
+                          >
+                            <div className="flex-auto">
+                              <Link href={property.url} className="block" onClick={() => close()}>
+                                {property.name}
+                                <span className="absolute inset-0" />
+                              </Link>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
 
             {/*<Link href="/explore-the-witterings" className="leading-6 hover:text-gray-400" onClick={closeMobileMenu}>*/}
             {/*  Explore the Witterings*/}
@@ -181,40 +193,40 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {/*<Disclosure as="div" className="-mx-3">*/}
-                {/*  {({ open }) => (*/}
-                {/*    <>*/}
-                {/*      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 leading-7 hover:bg-gray-50">*/}
-                {/*        Where to Stay*/}
-                {/*        <ChevronDownIcon*/}
-                {/*          className={classNames(open ? 'rotate-180' : '', 'h-7 w-7 flex-none')}*/}
-                {/*          aria-hidden="true"*/}
-                {/*        />*/}
-                {/*      </Disclosure.Button>*/}
-                {/*      <Disclosure.Panel className="mt-2 space-y-2">*/}
-                {/*        <Disclosure.Button*/}
-                {/*          as="a"*/}
-                {/*          href="/where-to-stay"*/}
-                {/*          className="block rounded-lg py-2 pl-6 pr-3 leading-7 hover:bg-gray-50 border-b-2"*/}
-                {/*          onClick={closeMobileMenu}*/}
-                {/*        >*/}
-                {/*          All Homes*/}
-                {/*        </Disclosure.Button>*/}
-                {/*        {[...properties].map((property) => (*/}
-                {/*          <Disclosure.Button*/}
-                {/*            key={property.name}*/}
-                {/*            as="a"*/}
-                {/*            href={property.url}*/}
-                {/*            className="block rounded-lg py-2 pl-6 pr-3 leading-7 hover:bg-gray-50"*/}
-                {/*            onClick={closeMobileMenu}*/}
-                {/*          >*/}
-                {/*            {property.name}*/}
-                {/*          </Disclosure.Button>*/}
-                {/*        ))}*/}
-                {/*      </Disclosure.Panel>*/}
-                {/*    </>*/}
-                {/*  )}*/}
-                {/*</Disclosure>*/}
+                <Disclosure as="div" className="-mx-3 text-center text-lg">
+                  {({ open }) => (
+                    <>
+                      <Disclosure.Button className="flex w-full items-center justify-center rounded-lg py-2 pl-3 pr-3.5 leading-7 hover:bg-gray-50">
+                        Services
+                        <ChevronDownIcon
+                          className={classNames(open ? 'rotate-180' : '', 'h-7 w-7 flex-none ml-2')}
+                          aria-hidden="true"
+                        />
+                      </Disclosure.Button>
+                      <Disclosure.Panel className="mt-2 space-y-2">
+                        <Disclosure.Button
+                          as="a"
+                          href="/services/flythroughs"
+                          className="block rounded-lg py-2 pl-6 pr-3 leading-7 hover:bg-gray-50"
+                          onClick={closeMobileMenu}
+                        >
+                          Flythroughs
+                        </Disclosure.Button>
+                        {[...properties.digital].map((property) => (
+                          <Disclosure.Button
+                            key={property.name}
+                            as="a"
+                            href={property.url}
+                            className="block rounded-lg py-2 pl-6 pr-3 leading-7 hover:bg-gray-50"
+                            onClick={closeMobileMenu}
+                          >
+                            {property.name}
+                          </Disclosure.Button>
+                        ))}
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
                 {/*<Link*/}
                 {/*  href="/explore-the-witterings"*/}
                 {/*  className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50"*/}

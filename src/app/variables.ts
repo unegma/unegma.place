@@ -4,18 +4,21 @@ export const properties = {
         name: "Meeting Rooms",
         miniDescription: "Showcase your event spaces",
         description: "Showcase your event spaces",
+        url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough3-small.mp4`,
       },
       {
         name: "Studio Spaces",
         miniDescription: "Help promote your services",
         description: "Help promote your services",
+        url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough4-small.mp4`,
       },
       {
         name: "Private Offices",
         miniDescription: "Rent out private spaces",
         description: "Rent out private spaces",
+        url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough5-small.mp4`,
         // titleDescription: ["Welcome to Downsea, a beautifully crafted, coastal retreat; just a few steps from East Wittering beach.", "Relax and unwind in this stunning and spacious, scandi-beach interior then step outside onto the patio and soak in that much needed sea air. Close to bustling East Wittering village with cafe’s, restaurants and shops and nearby to the stunning Blue Flag beach at West Wittering."],
         // url: "/where-to-stay/downsea",
@@ -120,18 +123,21 @@ export const properties = {
       name: "3D Reconstructions",
       miniDescription: "Bespoke functionality for 3D",
       description: "Bespoke functionality for 3D",
+      url: "/services/3d-reconstructions",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small1.mp4`,
     },
     {
       name: "Lidar Scans",
       miniDescription: "Matterport-style 3D scans",
       description: "Matterport-style 3D scans",
+      url: "/services/lidar-scans",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small2.mp4`,
     },
     {
       name: "Augmented Reality",
       miniDescription: "Real world digital overlays",
       description: "Real world digital overlays",
+      url: "/services/augmented-reality",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small3.mp4`,
     }
   ]
