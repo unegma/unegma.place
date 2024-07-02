@@ -11,7 +11,7 @@ import VideoComponent from "@/components/VideoComponent";
 
 export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_TITLE} ${process.env.NEXT_PUBLIC_TITLE_POSTFIX}`,
-  description: `${process.env.NEXT_PUBLIC_DESCRIPTION} - Where to Stay`
+  description: `${process.env.NEXT_PUBLIC_DESCRIPTION} - Our Services`
 }
 
 /**
@@ -99,9 +99,8 @@ export default function FlythroughsTemplate({ property }: any) {
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 py-10 md:p-10 gap-2 md:gap-10">
           <div className="text-left md:text-right md:px-4">
-            <h1 className="pb-2 uppercase text-6xl md:text-5xl lg:text-6xl" aria-labelledby="property-name-heading">{property.name}</h1>
-            <h2 id="property-name-heading" className="pb-2 leading-9">{property.miniDescription}</h2>
-            <h3 className="text-gray-500 pb-3">{property.price}</h3>
+            <h1 className="pb-2 uppercase text-4xl md:text-3xl lg:text-4xl" aria-labelledby="property-name-heading">Flythroughs</h1>
+            <h2 id="property-name-heading" className="pb-2 leading-9 text-2xl">AI generated flythroughs</h2>
           </div>
           <div>
             {property.titleDescription.map((part: any, index: any) => (

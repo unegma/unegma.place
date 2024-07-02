@@ -6,7 +6,7 @@ export const properties = {
         description: "Showcase your event spaces",
         url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough3-small.mp4`,
-        titleDescription: ["AI generated flythroughs", "are for such and such"],
+        titleDescription: ["AI generated flythroughs are a great way for venue managers to give viewers a deeply immersive experience of what an available space looks like.", "AI flythroughs have an advantage over Google Street View style tours as they don't require a user to have to navigate themselves through a 3D space.", "These kind of videos are useful for all types of venues, from private offices, to events spaces, to house tours. Want to find out more? Get in touch below!"],
 
       },
       {
@@ -129,7 +129,7 @@ export const properties = {
       description: "Bespoke functionality for 3D",
       url: "/services/3d-reconstructions",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small1.mp4`,
-      titleDescription: ["3D Reconstructions", "are for such and such"],
+      titleDescription: ["3D Reconstructions of spaces look clearer than digital scans of spaces, because they are built from the ground up, for example in a CAD program.", "Bespoke functionality can be added to reconstructions enabling all types of users, either internally or commercially, to interact with spaces in all sorts of ways.", "These types of reconstructions are useful for creating tools which could allow venue managers to experiment with setups, or directors of films to do setting before being on set." ],
     },
     {
       name: "Lidar Scans",
@@ -137,7 +137,7 @@ export const properties = {
       description: "Matterport-style 3D scans",
       url: "/services/lidar-scans",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small2.mp4`,
-      titleDescription: ["Lidar Scans", "are for such and such"],
+      titleDescription: ["Lidar Scans are exact digital copies (or digital twins) of real life spaces. For this reason, scans can look a bit grainy, and they are best combined with other media, such as photos.", "Lidar scans can be combined with bespoke digital functionality to enable users to interact with a setting in all sorts of ways, such as by creating layouts for events.", "Lidar scans can also be very useful for creating an ongoing archive of a space which lets the user feel way more immersed as they can move around in 3D."],
     },
     {
       name: "Augmented Reality",
@@ -145,7 +145,7 @@ export const properties = {
       description: "Real world digital overlays",
       url: "/services/augmented-reality",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small3.mp4`,
-      titleDescription: ["AR", "are for such and such"],
+      titleDescription: ["Most people think that a VR/XR headset such as the Apple Vision Pro is required for Augmented Reality experiences. This is not entirely true.", "Augmented Reality experiences can be created by using just a mobile phone, and can be useful for seeing how things can be made to look in a highly visual way.", "AR can be useful for many industries, especially as it can be used for world scale experiences, or for getting a birds eye view of how things can look."],
     }
   ]
 };
