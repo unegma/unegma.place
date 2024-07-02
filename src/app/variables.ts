@@ -6,6 +6,8 @@ export const properties = {
         description: "Showcase your event spaces",
         url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough3-small.mp4`,
+        titleDescription: ["AI generated flythroughs", "are for such and such"],
+
       },
       {
         name: "Studio Spaces",
@@ -13,6 +15,7 @@ export const properties = {
         description: "Help promote your services",
         url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough4-small.mp4`,
+        titleDescription: ["AI generated flythroughs", "are for such and such"],
       },
       {
         name: "Private Offices",
@@ -20,6 +23,7 @@ export const properties = {
         description: "Rent out private spaces",
         url: "/services/flythroughs",
         video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/flythrough5-small.mp4`,
+        titleDescription: ["AI generated flythroughs", "are for such and such"],
         // titleDescription: ["Welcome to Downsea, a beautifully crafted, coastal retreat; just a few steps from East Wittering beach.", "Relax and unwind in this stunning and spacious, scandi-beach interior then step outside onto the patio and soak in that much needed sea air. Close to bustling East Wittering village with cafe’s, restaurants and shops and nearby to the stunning Blue Flag beach at West Wittering."],
         // url: "/where-to-stay/downsea",
         // mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5047.093229303024!2d-0.871055!3d50.76544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487451e99575e50f%3A0x2ef7dd9165c0d459!2sDownsea%3A%20Luxury%20Seaside%20Home%20with%20Hot%20Tub%20(My%20Coastal%20Host)!5e0!3m2!1sen!2suk!4v1716045966487!5m2!1sen!2suk",
@@ -125,6 +129,7 @@ export const properties = {
       description: "Bespoke functionality for 3D",
       url: "/services/3d-reconstructions",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small1.mp4`,
+      titleDescription: ["3D Reconstructions", "are for such and such"],
     },
     {
       name: "Lidar Scans",
@@ -132,6 +137,7 @@ export const properties = {
       description: "Matterport-style 3D scans",
       url: "/services/lidar-scans",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small2.mp4`,
+      titleDescription: ["Lidar Scans", "are for such and such"],
     },
     {
       name: "Augmented Reality",
@@ -139,6 +145,7 @@ export const properties = {
       description: "Real world digital overlays",
       url: "/services/augmented-reality",
       video: `${process.env.NEXT_PUBLIC_ASSETS_URL}/video-small3.mp4`,
+      titleDescription: ["AR", "are for such and such"],
     }
   ]
 };

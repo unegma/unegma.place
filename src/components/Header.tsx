@@ -105,7 +105,7 @@ export default function Header() {
                           className="group relative flex items-center gap-x-6 rounded-lg p-4 leading-6 hover:bg-gray-50"
                         >
                           <div className="flex-auto">
-                            <Link href={"services/flythroughs"} className="block" onClick={() => close()}>
+                            <Link href={"/services/flythroughs"} className="block" onClick={() => close()}>
                               Flythroughs
                               <span className="absolute inset-0" />
                             </Link>

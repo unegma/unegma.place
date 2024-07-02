@@ -23,7 +23,7 @@ export const metadata: Metadata = {
  * @param property
  * @constructor
  */
-export default function ServicesTemplate({ property }: any) {
+export default function FlythroughsTemplate({ property }: any) {
   return (
     <>
       {/* Hero Section */}
@@ -79,10 +79,10 @@ export default function ServicesTemplate({ property }: any) {
 
           <header className="text-white absolute px-10 md:px-40 z-10 w-full">
             <h1 id="hero-heading" className="uppercase bold mb-5 text-center text-2xl leading-snug sm:text-3xl sm:leading-snug md:text-5xl md:leading-snug lg:text-5xl ">
-              {property.name}
+              Flythroughs
             </h1>
             <p className="montserrat hidden sm:block text-center text-sm sm:text-lg md:text-2xl lg:text-2xl">
-              {property.description}
+              AI generated flythroughs
             </p>
           </header>
 

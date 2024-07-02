@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {properties} from "@/app/variables";
-import FlythroughsTemplate from "@/components/FlythroughsTemplate";
+import WhereTemplate from "@/components/ServicesTemplate";
 import {Metadata} from "next";
 
-const property = properties.flythroughs[0];
+const property = properties.digital[0];
 
 export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_TITLE} - ${property.name} ${process.env.NEXT_PUBLIC_TITLE_POSTFIX}`,
@@ -52,11 +52,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FlythroughsPage() {
+export default function ThreeDReconstructions() {
 
   return (
     <section>
-      <FlythroughsTemplate property={property} />
+      <WhereTemplate property={property} />
     </section>
   );
 }
