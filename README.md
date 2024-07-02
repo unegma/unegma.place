@@ -210,4 +210,4 @@ https://analytics.google.com/analytics/web/?pli=1#/a314491645p441845473/admin/in
 
 
 
-TODO WHY IS IT SAYING AWS SECRET KEY IN THIS REPO?
+TODO WHY IS IT SAYING AWS SECRET KEY IN THIS REPO? (check history, was in .sst/debug.log)
