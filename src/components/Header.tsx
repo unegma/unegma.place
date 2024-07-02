@@ -235,7 +235,7 @@ export default function Header() {
                 {/*  Explore the Witterings*/}
                 {/*</Link>*/}
                 <Link
-                  href="/about"
+                  href="#footer-heading"
                   className="-mx-3 block rounded-lg px-3 py-2 leading-7 hover:bg-gray-50 text-lg text-center"
                   onClick={closeMobileMenu}
                 >
